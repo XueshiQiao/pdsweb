@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	
+	<package name="aboutus" extends="struts-default" namespace="/aboutus">
+
+		<!-- 定义全局结果 在下面所有的Action中均可以使用 -->
+		<global-results>
+			<result name="error">/404.jsp</result>  <!-- 现在404并不转到404页面。 -->
+			<!-- 现在依靠web.xml中的配置404页面。 -->
+		</global-results>
+
+		<!-- 全局异常映射定义 -->
+		<global-exception-mappings>
+			<exception-mapping result="sqlException" exception="java.sql.SQLException" />
+		</global-exception-mappings>
+		
+		
+		<action name="*" class="com.pds.action.AboutUsAction" method="{1}">
+			<result name="sqlException">/error.jsp</result>
+			<result>/aboutus/{1}.jsp</result>
+			<result name="error">/aboutus/{1}Fail.jsp</result>
+			<result name="addsuccess">/aboutus/{1}Succ.jsp</result>
+			<result name="index">/aboutus/index.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="upload" extends="struts-default" namespace="/upload">
+
+		<action name="*" class="com.pds.action.FileUploadAction"
+			method="{1}">
+			<result name="uploadSuccess">/WEB-INF/upload/uploadSucc.jsp</result>
+			<result name="index">/WEB-INF/upload/index.jsp</result>
+		</action>
+
+	</package>
+
+	<package name="download" extends="struts-default" namespace="/download" >
+		<!-- 文件下载，支持中文附件名 -->
+		<action name="download" class="com.pds.action.FileDownloadAction">
+			<!-- 初始文件存放路径 -->
+			<param name="inputPath">uploads/</param> <!-- /WEB-INF/upload/ -->
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream;charset=ISO8859-1
+      		</param>
+				<param name="inputName">inputStream</param>
+				<!--
+					使用经过转码的文件名作为下载文件名，downloadFileName属性 对应action类中的方法
+					getDownloadFileName()
+				-->
+				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="ajax" extends="json-default" namespace="/ajax">
+		<action name="test" class="com.pds.action.ajax.AjaxActionTest" method="test">
+			<result type="json" >
+				<!-- root的值对应要返回的值的属性 -->
+				<!-- 这里的result值即是 对应action中的 result -->
+<!--				<param name="root"></param>-->
+
+			<!-- Action中不参与序列化的属性，支持ognl，多个之间用，分开 -->
+			<param name="excludeProperties">  
+			      name,result 
+			</param> 
+			</result>
+		</action>
+	</package>
+
+	<package name="backGroundUser" extends="struts-default" namespace="/backGroundUser">
+		<action name="*" class="com.pds.action.BackgroundUserAction" method="{1}">
+			<result name="index">/WEB-INF/backGroundUser/index.jsp</result>
+			<result name="test">/WEB-INF/backGroundUser/index.jsp</result>
+		</action>
+	</package>
+</struts>    

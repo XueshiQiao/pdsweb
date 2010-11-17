@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache>
+	<diskStore path="D:\cache" />
+	<!--
+		defaultCache节点为缺省的缓存策略 
+		maxElementsInMemory内存中最大允许存在的对象数量
+		eternal设置缓存中的对象是否永远不过期或者说缓存是否永远不销毁
+		overflowToDisk把溢出的对象存放到硬盘上
+		timeToldleSeconds多长时间不访问该缓存，那么ehcache 就会清除该缓存 单位：秒
+		timeToLiveSeconds缓存的存活时间，从开始创建的时间算起  单位：秒
+		diskPersistent当JVM结束时是否持久化对象到硬盘上
+		diskExpiryThreadIntervalSeconds指定专门用于清除过期对象的监听线程的轮询时间
+	-->
+	<defaultCache 
+		maxElementsInMemory="1000"
+		eternal="false"
+		overflowToDisk="true" 
+		timeToIdleSeconds="120"
+		timeToLiveSeconds="180"
+		diskPersistent="false"
+		diskExpiryThreadIntervalSeconds="60" />
+</ehcache>

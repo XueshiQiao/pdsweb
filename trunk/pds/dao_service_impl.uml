@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_qb8akM37EdqwVrslYOdUDA" name="dao_service_impl">
+  <packagedElement xmi:type="uml:Class" xmi:id="_9X88QOkMEd-_ts3D4Q0I6g" name="ArticleMngImpl" clientDependency="_PnToo-kNEd-_ts3D4Q0I6g">
+    <generalization xmi:id="_OC4Bc-kNEd-_ts3D4Q0I6g" general="_DzrCgOkNEd-_ts3D4Q0I6g"/>
+    <interfaceRealization xmi:id="_PnToo-kNEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_Iqp_kOkNEd-_ts3D4Q0I6g" client="_9X88QOkMEd-_ts3D4Q0I6g" contract="_Iqp_kOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DzrCgOkNEd-_ts3D4Q0I6g" name="JeeCoreManagerImpl&lt;Article>" clientDependency="_csTwBOkNEd-_ts3D4Q0I6g">
+    <generalization xmi:id="_cMRlE-kNEd-_ts3D4Q0I6g" general="_XlFXgOkNEd-_ts3D4Q0I6g"/>
+    <interfaceRealization xmi:id="_csTwBOkNEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_Z-3SUOkNEd-_ts3D4Q0I6g" client="_DzrCgOkNEd-_ts3D4Q0I6g" contract="_Z-3SUOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Iqp_kOkNEd-_ts3D4Q0I6g" name="ArticleMng">
+    <generalization xmi:id="_qd5bI-kOEd-_ts3D4Q0I6g" general="_Z-3SUOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_XlFXgOkNEd-_ts3D4Q0I6g" name="BaseManagerImpl" clientDependency="_mFuWdOkNEd-_ts3D4Q0I6g">
+    <interfaceRealization xmi:id="_mFuWdOkNEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_k4-2gOkNEd-_ts3D4Q0I6g" client="_XlFXgOkNEd-_ts3D4Q0I6g" contract="_k4-2gOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_Z-3SUOkNEd-_ts3D4Q0I6g" name="JeeCoreManager">
+    <generalization xmi:id="_sGDEs-kOEd-_ts3D4Q0I6g" general="_k4-2gOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_gfV8wOkNEd-_ts3D4Q0I6g" name="BaseManager"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_k4-2gOkNEd-_ts3D4Q0I6g" name="BaseManager" clientDependency="_3u7o1ekNEd-_ts3D4Q0I6g"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_2TSKMOkNEd-_ts3D4Q0I6g" name="BaseDao"/>
+  <packagedElement xmi:type="uml:Dependency" xmi:id="_3u7o1ekNEd-_ts3D4Q0I6g" name="Dependency1" supplier="_2TSKMOkNEd-_ts3D4Q0I6g" client="_k4-2gOkNEd-_ts3D4Q0I6g"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="__noqcOkNEd-_ts3D4Q0I6g" name="ArticleDaoImpl" clientDependency="_JdzeVOkOEd-_ts3D4Q0I6g">
+    <generalization xmi:id="_JD37ZekOEd-_ts3D4Q0I6g" general="_DHTPQOkOEd-_ts3D4Q0I6g"/>
+    <interfaceRealization xmi:id="_JdzeVOkOEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_HNQ_EOkOEd-_ts3D4Q0I6g" client="__noqcOkNEd-_ts3D4Q0I6g" contract="_HNQ_EOkOEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_DHTPQOkOEd-_ts3D4Q0I6g" name="JeeCoreDaoImpl&lt;Article>" clientDependency="_SrvNhOkOEd-_ts3D4Q0I6g">
+    <generalization xmi:id="_SQLS5OkOEd-_ts3D4Q0I6g" general="_OD9KEOkOEd-_ts3D4Q0I6g"/>
+    <interfaceRealization xmi:id="_SrvNhOkOEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_PyXzsOkOEd-_ts3D4Q0I6g" client="_DHTPQOkOEd-_ts3D4Q0I6g" contract="_PyXzsOkOEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_HNQ_EOkOEd-_ts3D4Q0I6g" name="ArticleDao">
+    <generalization xmi:id="_h4fEg-kOEd-_ts3D4Q0I6g" general="_PyXzsOkOEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="_OD9KEOkOEd-_ts3D4Q0I6g" name="BaseDaoImpl" clientDependency="_ZECMU-kOEd-_ts3D4Q0I6g">
+    <interfaceRealization xmi:id="_ZECMU-kOEd-_ts3D4Q0I6g" name="InterfaceRealization1" supplier="_2TSKMOkNEd-_ts3D4Q0I6g" client="_OD9KEOkOEd-_ts3D4Q0I6g" contract="_2TSKMOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="_PyXzsOkOEd-_ts3D4Q0I6g" name="JeeCoreDao">
+    <generalization xmi:id="_dyOZw-kOEd-_ts3D4Q0I6g" general="_2TSKMOkNEd-_ts3D4Q0I6g"/>
+  </packagedElement>
+</uml:Model>
