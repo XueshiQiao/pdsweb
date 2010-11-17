@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- Struts使用Spring -->
+	<constant name="struts.objectFactory" value="spring"/> <!-- 需要引入struts-spring-plugin-2.1.6.jar包 -->
+	
+	<include file="com/pds/action/struts-actions.xml" />
+	<include file="com/pds/action/admin-actions.xml" />
+	
+<!--	<include file="struts-interceptors.xml" />-->
+
+<!--	<package name="user" extends="struts-default" namespace="/user">-->
+		
+<!--		<interceptors>-->
+<!--		-->
+<!--			 验证用户权限 -->
+<!--			<interceptor name="authUserInterceptor" class="com.x.interceptor.AuthUserInterceptor" />-->
+<!--			<interceptor-stack name="default_authUser_interceptors">-->
+<!--				<interceptor-ref name="defaultStack" />  注意还要包含系统自带的默认拦截器栈 -->
+<!--				<interceptor-ref name="authUserInterceptor" />-->
+<!--			</interceptor-stack>-->
+<!--		</interceptors>-->
+		
+		<!-- 定义全局结果 在下面所有的Action中均可以使用 -->
+<!--		<global-results>-->
+<!--			<result name="error">/404.jsp</result>-->
+<!--		</global-results>-->
+<!--		-->
+<!--		 全局异常映射定义 -->
+<!--		<global-exception-mappings>-->
+<!--			<exception-mapping result="sqlException" exception="java.sql.SQLException" />-->
+<!--		</global-exception-mappings>-->
+		
+		
+		
+<!--		<action name="*Action_*" class="com.x.action.{1}Action" method="{2}">-->
+<!--			<result name="sqlException">/error.jsp</result>-->
+<!--			<exception-mapping result="exception" exception="java.lang.Exception" />  局部的异常映射 -->
+<!--			<result name="exception" >/exception.jsp</result>-->
+<!--			<result>/${method}.jsp</result>  需要在Action类中有method这个属性 -->
+<!--			<result name="error">/${2}Error.jsp</result> -->
+<!--			<result name="registerSuccess">/registerSuccess.jsp</result>-->
+<!--			<interceptor-ref name="default_authUser_interceptors" />-->
+<!--		</action>-->
+		
+		<!-- class中不在是类的路径，因为此时Struts的Action已经交给Spring，故此处为Spring的Bean的Id -->
+<!--		<action name="userAction" class="userAction" method="test">-->
+<!--			<result>/test.jsp</result>  不加前面的/会自动去命名空间/user下去找test.jsp -->
+<!--		</action>-->
+		
+		<!-- 通用的Action -->
+<!--		<action name="*">-->
+<!--			<result>/{1}.jsp</result>-->
+<!--		</action>-->
+<!--	</package>-->
+</struts>    

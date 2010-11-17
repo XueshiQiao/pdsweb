@@ -1,0 +1,25 @@
+/**
+ * BY qiaoxueshi at pingdingshan university
+ */
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import com.pds.core.BaseServiceImpl;
+import com.pds.dao.{Entity}Dao;
+import com.pds.model.{Entity};
+import com.pds.service.{Entity}sService;
+
+/**
+ * @author xueshishasha
+ *
+ */
+@Service
+public class {Entity}ServiceImpl extends BaseServiceImpl<{Entity}> implements
+	{Entity}Service {
+	@Resource //传给父类用。
+	public void setDao({Entity}sDao dao) {
+		super.setDao(dao);
+	}
+}

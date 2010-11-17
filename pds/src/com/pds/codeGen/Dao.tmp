@@ -1,0 +1,11 @@
+/**
+ * BY qiaoxueshi at pingdingshan university
+ */
+
+import com.pds.core.GenericDao;
+import com.pds.model.{Entity};
+
+
+public interface {Entity}Dao extends GenericDao<{Entity},Integer> {
+
+}

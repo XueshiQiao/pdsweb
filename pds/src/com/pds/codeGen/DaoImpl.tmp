@@ -1,0 +1,17 @@
+/**
+ * BY qiaoxueshi at pingdingshan university
+ */
+
+
+import org.springframework.stereotype.Repository;
+
+import com.pds.core.HibernateBaseDao;
+import com.pds.dao.{Entity}Dao;
+import com.pds.model.{Entity};
+
+
+@Repository
+public class {Entity}DaoImpl extends HibernateBaseDao<{Entity}, Integer> implements
+	{Entity}Dao {
+
+}
