@@ -23,6 +23,11 @@
 			<result name="error">/aboutus/{1}Fail.jsp</result>
 			<result name="addsuccess">/aboutus/{1}Succ.jsp</result>
 			<result name="index">/aboutus/index.jsp</result>
+			<result name="editSuccess">/aboutus/edit.jsp</result>
+			<result name="editError">/aboutus/editError.jsp</result>
+			<result name="updateSuccess">/aboutus/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/aboutus/deleteSuccess.jsp</result>
+			<result name="toAdd">/aboutus/add.jsp</result>
 		</action>
 
 	</package>

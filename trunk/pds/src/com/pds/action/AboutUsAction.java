@@ -28,6 +28,9 @@ public class AboutUsAction extends BaseAction {
 	private int pageNo = 0;
 	private int pageSize;
 	
+	public String toAdd(){
+		return "toAdd";
+	}
 	
 	public String add(){
 		service.save(this.aboutUs);
@@ -35,13 +38,32 @@ public class AboutUsAction extends BaseAction {
 	}
 	
 	public String delete(){
-		service.delete(service.findById(aboutUs.getId()));
+		if(id<=0){
+			return "deleteError";
+		}
+		aboutUs = service.load(id);
+		if(aboutUs == null){
+			return "deleteError";
+		}
+		service.delete(aboutUs);
 		return "deleteSuccess";
 	}
 	
 	public String update(){
 		service.update(aboutUs);
 		return "updateSuccess";
+	}
+	public String edit(){
+		if(id<=0){
+			return "editError";
+		}
+		
+		aboutUs = service.load(id);
+		if(aboutUs == null){
+			return "editError";
+		}
+		
+		return "editSuccess";
 	}
 	
 	public String get(){
