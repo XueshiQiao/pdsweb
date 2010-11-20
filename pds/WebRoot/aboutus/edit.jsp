@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -19,18 +20,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<script type="text/javascript" src="../jqueryui/js/jquery-1.4.2.min.js"></script>
+
+<link rel="stylesheet" href="../jqueryui/themes/base/jquery.ui.all.css">
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.button.js"></script>
+<%--<link rel="stylesheet" href="../demos.css"></link>--%>
+	<script type="text/javascript">
+	$("input:submit").button();
+	
+	</script>
 
   </head>
   
   <body>
-    This is aboutus JSP page. <br>
-    <a href="aboutus/test"> Test方法</a>
+
     
-    <form id="add" action="aboutus/add" method="post">
-    	简介：<input type="input" name="aboutUs.introduction"/><br />
-    	历史：<input type="input" name="aboutUs.history"/><br />
-    	职能：<input type="input" name="aboutUs.competency"/><br />
-    	联系方式：<input type="input" name="aboutUs.contact"/><br />
+    <form id="add" action="aboutus/update" method="post">
+    	
+    	Id:<input readonly="readonly" type="input" name="aboutUs.id" value="<s:property value='aboutUs.id'/>" /><br />
+`    	简介：<input type="input" name="aboutUs.introduction" value="<s:property value='aboutUs.introduction'/>" /><br />
+    	历史：<input type="input" name="aboutUs.history" value="<s:property value='aboutUs.history'/>"/><br />
+    	职能：<input type="input" name="aboutUs.competency" value="<s:property value='aboutUs.competency'/>"/><br />
+    	联系方式：<input type="input" name="aboutUs.contact" value="<s:property value='aboutUs.contact'/>"/><br />
     	<input type="submit" value="提交" />
     </form>
   </body>

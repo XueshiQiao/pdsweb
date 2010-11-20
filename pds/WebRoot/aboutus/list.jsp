@@ -54,6 +54,17 @@ a:active {
 -->
 </style>
 <script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
+
+<link rel="stylesheet" href="../jqueryui/css/ui-lightness/jquery-ui-1.8.6.custom.css"> </link>
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.core.js"></script>
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="../jqueryui/ui/jquery.ui.button.js"></script>
+<%--<link rel="stylesheet" href="../demos.css"></link>--%>
+	<script type="text/javascript">
+	$(function() {
+		$("#btnAdd").button();
+	});
+	</script>
 <script type="text/javascript">
 	
 	var url = "../aboutus/list.action?pageNo=";
@@ -125,6 +136,15 @@ a:active {
 			return value;
 		}
 	}
+
+
+	/////////// delete record //////////////
+	function deleteRecord(id){
+		 if(confirm('确定要删除该记录吗?')){ 
+		 	return true; 
+		 } 
+		 return false; 
+	}
 	
 </script>
 
@@ -137,7 +157,7 @@ a:active {
     <td height="30"><table width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
         <td width="15" height="30"><img src="images/tab_03.gif" width="15" height="30" /></td>
-        <td width="1101" background="images/tab_05.gif"><img src="images/311.gif" width="16" height="16" /> <span class="STYLE4">服务器进程配置列表</span></td>
+        <td width="1101" background="images/tab_05.gif"><img src="images/311.gif" width="16" height="16" /> <span class="STYLE4">"关于我们"管理</span></td>
         <td width="281" background="images/tab_05.gif"><table border="0" align="right" cellpadding="0" cellspacing="0">
             <tr>
               <td width="60"><table width="87%" border="0" cellpadding="0" cellspacing="0">
@@ -148,24 +168,13 @@ a:active {
                     <td class="STYLE1"><div align="center">全选</div></td>
                   </tr>
               </table></td>
-              <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
+              <td width="150"><table width="90%" border="0" cellpadding="0" cellspacing="0">
                   <tr>
                     <td class="STYLE1"><div align="center"><img src="images/001.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center">新增</div></td>
+                    <td class="STYLE1"><div align="center"><a id="btnAdd" href="toAdd.action">新增</a></div></td>
                   </tr>
               </table></td>
-              <td width="60"><table width="90%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td class="STYLE1"><div align="center"><img src="images/114.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center">修改</div></td>
-                  </tr>
-              </table></td>
-              <td width="52"><table width="88%" border="0" cellpadding="0" cellspacing="0">
-                  <tr>
-                    <td class="STYLE1"><div align="center"><img src="images/083.gif" width="14" height="14" /></div></td>
-                    <td class="STYLE1"><div align="center">删除</div></td>
-                  </tr>
-              </table></td>
+              
             </tr>
         </table></td>
         <td width="14"><img src="images/tab_07.gif" width="14" height="30" /></td>
@@ -199,8 +208,8 @@ a:active {
 	            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1"><s:property value="competency" /></div></td>
 	            <td height="18" bgcolor="#FFFFFF"><div align="center" class="STYLE2 STYLE1"><s:property value="history" /></div></td>
 	            <td height="18" bgcolor="#FFFFFF"><div align="center" ><a href="#"><s:property value="contact" /></a></div></td>
-          		<td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="#">编辑</a><span class="STYLE1">]</span></div></td>
-            	<td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="#">删除</a><span class="STYLE1">]</span></div></td>
+          		<td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/037.gif" width="9" height="9" /></span><span class="STYLE1"> [</span><a href="edit?id=<s:property value='id' />">编辑</a><span class="STYLE1">]</span></div></td>
+            	<td height="18" bgcolor="#FFFFFF"><div align="center"><span class="STYLE2"><img src="images/010.gif" width="9" height="9" /></span><span class="STYLE2"> </span><span class="STYLE1">[</span><a href="delete?id=<s:property value='id'/>"  onclick="return deleteRecord('<s:property value='id'/>')">删除</a><span class="STYLE1">]</span></div></td>
           	</tr>
           </s:iterator>
           
@@ -242,7 +251,6 @@ a:active {
   </tr>
 </table>
 
-<hr />
 <div>
 
 <!--<s:property value="id"/> -->

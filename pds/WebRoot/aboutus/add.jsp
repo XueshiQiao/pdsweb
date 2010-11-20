@@ -27,7 +27,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <a href="aboutus/test"> Test方法</a>
     
     <form id="addForm" action="aboutus/add" method="post">
     	简介：<textarea id="introduction" name="aboutUs.introduction"></textarea><br />
