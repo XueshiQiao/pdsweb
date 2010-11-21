@@ -111,6 +111,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				$( "#dialog-form" ).dialog( "open" );
 			});
 	});
+
+
+<%--	<div id="dd" style="padding:5px;width:400px;height:200px;">--%>
+<%--	    Dialog Content.--%>
+<%--	</div>--%>
+<%--    $('#dd').dialog({--%>
+<%--        title:'My Dialog',--%>
+<%--        iconCls:'icon-ok',--%>
+<%--        toolbar:[{--%>
+<%--            text:'Add',--%>
+<%--            iconCls:'icon-add',--%>
+<%--            handler:function(){--%>
+<%--                alert('add')--%>
+<%--            }--%>
+<%--        },'-',{--%>
+<%--            text:'Save',--%>
+<%--            iconCls:'icon-save',--%>
+<%--            handler:function(){--%>
+<%--                alert('save')--%>
+<%--            }--%>
+<%--        }],--%>
+<%--        buttons:[{--%>
+<%--            text:'Ok',--%>
+<%--            iconCls:'icon-ok',--%>
+<%--            handler:function(){--%>
+<%--                alert('ok');--%>
+<%--            }--%>
+<%--        },{--%>
+<%--            text:'Cancel',--%>
+<%--            handler:function(){--%>
+<%--                $('#dd').dialog('close');--%>
+<%--            }--%>
+<%--        }]--%>
+<%--    });--%>
+    	
+	
 	</script>
 
   </head>

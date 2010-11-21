@@ -79,14 +79,10 @@ public class AboutUsAction extends BaseAction {
 		return SUCCESS;
 	}
 	
-	
 	public String test(){
 
 		return Action.SUCCESS;
 	}
-	
-//	public 
-	
 	
 	public AboutUsService getService() {
 		return service;
