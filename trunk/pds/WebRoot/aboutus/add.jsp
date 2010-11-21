@@ -22,7 +22,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	
 <%--	<script type="text/javascript" src="sample.js"></script>--%>
 	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
-	
+	<script type="text/javascript" src="js/jquery-1.4.2.js"></script>
+	<link rel="stylesheet"
+		href="jqueryui/css/ui-lightness/jquery-ui-1.8.6.custom.css">
+	</link>
+	<script type="text/javascript" src="jqueryui/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
+		
+	<script type="text/javascript">
+		$(function() {
+			$("#submit").button(); //
+		});
+	</script>
 	
   </head>
   
@@ -39,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			CKEDITOR.replace( 'competency');
 			CKEDITOR.replace( 'contact');
 		</script>	
-    	<input type="submit" value="提交" />
+    	<input id="submit" type="submit" value="提交" />
     </form>
   </body>
 </html>
