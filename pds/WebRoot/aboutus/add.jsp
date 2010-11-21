@@ -20,8 +20,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
 	
-	<script type="text/javascript" src="sample.js"></script>
-	<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+<%--	<script type="text/javascript" src="sample.js"></script>--%>
+	<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
 	
 	
   </head>
@@ -30,12 +30,15 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     
     <form id="addForm" action="aboutus/add" method="post">
     	简介：<textarea id="introduction" name="aboutUs.introduction"></textarea><br />
-    	<script type="text/javascript">
-			CKEDITOR.replace( 'introduction');
-		</script>	
     	历史：<textarea id="history" name="aboutUs.history"></textarea><br />
     	职能：<textarea id="competency"  name="aboutUs.competency"></textarea><br />
     	联系方式：<textarea id="contact"  name="aboutUs.contact"></textarea><br />
+    	<script type="text/javascript">
+			CKEDITOR.replace( 'introduction');
+			CKEDITOR.replace( 'history');
+			CKEDITOR.replace( 'competency');
+			CKEDITOR.replace( 'contact');
+		</script>	
     	<input type="submit" value="提交" />
     </form>
   </body>
