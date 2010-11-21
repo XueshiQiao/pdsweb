@@ -66,10 +66,13 @@ a:active {
 			href="../jqueryui/css/ui-lightness/jquery-ui-1.8.6.custom.css">
 		</link>
 		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.core.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/jquery-ui-1.8.6.custom.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.dialog.js"></script>
 		<script type="text/javascript"
 			src="../jqueryui/ui/jquery.ui.widget.js"></script>
 		<script type="text/javascript"
 			src="../jqueryui/ui/jquery.ui.button.js"></script>
+		
 		<%--<link rel="stylesheet" href="../demos.css"></link>--%>
 		<script type="text/javascript">
 	$(function() {
@@ -149,12 +152,26 @@ a:active {
 	}
 
 
+	var deleteConfirmation = $('<div style="padding:5px;width:400px;height:200px;">确定要删除吗？</div>');
 	/////////// delete record //////////////
+	function showDeleteConfirmation(id){
+		deleteConfirmation.dialog({
+			//modal:true,
+		    title:'确认删除？',
+		    buttons:{
+		    	'删除':function(){
+					deleteRecord(id);
+		        },
+		        '取消':function(){
+		            $(this).dialog('close');
+		        }
+		    }
+		});
+		return false;
+	}
+	
 	function deleteRecord(id){
-		 if(confirm('确定要删除该记录吗?')){ 
-		 	return true; 
-		 } 
-		 return false; 
+		window.location =  "delete?id="+id;
 	}
 
 	
@@ -312,13 +329,13 @@ a:active {
 														class="STYLE1">]</span>
 												</div>
 											</td>
+<%--											delete?id=<s:property value='id'/>--%>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center">
 													<span class="STYLE2"><img src="images/010.gif"
 															width="9" height="9" />
-													</span><span class="STYLE2"> </span><span class="STYLE1">[</span><a
-														href="delete?id=<s:property value='id'/>"
-														onclick="return deleteRecord('<s:property value='id'/>')">删除</a><span
+													</span><span class="STYLE2"> </span><span class="STYLE1">[</span><div
+														onclick="showDeleteConfirmation('<s:property value='id'/>')">删除</div><span
 														class="STYLE1">]</span>
 												</div>
 											</td>
@@ -417,9 +434,6 @@ a:active {
 
 		<div>
 			<a id="btnAdd" href="toAdd.action">新增一条记录</a>
-		</div>
-		<div>
-
 		</div>
 	</body>
 </html>
