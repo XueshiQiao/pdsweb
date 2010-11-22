@@ -3,10 +3,14 @@
  */
 package com.pds.action;
 
+
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.Action;
 import com.pds.core.BaseAction;
+import com.pds.core.BaseService;
+import com.pds.model.FileUD;
+import com.pds.service.FileService;
 
 /**
  * @author qiaoxueshi
@@ -15,7 +19,7 @@ import com.pds.core.BaseAction;
 @Controller
 public class FileAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
-	
+	private FileService service;
 	
 	
 	public String index(){
@@ -36,4 +40,13 @@ public class FileAction extends BaseAction {
 		return Action.SUCCESS;
 	}
 
+	public void setService(FileService service) {
+		this.service = service;
+	}
+	
+	public BaseService<FileUD> getService() {
+		return this.service;
+	}
+	
+	
 }

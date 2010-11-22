@@ -16,51 +16,59 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Criticism extends Article {
+public class Criticism {
 	
+	private int id; 
+	private String department; 	//院系
+	private String stuClass;//班级
+	private String reason;//通报的原因
+	private String stuName;//被通报的学生姓名
+	private String dormitory;//宿舍
+	private Date date; //日期
 	
-	//----------------下面是从父类中继承过来的getter，为了方便使用注解-----------------//
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
-		return super.getId();
+		return id;
 	}
-	@Override
-	public String getAuthor() {
-		// TODO Auto-generated method stub
-		return super.getAuthor();
+	public void setId(int id) {
+		this.id = id;
 	}
-
-	@Override
-	public String getBrief() {
-		// TODO Auto-generated method stub
-		return super.getBrief();
+	public String getDepartment() {
+		return department;
 	}
-
-	@Override
-	public String getContent() {
-		// TODO Auto-generated method stub
-		return super.getContent();
+	public void setDepartment(String department) {
+		this.department = department;
 	}
-
-	@Override
+	public String getStuClass() {
+		return stuClass;
+	}
+	public void setStuClass(String stuClass) {
+		this.stuClass = stuClass;
+	}
+	public String getReason() {
+		return reason;
+	}
+	public void setReason(String reason) {
+		this.reason = reason;
+	}
 	public Date getDate() {
-		// TODO Auto-generated method stub
-		return super.getDate();
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
+	}
+	public String getStuName() {
+		return stuName;
+	}
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
+	}
+	public String getDormitory() {
+		return dormitory;
+	}
+	public void setDormitory(String dormitory) {
+		this.dormitory = dormitory;
 	}
 
-	@Override
-	public String getDep() {
-		// TODO Auto-generated method stub
-		return super.getDep();
-	}
-	
-
-	@Override
-	public String getTitle() {
-		// TODO Auto-generated method stub
-		return super.getTitle();
-	}
 }

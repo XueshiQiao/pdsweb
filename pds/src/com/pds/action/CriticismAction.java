@@ -2,12 +2,17 @@
  * BY qiaoxueshi at pingdingshan university
  */
 package com.pds.action;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 
-import com.opensymphony.xwork2.Action;
+import com.pds.common.page.Paginable;
 import com.pds.core.BaseAction;
+import com.pds.model.AboutUs;
+import com.pds.model.Criticism;
 import com.pds.service.CriticismService;
 
 /**
@@ -20,6 +25,17 @@ public class CriticismAction extends BaseAction {
 
 	@Resource
 	private CriticismService service ;
+	
+	//ID
+	private int id;
+	//model
+	private List<Criticism> list = new ArrayList<Criticism>();
+	private Criticism model;
+	private List<Criticism> models;
+	//page
+	private Paginable<Criticism> page;
+	private int pageNo = 0;
+	private int pageSize;
 	
 	public CriticismService getService() {
 		return service;

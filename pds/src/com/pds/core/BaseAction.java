@@ -22,9 +22,9 @@ import com.opensymphony.xwork2.ActionSupport;
 public class BaseAction extends ActionSupport implements 
 						ServletRequestAware,
 						ServletResponseAware,
-						SessionAware
-{
+						SessionAware {
 	
+	private static final long serialVersionUID = -7210531296481260562L;
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
 	protected Map<String,Object> session;
