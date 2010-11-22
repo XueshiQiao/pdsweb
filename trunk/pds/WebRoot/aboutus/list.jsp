@@ -22,7 +22,8 @@ body {
 }
 
 .STYLE1 {
-	font-size: 12px
+	font-size: 12px;
+	cursor:pointer;
 }
 
 .STYLE4 {
@@ -68,10 +69,8 @@ a:active {
 		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.core.js"></script>
 		<script type="text/javascript" src="../jqueryui/ui/jquery-ui-1.8.6.custom.js"></script>
 		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.dialog.js"></script>
-		<script type="text/javascript"
-			src="../jqueryui/ui/jquery.ui.widget.js"></script>
-		<script type="text/javascript"
-			src="../jqueryui/ui/jquery.ui.button.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.widget.js"></script>
+		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.button.js"></script>
 		
 		<%--<link rel="stylesheet" href="../demos.css"></link>--%>
 		<script type="text/javascript">
@@ -334,8 +333,8 @@ a:active {
 												<div align="center">
 													<span class="STYLE2"><img src="images/010.gif"
 															width="9" height="9" />
-													</span><span class="STYLE2"> </span><span class="STYLE1">[</span><div
-														onclick="showDeleteConfirmation('<s:property value='id'/>')">删除</div><span
+													</span><span class="STYLE2"> </span><span class="STYLE1">[</span><span class="STYLE1"
+														onclick="showDeleteConfirmation('<s:property value='id'/>')">删除</span><span
 														class="STYLE1">]</span>
 												</div>
 											</td>

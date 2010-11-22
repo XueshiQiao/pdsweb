@@ -14,6 +14,7 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.pds.core.BaseAction;
+import com.pds.model.FileUD;
 import com.pds.service.FileService;
 
 /**
@@ -21,11 +22,11 @@ import com.pds.service.FileService;
  * 
  */
 @Controller
-public class FileDownloadAction extends BaseAction {
+public class FileDownloadAction extends BaseAction{
 	private static final long serialVersionUID = 5495728211877266147L;
 
 	@Resource
-	private FileService fileService;
+	private FileService service;
 
 	private String fileName;// 初始的通过param指定的文件名属性
 
@@ -67,4 +68,13 @@ public class FileDownloadAction extends BaseAction {
 		}
 		return downFileName;
 	}
+	
+	public FileService getService() {
+		return service;
+	}
+	public void setService(FileService service) {
+		this.service = service;
+	}
+	
+	
 }

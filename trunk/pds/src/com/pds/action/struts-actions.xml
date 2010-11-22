@@ -20,6 +20,7 @@
 		<action name="*" class="com.pds.action.AboutUsAction" method="{1}">
 			<result name="sqlException">/error.jsp</result>
 			<result>/aboutus/{1}.jsp</result>
+			<result name="input">/aboutus/error.jsp</result>
 			<result name="error">/aboutus/{1}Fail.jsp</result>
 			<result name="addsuccess">/aboutus/{1}Succ.jsp</result>
 			<result name="index">/aboutus/index.jsp</result>

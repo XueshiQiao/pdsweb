@@ -26,7 +26,7 @@ public class FileUploadAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 	
 	@Resource
-	private FileService fileService;
+	private FileService service;
 	
 	private String title;
 	private File upload;
@@ -68,17 +68,17 @@ public class FileUploadAction extends BaseAction {
 		//TODO 修改这里的上传用户为当前登录用户
 		FileUD uploadFile = new FileUD(this.uploadFileName,this.upload.length()/1024,(SAVE_PATH+FILE_SEPARATE + uuidFileName),this.title,
 							this.uploadContentType,filePath,1,""); 
-		this.fileService.save(uploadFile);
+		this.service.save(uploadFile);
 		System.out.println(uploadFile);
 		return "uploadSuccess";
 	}
 
-	public FileService getFileService() {
-		return fileService;
+	public FileService getService() {
+		return service;
 	}
 
-	public void setFileService(FileService fileService) {
-		this.fileService = fileService;
+	public void setService(FileService service) {
+		this.service = service;
 	}
 
 	public String getTitle() {
@@ -121,6 +121,8 @@ public class FileUploadAction extends BaseAction {
 		this.realUploadPath = realUploadPath;
 	}
 
+	
+	
 	@Override
 	public String toString() {
 		return "FileUploadAction [realUploadPath=" + realUploadPath
