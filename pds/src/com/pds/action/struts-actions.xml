@@ -32,6 +32,20 @@
 		</action>
 
 	</package>
+	<package name="tongbao" extends="struts-default" namespace="/tongbao">
+		<action name="*" class="com.pds.action.CriticismAction" method="{1}">
+			<result>/tongbao/{1}.jsp</result>
+			<result name="index">/tongbao/index.jsp</result>
+			<result name="error">/tongbao/{1}Fail.jsp</result>
+			<result name="addsuccess">/tongbao/{1}Succ.jsp</result>
+			<result name="editSuccess">/tongbao/edit.jsp</result>
+			<result name="editError">/tongbao/editError.jsp</result>
+			<result name="updateSuccess">/tongbao/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/tongbao/deleteSuccess.jsp</result>
+			<result name="toAdd">/tongbao/add.jsp</result>
+		</action>
+	
+	</package>
 
 	<package name="upload" extends="struts-default" namespace="/upload">
 
