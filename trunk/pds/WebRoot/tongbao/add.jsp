@@ -62,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-  <hr/>
+  
     <div id="container">
     
     <form id="addForm" action="tongbao/add" method="post" class="niceform">
