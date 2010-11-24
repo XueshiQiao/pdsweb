@@ -20,7 +20,7 @@ public class Article {
 	private String title; //标题
 	private String content; //内容 
 	private String author; //作者，发布人
-	private Date date; //日期
+	private Date date; //更新时间日期
 	
 	private String brief; //文章概要
 //	private String thumbnail;//缩略图

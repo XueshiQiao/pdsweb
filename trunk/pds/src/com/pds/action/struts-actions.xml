@@ -44,6 +44,20 @@
 			<result name="deleteSuccess">/tongbao/deleteSuccess.jsp</result>
 			<result name="toAdd">/tongbao/add.jsp</result>
 		</action>
+	</package>
+	
+	<package name="departments" extends="struts-default" namespace="/departments">
+		<action name="*" class="com.pds.action.DepartmentsAction" method="{1}">
+			<result>/departments/{1}.jsp</result>
+			<result name="index">/departments/index.jsp</result>
+			<result name="error">/departments/{1}Fail.jsp</result>
+			<result name="addsuccess">/departments/{1}Succ.jsp</result>
+			<result name="toEdit">/departments/edit.jsp</result>
+			<result name="toEditError">/departments/editError.jsp</result>
+			<result name="updateSuccess">/departments/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/departments/deleteSuccess.jsp</result>
+			<result name="toAdd">/departments/add.jsp</result>
+		</action>
 	
 	</package>
 

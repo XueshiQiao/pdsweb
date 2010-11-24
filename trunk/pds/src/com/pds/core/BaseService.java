@@ -95,6 +95,14 @@ public interface BaseService<T> {
 	 * @return 删除的对象
 	 */
 	public List<T> deleteById(Serializable[] ids);
+	
+	/**
+	 * 根据hql和参数得到对象列表
+	 * @param hql
+	 * @param params
+	 * @return
+	 */
+	public List<T> findByHql(final String hql, final Object[] params);
 
 	
 	

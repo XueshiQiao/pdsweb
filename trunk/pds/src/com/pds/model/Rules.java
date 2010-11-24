@@ -13,7 +13,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Rules extends PageContent {
+public class Rules extends Article {
 	
 	
 	//----------------下面是从父类中继承过来的getter，为了方便使用注解-----------------/
@@ -26,28 +26,53 @@ public class Rules extends PageContent {
 	}
 
 	@Override
-	public String getAuthor() {
+	public void setAuthor(String author) {
 		// TODO Auto-generated method stub
-		return super.getAuthor();
+		super.setAuthor(author);
 	}
 
 	@Override
-	public String getContent() {
+	public void setBrief(String brief) {
 		// TODO Auto-generated method stub
-		return super.getContent();
+		super.setBrief(brief);
 	}
 
 	@Override
-	public Date getDate() {
+	public void setContent(String content) {
 		// TODO Auto-generated method stub
-		return super.getDate();
+		super.setContent(content);
 	}
-
 
 	@Override
-	public int getVisitedCount() {
+	public void setDate(Date date) {
 		// TODO Auto-generated method stub
-		return super.getVisitedCount();
+		super.setDate(date);
 	}
+
+	@Override
+	public void setDep(String dep) {
+		// TODO Auto-generated method stub
+		super.setDep(dep);
+	}
+
+	@Override
+	public void setId(int id) {
+		// TODO Auto-generated method stub
+		super.setId(id);
+	}
+
+	@Override
+	public void setTitle(String title) {
+		// TODO Auto-generated method stub
+		super.setTitle(title);
+	}
+
+	@Override
+	public void setVisitedCount(int visitedCount) {
+		// TODO Auto-generated method stub
+		super.setVisitedCount(visitedCount);
+	}
+
+	
 	
 }

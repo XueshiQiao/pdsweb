@@ -317,9 +317,29 @@ public class HibernateBaseDao<T, ID extends Serializable> extends
 		});
 		return longValue;
 	}
-	
-	
-	
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<T> findByHql(final String hql, final Object[] params) {
+		List<T> result = null;
+		Object o = this.getHibernateTemplate().execute(new HibernateCallback() {
+			public Object doInHibernate(Session session)
+					throws HibernateException {
+				Query query = getQuery(session, hql);
+				if (params != null && params.length > 0) {
+					int len = params.length;
+					for (int i = 0; i < len; i++) {
+						query.setParameter(i, params[i]);
+					}
+				}
+				List list = query.list();
+				return list;
+			}
+		});
+		if (o != null)
+			result = (List<T>) o;
+		return result;
+	}
 	
 }
 
