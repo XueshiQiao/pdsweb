@@ -153,4 +153,12 @@ public interface GenericDao<T,ID extends Serializable> {
 	 */
 	public Paginable<T> findPageByHql(int pageNo,int pageSize);
 	
+	/**
+	 * 根据hql和参数得到对象列表
+	 * @param hql
+	 * @param paras
+	 * @return
+	 */
+	public List<T> findByHql(String hql,Object[] paras);
+	
 }
