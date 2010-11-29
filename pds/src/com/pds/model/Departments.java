@@ -2,6 +2,7 @@ package com.pds.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,20 +25,22 @@ public class Departments extends PageContent {
 	}
 
 	@Override
+	@Column(length=1024)
 	public String getAuthor() {
 		return super.getAuthor();
 	}
 
 	@Override
+	@Column(length=1024)
 	public String getContent() {
 		return super.getContent();
 	}
 
 	@Override
+	@Column(length=1024)
 	public Date getDate() {
 		return super.getDate();
 	}
-
 
 	@Override
 	public int getVisitedCount() {

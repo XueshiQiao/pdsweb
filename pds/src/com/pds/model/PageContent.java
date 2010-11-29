@@ -12,7 +12,7 @@ public class PageContent {
 	private String content; //内容 
 	private String author; //作者
 	private Date date; //日期
-	private int visitedCount; //点击量/访问量
+	private int visitedCount = 0; //点击量/访问量
 	
 	
 	public int getId() {
@@ -45,7 +45,5 @@ public class PageContent {
 	public void setVisitedCount(int visitedCount) {
 		this.visitedCount = visitedCount;
 	}
-	
-	
 	
 }

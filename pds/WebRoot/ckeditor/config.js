@@ -6,7 +6,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 CKEDITOR.editorConfig = function( config )
 {
 	config.language = 'zh-cn';         
-	config.width = 1000;                   //初始化时的宽度
+	config.width = 800;                   //初始化时的宽度
 	config.skin='kama';                    //使用的皮肤
 	config.tabSpaces = 4;               
 	config.resize_maxWidth = 600;             //如果设置了编辑器可以拖拽 这是可以移动的最大宽度
