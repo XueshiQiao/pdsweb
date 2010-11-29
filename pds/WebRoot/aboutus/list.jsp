@@ -225,7 +225,6 @@ a:active {
 				</td>
 			</tr>
 			<tr>
-				<!-- competency=Hello world0, contact=联系方式0, history=历史0, id=1, introduction=introduction0 -->
 				<td>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
