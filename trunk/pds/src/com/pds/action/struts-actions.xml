@@ -30,8 +30,8 @@
 			<result name="deleteSuccess">/aboutus/deleteSuccess.jsp</result>
 			<result name="toAdd">/aboutus/add.jsp</result>
 		</action>
-
 	</package>
+
 	<package name="tongbao" extends="struts-default" namespace="/tongbao">
 		<action name="*" class="com.pds.action.CriticismAction" method="{1}">
 			<result>/tongbao/{1}.jsp</result>
@@ -45,13 +45,27 @@
 			<result name="toAdd">/tongbao/add.jsp</result>
 		</action>
 	</package>
+
+	<package name="rules" extends="struts-default" namespace="/rules">
+		<action name="*" class="com.pds.action.RulesAction" method="{1}">
+			<result>/rules/{1}.jsp</result>
+			<result name="index">/rules/index.jsp</result>
+			<result name="error">/rules/{1}Fail.jsp</result>
+			<result name="addsuccess">/rules/{1}Succ.jsp</result>
+			<result name="toEditSucc">/rules/edit.jsp</result>
+			<result name="toEditError">/rules/editError.jsp</result>
+			<result name="updateSuccess">/rules/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/rules/deleteSuccess.jsp</result>
+			<result name="toAdd">/rules/add.jsp</result>
+		</action>
+	</package>
 	
 	<package name="departments" extends="struts-default" namespace="/departments">
 		<action name="*" class="com.pds.action.DepartmentsAction" method="{1}">
 			<result>/departments/{1}.jsp</result>
 			<result name="index">/departments/index.jsp</result>
 			<result name="error">/departments/{1}Fail.jsp</result>
-			<result name="addsuccess">/departments/{1}Succ.jsp</result>
+			<result name="updateSuccess">/departments/{1}Succ.jsp</result>
 			<result name="toEdit">/departments/edit.jsp</result>
 			<result name="toEditError">/departments/editError.jsp</result>
 			<result name="updateSuccess">/departments/updateSuccess.jsp</result>
@@ -62,13 +76,47 @@
 	</package>
 
 	<package name="upload" extends="struts-default" namespace="/upload">
-
-		<action name="*" class="com.pds.action.FileUploadAction"
-			method="{1}">
-			<result name="uploadSuccess">/WEB-INF/upload/uploadSucc.jsp</result>
-			<result name="index">/WEB-INF/upload/index.jsp</result>
+		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">
+			<interceptor-ref name="fileUpload">
+				<!--配置允许上传的类型 -->
+				<param name="allowedTypes">
+					application/octet-stream,application/x-zip-compressed,image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg 
+				</param>
+				<!--配置允许上传的大小 10M -->
+				<param name="maximumSize">10485760</param>
+			</interceptor-ref>
+			<!-- 配置系统默认拦截器 -->
+			<interceptor-ref name="defaultStack" />
+			
+			<!-- 动态设置Action中的savePath属性 -->
+			<param name="savePath">/uploads</param>
+			<result name="input">/file/upload.jsp</result>
+			<result name="uploadSuccess">/file/uploadSucc.jsp</result>
+			<result name="uploadError">/file/uploadError.jsp</result>
 		</action>
-
+		
+		<action name="index" class="com.pds.action.FileUploadAction"
+			method="index">
+			<result name="index">/file/upload.jsp</result>
+		</action>
+<!--		<action name="*" class="com.pds.action.FileUploadAction"-->
+<!--			method="{1}">-->
+<!--			<result name="index">/file/upload.jsp</result>-->
+<!--		</action>-->
+	</package>
+	
+	<package name="file" extends="struts-default" namespace="/file">
+		<action name="*" class="com.pds.action.FileAction" method="{1}">
+			<result>/file/{1}.jsp</result>
+			<result name="index">/file/index.jsp</result>
+			<result name="error">/file/{1}Fail.jsp</result>
+			<result name="updateSuccess">/file/{1}Succ.jsp</result>
+			<result name="toEdit">/file/edit.jsp</result>
+			<result name="toEditError">/file/editError.jsp</result>
+			<result name="updateSuccess">/file/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/file/deleteSuccess.jsp</result>
+			<result name="toAdd">/file/add.jsp</result>
+		</action>
 	</package>
 
 	<package name="download" extends="struts-default" namespace="/download" >

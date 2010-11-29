@@ -6,9 +6,11 @@ import java.util.Date;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.pds.core.BaseAction;
+import com.pds.model.BackgroundUser;
 import com.pds.model.Departments;
 import com.pds.service.DepartmentsService;
 
@@ -17,6 +19,7 @@ import com.pds.service.DepartmentsService;
  *
  */
 @Controller
+@Scope(value="prototype")
 public class DepartmentsAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 	
@@ -29,10 +32,17 @@ public class DepartmentsAction extends BaseAction {
 		return "toAdd";
 	}
 	
-	public String add(){
+	public String update(){
+		BackgroundUser user = (BackgroundUser)session.get(BackgroundUserAction.USER_LOGIN_KEY);
+		if(user != null){
+			this.model.setAuthor(user.getUsername());
+		}else{
+			//TODO 没有登录的情况
+		}
 		this.model.setDate(new Date());
-		service.save(this.model);
-		return "addsuccess";
+		//this.model.setVisitedCount(0);
+		service.saveOrUpdate(this.model);
+		return "updateSuccess";
 	}
 	
 //	public String delete(){
@@ -47,11 +57,11 @@ public class DepartmentsAction extends BaseAction {
 //		return "deleteSess";
 //	}
 	
-	public String update(){
-		model.setDate(new Date());
-		service.update(model);
-		return "updateSuccess";
-	}
+//	public String update(){
+//		model.setDate(new Date());
+//		service.update(model);
+//		return "updateSuccess";
+//	}
 	public String edit(){
 		model = service.getRecentDepartment();
 		if(model == null){
@@ -76,5 +86,20 @@ public class DepartmentsAction extends BaseAction {
 	public void setService(DepartmentsService service) {
 		this.service = service;
 	}
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Departments getModel() {
+		return model;
+	}
+
+	public void setModel(Departments model) {
+		this.model = model;
+	}
 }

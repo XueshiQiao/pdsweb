@@ -13,6 +13,7 @@ import org.apache.struts2.interceptor.ServletResponseAware;
 import org.apache.struts2.interceptor.SessionAware;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.pds.action.BackgroundUserAction;
 
 /**
  * 提供一些公用的方法
@@ -34,6 +35,10 @@ public class BaseAction extends ActionSupport implements
 	
 	public String index(){
 		return "index";
+	}
+	
+	public Object getCurrentUser(){
+		return this.session.get(BackgroundUserAction.USER_LOGIN_KEY);
 	}
 	
 	@Override

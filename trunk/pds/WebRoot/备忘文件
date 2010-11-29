@@ -1,0 +1,2 @@
+修改fieldset的width属性就能修改显示的宽度
+fieldset {background:#f2f2e6; padding:10px; border:1px solid #fff; border-color:#fff #666661 #666661 #fff; margin-bottom:36px; width:1000px;}

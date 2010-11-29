@@ -3,6 +3,9 @@
  */
 package com.pds.model;
 
+
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,8 +32,11 @@ public class FileUD {
 	private String title; //标题
 	private String contentType; // contentType
 	private String realUploadPath;//实际存放的路径,绝对路径  文件名是用uuid产生的
-	private int uploader; //上传者id
+	private String uploader; //上传者id
+	private Date date;//上传时间
 	
+	
+	//TODO     ========== 添加File的LIST==============================================================
 	
 	/**
 	 * @param fileName
@@ -44,7 +50,7 @@ public class FileUD {
 	 * @param uploader
 	 */
 	public FileUD(String fileName, long size, String location, String title, String contentType,
-			String realUploadPath, int uploader,String remark) {
+			String realUploadPath, String uploader,String remark,Date date) {
 		this.fileName = fileName;
 		this.size = size;
 		this.location = location;
@@ -53,6 +59,7 @@ public class FileUD {
 		this.contentType = contentType;
 		this.realUploadPath = realUploadPath;
 		this.uploader = uploader;
+		this.date = date;
 	}
 	
 	
@@ -79,10 +86,10 @@ public class FileUD {
 	public void setSize(long size) {
 		this.size = size;
 	}
-	public int getUploader() {
-		return uploader;
+	public String getUploader() {
+		return this.uploader;
 	}
-	public void setUploader(int uploader) {
+	public void setUploader(String uploader) {
 		this.uploader = uploader;
 	}
 	public String getLocation() {
@@ -116,6 +123,13 @@ public class FileUD {
 		this.realUploadPath = realUploadPath;
 	}
 
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	@Override
 	public String toString() {

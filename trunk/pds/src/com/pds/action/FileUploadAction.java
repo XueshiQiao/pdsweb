@@ -6,14 +6,19 @@ package com.pds.action;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.pds.common.utils.UUIDGenerator;
 import com.pds.core.BaseAction;
+import com.pds.model.BackgroundUser;
 import com.pds.model.FileUD;
 import com.pds.service.FileService;
 
@@ -22,6 +27,7 @@ import com.pds.service.FileService;
  *
  */
 @Controller
+@Scope(value="prototype")
 public class FileUploadAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 	
@@ -33,9 +39,9 @@ public class FileUploadAction extends BaseAction {
 	private String uploadContentType;
 	private String uploadFileName;
 	private String realUploadPath;//实际存放的路径
-	public static final String SAVE_PATH = "/uploads"; //上传路径当是upload时，存到webapps\pds\ uploads\网站策划案.doc
+	private String savePath ="/uploads"; //默认值，可以在action中动态配置。上传路径当是upload时，存到webapps\pds\ uploads\网站策划案.doc
 	public static final int BUFFER_SIZE = 1024; //上传时buffer的大小
-	public static final String FILE_SEPARATE = "\\"; //文件分割符
+	public static final String FILE_SEPARATE = "/"; //文件分割符
 	
 	
 	
@@ -44,13 +50,25 @@ public class FileUploadAction extends BaseAction {
 	}
 
 	public String upload() throws Exception {
-		String fileSuffix = uploadFileName.substring(uploadFileName.lastIndexOf(".")); //获得文件的后缀名
+		//System.out.println(this.getFieldErrors().get("file").toString());
+		List<String> list = new ArrayList<String>();
+		list.add("文件太大");
+		this.getFieldErrors().put("fileToLarge", list);
+		
+//		if(this.upload == null){
+//			return "uploadError";
+//		}
+		int dotPos = uploadFileName.lastIndexOf(".");
+		String fileSuffix = ""; 
+		if(dotPos > 0){
+			 fileSuffix = uploadFileName.substring(dotPos); //获得文件的后缀名
+		}
 		String uuidFileName = UUIDGenerator.getUUID()+fileSuffix; //用uuid构造的名字
-		String filePath = ServletActionContext.getServletContext().getRealPath(SAVE_PATH) + FILE_SEPARATE + uuidFileName;
+		String filePath = ServletActionContext.getServletContext().getRealPath(savePath) + FILE_SEPARATE + uuidFileName;
 		realUploadPath = filePath;
 		
 		//如果文件夹不存在就创建一个
-		File _file  =new File(ServletActionContext.getServletContext().getRealPath(SAVE_PATH));
+		File _file  =new File(ServletActionContext.getServletContext().getRealPath(savePath));
 		if(!_file.exists()){
 			_file.mkdir();
 		}
@@ -65,9 +83,11 @@ public class FileUploadAction extends BaseAction {
 		//TODO DELETE
 		System.out.println(this);
 		
+		BackgroundUser user = (BackgroundUser)this.session.get(BackgroundUserAction.USER_LOGIN_KEY);
 		//TODO 修改这里的上传用户为当前登录用户
-		FileUD uploadFile = new FileUD(this.uploadFileName,this.upload.length()/1024,(SAVE_PATH+FILE_SEPARATE + uuidFileName),this.title,
-							this.uploadContentType,filePath,1,""); 
+		String username = user == null? "匿名":user.getUsername(); 
+		FileUD uploadFile = new FileUD(this.uploadFileName,this.upload.length()/1024,(savePath+FILE_SEPARATE + uuidFileName),this.title,
+							this.uploadContentType,filePath,username,"",new Date()); 
 		this.service.save(uploadFile);
 		System.out.println(uploadFile);
 		return "uploadSuccess";
@@ -120,9 +140,15 @@ public class FileUploadAction extends BaseAction {
 	public void setRealUploadPath(String realUploadPath) {
 		this.realUploadPath = realUploadPath;
 	}
+	
+	public String getSavePath() {
+		return savePath;
+	}
 
-	
-	
+	public void setSavePath(String savePath) {
+		this.savePath = savePath;
+	}
+
 	@Override
 	public String toString() {
 		return "FileUploadAction [realUploadPath=" + realUploadPath

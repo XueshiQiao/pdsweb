@@ -160,7 +160,7 @@ public class HibernateBaseDao<T, ID extends Serializable> extends
 						public Object doInHibernate(Session session)
 								throws HibernateException {
 
-							Query query = getQuery(session, fullHql);//创建sql对象
+							Query query = getQuery(session, fullHql); //创建sql对象
 
 							if (page > 0) {
 								int maxResult = count;

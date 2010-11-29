@@ -3,6 +3,7 @@
 <struts>
 	<!-- Struts使用Spring -->
 	<constant name="struts.objectFactory" value="spring"/> <!-- 需要引入struts-spring-plugin-2.1.6.jar包 -->
+	<constant name="struts.multipart.maxSize" value="20971520" />  <!-- 20M -->
 	
 	<include file="com/pds/action/struts-actions.xml" />
 	<include file="com/pds/action/admin-actions.xml" />
