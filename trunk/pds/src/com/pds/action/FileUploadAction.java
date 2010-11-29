@@ -50,14 +50,7 @@ public class FileUploadAction extends BaseAction {
 	}
 
 	public String upload() throws Exception {
-		//System.out.println(this.getFieldErrors().get("file").toString());
-		List<String> list = new ArrayList<String>();
-		list.add("文件太大");
-		this.getFieldErrors().put("fileToLarge", list);
 		
-//		if(this.upload == null){
-//			return "uploadError";
-//		}
 		int dotPos = uploadFileName.lastIndexOf(".");
 		String fileSuffix = ""; 
 		if(dotPos > 0){

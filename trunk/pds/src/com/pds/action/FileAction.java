@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.annotation.Resource;
+
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import com.pds.common.page.Paginable;
 import com.pds.core.BaseAction;
@@ -21,6 +23,7 @@ import com.pds.service.FileService;
  *
  */
 @Controller
+@Scope(value="prototype")
 public class FileAction extends BaseAction {
 	@Resource
 	private FileService service;
@@ -44,6 +47,7 @@ public class FileAction extends BaseAction {
 	
 	public String add(){
 		model.setDate(new Date());
+		model.setDownloadTimes(0);
 		
 		try{
 			model.setUploader(((BackgroundUser)super.getCurrentUser()).getUsername()); //TODO 设置为当前登录用户
@@ -168,4 +172,5 @@ public class FileAction extends BaseAction {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
+	
 }

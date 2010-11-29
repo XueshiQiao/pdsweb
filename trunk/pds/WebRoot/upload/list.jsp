@@ -254,7 +254,7 @@ a:active {
 											</div>
 										</td>
 										</td>
-										<td width="20%" height="18" background="images/tab_14.gif"
+										<td width="15%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
 												文件名
@@ -266,28 +266,34 @@ a:active {
 												大小（KB）
 											</div>
 										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												上传位置
-											</div>
-										</td>
-										<td width="8%" height="18" background="images/tab_14.gif"
+<%--										<td width="10%" height="18" background="images/tab_14.gif"--%>
+<%--											class="STYLE1">--%>
+<%--											<div align="center" class="STYLE2 STYLE1">--%>
+<%--												上传位置--%>
+<%--											</div>--%>
+<%--										</td>--%>
+										<td width="5%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
 												文件类型
 											</div>
 										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												文件真实路径
-											</div>
-										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
+<%--										<td width="10%" height="18" background="images/tab_14.gif"--%>
+<%--											class="STYLE1">--%>
+<%--											<div align="center" class="STYLE2 STYLE1">--%>
+<%--												文件真实路径--%>
+<%--											</div>--%>
+<%--										</td>--%>
+										<td width="8%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
 												上传者
+											</div>
+										</td>
+										<td width="6%" height="18" background="images/tab_14.gif"
+											class="STYLE1">
+											<div align="center" class="STYLE2 STYLE1">
+												下载次数
 											</div>
 										</td>
 										<td width="10%" height="18" background="images/tab_14.gif"
@@ -296,10 +302,10 @@ a:active {
 												上传日期
 											</div>
 										</td>
-										<td width="7%" height="18" background="images/tab_14.gif"
+										<td width="12%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2">
-												编辑
+												编辑/查看详细
 											</div>
 										</td>
 										<td width="7%" height="18" background="images/tab_14.gif"
@@ -337,24 +343,29 @@ a:active {
 													<s:property value="size" />
 												</div>
 											</td>
-											<td id="文件位置" height="18" bgcolor="#FFFFFF">
-												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="location" />
-												</div>
-											</td>
+<%--											<td id="文件位置" height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center" class="STYLE2 STYLE1">--%>
+<%--													<s:property value="location" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
 											<td id="文件类型" height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
 													<s:property value="contentType" />
 												</div>
 											</td>
-											<td id="文件真实路径" height="18" bgcolor="#FFFFFF">
+<%--											<td id="文件真实路径" height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center" class="STYLE2 STYLE1">--%>
+<%--													<s:property value="realUploadPath" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
+											<td id="上传者" height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="realUploadPath" />
+													<s:property value="uploader" />
 												</div>
 											</td>
 											<td id="上传者" height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="uploader" />
+													<s:property value="downloadTimes" />
 												</div>
 											</td>
 											<td id="最后更新时间" height="18" bgcolor="#FFFFFF">
@@ -367,7 +378,7 @@ a:active {
 													<span class="STYLE2"><img src="images/037.gif"
 															width="9" height="9" />
 													</span><span class="STYLE1"> [</span><a
-														href="edit?id=<s:property value='id' />">编辑</a><span
+														href="edit?id=<s:property value='id' />">编辑/查看详细</a><span
 														class="STYLE1">]</span>
 												</div>
 											</td>
