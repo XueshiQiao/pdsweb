@@ -55,7 +55,7 @@
 	<body>
 		<div id="container">
 
-			<form id="addForm" action="rules/update" method="post" class="niceform">
+			<form id="updateForm" action="file/update" method="post" class="niceform">
 				<fieldset>
 					<legend>
 						修改
@@ -69,24 +69,32 @@
 			            <dd><input type="text" value="<s:property value='model.title'/>" name="model.title"  size="32" maxlength="128" /></dd>
 			        </dl>
 			    	<dl>
-			        	<dt><label for="model.content">内容</label></dt>
-			            <dd><textarea name="model.content"  rows="5" cols="60"><s:property value='model.content'/></textarea></dd>
+			        	<dt><label for="model.fileName">原文件名:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.fileName'/>" name="model.fileName" readonly="readonly" id="" size="32" maxlength="128" /></dd>
 			        </dl>
 			        <dl>
-			        	<dt><label for="model.brief">内容摘要</label></dt>
-			            <dd><textarea  name="model.brief"  rows="5" cols="60"><s:property value='model.brief'/></textarea></dd>
+			        	<dt><label for="model.size">大小(kb):</label></dt>
+			            <dd><input type="text" value="<s:property value='model.size'/>" name="model.size" readonly="readonly" id="" size="32" maxlength="128" /></dd>
 			        </dl>
 			    	<dl>
-			        	<dt><label for="model.author">作者:</label></dt>
-			            <dd><input type="text" value="<s:property value='model.author'/>" name="model.author" id="" size="32" maxlength="128" /></dd>
+			        	<dt><label for="model.location">上传位置:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.location'/>" name="model.location" readonly="readonly" id="" size="60" maxlength="128" /></dd>
 			        </dl>
 			    	<dl>
-			        	<dt><label for="model.dep">部门:</label></dt>
-			            <dd><input type="text" value="<s:property value='model.dep'/>" name="model.dep" id="" size="32" maxlength="128" /></dd>
+			        	<dt><label for="model.contentType">文件类型:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.contentType'/>" name="model.contentType" readonly="readonly" id="" size="60" maxlength="128" /></dd>
 			        </dl>
 			    	<dl>
-			        	<dt><label for="model.visitedCount">点击量:</label></dt>
-			            <dd><input type="text" value="<s:property value='model.visitedCount'/>" name="model.visitedCount" id="" size="32" maxlength="128" /></dd>
+			        	<dt><label for="model.realUploadPath">文件真实路径:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.realUploadPath'/>" name="model.realUploadPath" readonly="readonly" id="" size="60" maxlength="128" /></dd>
+			        </dl>
+			    	<dl>
+			        	<dt><label for="model.uploader">上传者:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.uploader'/>" name="model.uploader" id="" size="32" maxlength="128" /></dd>
+			        </dl>
+			    	<dl>
+			        	<dt><label for="model.downloadTimest">下载次数:</label></dt>
+			            <dd><input type="text" value="<s:property value='model.downloadTimes'/>" name="model.downloadTimes" id="" size="32" maxlength="128" /></dd>
 			        </dl>
 			        <dl>
 						<dt>

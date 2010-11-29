@@ -34,9 +34,9 @@ public class FileUD {
 	private String realUploadPath;//实际存放的路径,绝对路径  文件名是用uuid产生的
 	private String uploader; //上传者id
 	private Date date;//上传时间
+	private int downloadTimes ;//下载次数
 	
 	
-	//TODO     ========== 添加File的LIST==============================================================
 	
 	/**
 	 * @param fileName
@@ -60,6 +60,7 @@ public class FileUD {
 		this.realUploadPath = realUploadPath;
 		this.uploader = uploader;
 		this.date = date;
+		this.downloadTimes = 0;
 	}
 	
 	
@@ -131,14 +132,23 @@ public class FileUD {
 		this.date = date;
 	}
 
+	public int getDownloadTimes() {
+		return downloadTimes;
+	}
+
+	public void setDownloadTimes(int downloadTimes) {
+		this.downloadTimes = downloadTimes;
+	}
+
+
 	@Override
 	public String toString() {
-		return "FileUD [contentType=" + contentType + ", fileName=" + fileName
+		return "FileUD [contentType=" + contentType + ", date=" + date
+				+ ", downloadTimes=" + downloadTimes + ", fileName=" + fileName
 				+ ", id=" + id + ", location=" + location + ", realUploadPath="
 				+ realUploadPath + ", remark=" + remark + ", size=" + size
 				+ ", title=" + title + ", uploader=" + uploader + "]";
 	}
-	
-	
+
 	
 }
