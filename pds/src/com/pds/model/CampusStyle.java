@@ -23,43 +23,36 @@ public class CampusStyle extends Article {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Override
 	public int getId() {
-		// TODO Auto-generated method stub
 		return super.getId();
 	}
 	@Override
 	public String getAuthor() {
-		// TODO Auto-generated method stub
 		return super.getAuthor();
 	}
 
 	@Override
 	public String getBrief() {
-		// TODO Auto-generated method stub
 		return super.getBrief();
 	}
 
 	@Override
 	public String getContent() {
-		// TODO Auto-generated method stub
 		return super.getContent();
 	}
 
 	@Override
 	public Date getDate() {
-		// TODO Auto-generated method stub
 		return super.getDate();
 	}
 
 	@Override
 	public String getDep() {
-		// TODO Auto-generated method stub
 		return super.getDep();
 	}
 	
 
 	@Override
 	public String getTitle() {
-		// TODO Auto-generated method stub
 		return super.getTitle();
 	}
 }

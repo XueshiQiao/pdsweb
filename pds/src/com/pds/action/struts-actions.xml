@@ -74,6 +74,23 @@
 		</action>
 	
 	</package>
+	<package name="hotarticle" extends="struts-default" namespace="/hotarticle">
+		<action name="*" class="com.pds.action.HotArticleAction" method="{1}">
+			<result>/hotarticle/{1}.jsp</result>
+			<result name="index">/hotarticle/index.jsp</result>
+			<result name="error">/hotarticle/{1}Fail.jsp</result>
+			<result name="updateSuccess">/hotarticle/{1}Succ.jsp</result>
+			<result name="addsuccess">/hotarticle/{1}Succ.jsp</result>
+			<result name="toEdit">/hotarticle/edit.jsp</result>
+			<result name="toEditError">/hotarticle/editError.jsp</result>
+			<result name="updateSuccess">/hotarticle/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/hotarticle/deleteSuccess.jsp</result>
+			<result name="toAdd">/hotarticle/add.jsp</result>
+			<result name="show">/hotarticle/show.jsp</result>
+			<result name="showError">/hotarticle/showError.jsp</result>
+		</action>
+	
+	</package>
 
 	<package name="upload" extends="struts-default" namespace="/upload">
 		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">

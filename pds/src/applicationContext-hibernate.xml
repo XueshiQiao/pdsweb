@@ -43,7 +43,7 @@
 				hibernate.cache.use_second_level_cache=true
 				hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider 
 				hibernate.cache.use_query_cache=true
-				hibernate.hbm2ddl.auto=update
+				hibernate.hbm2ddl.auto=create
 			</value>
 		</property>
 
@@ -58,6 +58,7 @@
 				<value>com.pds.model.HotArticle</value>
 				<value>com.pds.model.Link</value>
 				<value>com.pds.model.Message</value>
+				<value>com.pds.model.Reply</value>
 				<value>com.pds.model.News</value>
 				<value>com.pds.model.Role</value>
 				<value>com.pds.model.Rules</value>
