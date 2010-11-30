@@ -44,17 +44,17 @@ public class CodeGenerator {
 		
 		
 		
-		entityNames.add("CampusStyle");
-		entityNames.add("Criticism");
-		entityNames.add("Departments");
-		entityNames.add("FileUD");
-		entityNames.add("HotArticle");
-		entityNames.add("Link");
-		entityNames.add("Message");
-		entityNames.add("News");
-		entityNames.add("Role");
-		entityNames.add("Rules");
-		entityNames.add("UnionShow");
+		entityNames.add("Reply");
+//		entityNames.add("Criticism");
+//		entityNames.add("Departments");
+//		entityNames.add("FileUD");
+//		entityNames.add("HotArticle");
+//		entityNames.add("Link");
+//		entityNames.add("Message");
+//		entityNames.add("News");
+//		entityNames.add("Role");
+//		entityNames.add("Rules");
+//		entityNames.add("UnionShow");
 		
 		replacePairs.put("{Entity}", "");
 		String folderName = "src/com/pds/codeGen/terget/";
