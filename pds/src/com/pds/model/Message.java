@@ -7,10 +7,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -30,7 +33,7 @@ public class Message {
 	private String  content;
 	private Date date;
 	
-	@Transient //不持久化
+//	@Transient //不持久化
 	private List<Reply> replys = new ArrayList<Reply>();
 	
 	@Id
@@ -65,6 +68,8 @@ public class Message {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+
+	@OneToMany(mappedBy="message",fetch=FetchType.EAGER,cascade=CascadeType.REMOVE)
 	public List<Reply> getReplys() {
 		return replys;
 	}
