@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToOne;
 
 /**
  * @author qiaoxueshi
@@ -23,6 +25,8 @@ public class Reply {
 	private String replyer;
 	private String content;
 	private Date date;
+	
+	private Message message;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -57,13 +61,13 @@ public class Reply {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-//	public Message getMessage() {
-//		return message;
-//	}
-//	public void setMessage(Message message) {
-//		this.message = message;
-//	}
-	
-	
+	@ManyToOne
+	@JoinTable(name="message_reply")
+	public Message getMessage() {
+		return message;
+	}
+	public void setMessage(Message message) {
+		this.message = message;
+	}
 	
 }
