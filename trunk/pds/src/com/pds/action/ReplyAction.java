@@ -3,12 +3,17 @@ package com.pds.action;
  * BY qiaoxueshi at pingdingshan university
  */
 
+import java.util.Date;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 
-import com.opensymphony.xwork2.Action;
 import com.pds.core.BaseAction;
+import com.pds.model.BackgroundUser;
+import com.pds.model.Reply;
+import com.pds.service.MessageService;
 import com.pds.service.ReplyService;
 
 /**
@@ -21,6 +26,70 @@ public class ReplyAction extends BaseAction {
 
 	@Resource
 	private ReplyService service ;
+	@Resource
+	private MessageService messageService;
+	
+	private int id;
+	private int pId; //父ID，即所属的Message的Id
+	
+	private Reply model;
+	private List<Reply> models;
+	
+	
+	public String toAdd(){
+		return "toAdd";
+	}
+	
+	public String add(){
+		if(pId>0 && model!=null){
+			model.setpId(pId); //设置所属的MESSAGE的id
+			BackgroundUser user = (BackgroundUser)this.session.get(BackgroundUserAction.USER_LOGIN_KEY);
+			if(user != null){
+				model.setReplyer(user.getUsername());
+			}else{
+				model.setReplyer("匿名"); //TODO 应该得到当前登录用户
+			}
+			this.model.setDate(new Date());
+			service.save(this.model);
+			return "addsuccess";
+		}
+		return "addError";
+	}
+	
+	public String delete(){
+		if(id<=0){
+			return "deleteError";
+		}
+		model = service.load(id);
+		if(model == null){
+			return "deleteError";
+		}
+		service.delete(model);
+		return "deleteSuccess";
+	}
+	
+	public String update(){
+		model.setDate(new Date());
+		service.update(model);
+		return "updateSuccess";
+	}
+	public String edit(){
+		if(id<=0){
+			return "editError";
+		}
+		model = service.load(id);
+		if(model == null){
+			return "editError";
+		}
+		return "editSuccess";
+	}
+	
+	public String get(){
+		model = service.findById(id);
+		return SUCCESS;
+	}
+	
+	
 	
 	public ReplyService getService() {
 		return service;
@@ -28,5 +97,36 @@ public class ReplyAction extends BaseAction {
 	public void setService(ReplyService service) {
 		this.service = service;
 	}
+	public MessageService getMessageService() {
+		return messageService;
+	}
+	public void setMessageService(MessageService messageService) {
+		this.messageService = messageService;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getmId() {
+		return pId;
+	}
+	public void setmId(int mId) {
+		this.pId = mId;
+	}
+	public Reply getModel() {
+		return model;
+	}
+	public void setModel(Reply model) {
+		this.model = model;
+	}
+	public List<Reply> getModels() {
+		return models;
+	}
+	public void setModels(List<Reply> models) {
+		this.models = models;
+	}
+	
 	
 }

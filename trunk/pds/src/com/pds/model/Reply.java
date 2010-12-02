@@ -57,5 +57,13 @@ public class Reply {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+//	public Message getMessage() {
+//		return message;
+//	}
+//	public void setMessage(Message message) {
+//		this.message = message;
+//	}
+	
+	
 	
 }
