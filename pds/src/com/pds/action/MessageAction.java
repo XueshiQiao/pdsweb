@@ -96,12 +96,6 @@ public class MessageAction extends BaseAction {
 			pageNo = 1;
 		}
 		page =  service.findPageByHql(pageNo,15);
-		
-		// TODO 把reply的数据添加到page里面的message中
-		for(Message m:page.getList()){
-			int pId = m.getId();
-			m.setReplys(replyService.getReplysByPId(pId));
-		}
 		return SUCCESS;
 	}
 

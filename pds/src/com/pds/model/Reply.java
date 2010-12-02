@@ -21,7 +21,6 @@ import javax.persistence.ManyToOne;
 public class Reply {
 	
 	private int id;
-	private int pId;
 	private String replyer;
 	private String content;
 	private Date date;
@@ -35,12 +34,6 @@ public class Reply {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getpId() {
-		return pId;
-	}
-	public void setpId(int pId) {
-		this.pId = pId;
 	}
 	public String getReplyer() {
 		return replyer;
