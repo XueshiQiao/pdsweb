@@ -19,7 +19,6 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Reply {
-	
 	private int id;
 	private String replyer;
 	private String content;
