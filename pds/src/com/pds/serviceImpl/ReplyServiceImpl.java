@@ -3,6 +3,8 @@ package com.pds.serviceImpl;
  * BY qiaoxueshi at pingdingshan university
  */
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -23,4 +25,10 @@ public class ReplyServiceImpl extends BaseServiceImpl<Reply> implements
 	public void setDao(ReplyDao dao) {
 		super.setDao(dao);
 	}
+
+	@Override
+	public List<Reply> getReplysByPId(int pId) {
+		return this.getDao().findByHql("from Reply where pId=?", new Integer[]{pId});
+	}
+	
 }
