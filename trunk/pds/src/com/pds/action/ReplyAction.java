@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 
 import com.pds.core.BaseAction;
 import com.pds.model.BackgroundUser;
+import com.pds.model.Message;
 import com.pds.model.Reply;
 import com.pds.service.MessageService;
 import com.pds.service.ReplyService;
@@ -30,7 +31,7 @@ public class ReplyAction extends BaseAction {
 	private MessageService messageService;
 	
 	private int id;
-	private int pId; //父ID，即所属的Message的Id
+	private int mId; //父ID，即所属的Message的Id
 	
 	private Reply model;
 	private List<Reply> models;
@@ -40,9 +41,14 @@ public class ReplyAction extends BaseAction {
 		return "toAdd";
 	}
 	
+	/**
+	 * 需要传递过来mId参数 作为message的ID
+	 * @return
+	 */
 	public String add(){
-		if(pId>0 && model!=null){
-			model.setpId(pId); //设置所属的MESSAGE的id
+		if(mId>0 && model!=null){
+			Message message = messageService.findById(mId);
+			model.setMessage(message);
 			BackgroundUser user = (BackgroundUser)this.session.get(BackgroundUserAction.USER_LOGIN_KEY);
 			if(user != null){
 				model.setReplyer(user.getUsername());
@@ -73,6 +79,7 @@ public class ReplyAction extends BaseAction {
 		service.update(model);
 		return "updateSuccess";
 	}
+	
 	public String edit(){
 		if(id<=0){
 			return "editError";
@@ -88,8 +95,6 @@ public class ReplyAction extends BaseAction {
 		model = service.findById(id);
 		return SUCCESS;
 	}
-	
-	
 	
 	public ReplyService getService() {
 		return service;
@@ -110,10 +115,10 @@ public class ReplyAction extends BaseAction {
 		this.id = id;
 	}
 	public int getmId() {
-		return pId;
+		return mId;
 	}
 	public void setmId(int mId) {
-		this.pId = mId;
+		this.mId = mId;
 	}
 	public Reply getModel() {
 		return model;
@@ -127,6 +132,4 @@ public class ReplyAction extends BaseAction {
 	public void setModels(List<Reply> models) {
 		this.models = models;
 	}
-	
-	
 }
