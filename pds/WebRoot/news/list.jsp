@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>热门文章</title>
+		<title>新闻 最新动态</title>
 		<style type="text/css">
 <!--
 body {
@@ -80,7 +80,7 @@ a:active {
 	</script>
 		<script type="text/javascript">
 	
-	var url = "../hotarticle/list.action?pageNo=";
+	var url = "../news/list.action?pageNo=";
 	//转向用户输入的那一页
 	function turnToPage(){
 		var pageNo = getInputPageNo();
@@ -190,7 +190,7 @@ a:active {
 							</td>
 							<td width="1101" background="images/tab_05.gif">
 								<img src="images/311.gif" width="16" height="16" />
-								<span class="STYLE4">"热门文章"管理  (点击标题预览)</span>
+								<span class="STYLE4">"最新动态"管理  (点击标题预览)</span>
 							</td>
 							<td width="281" background="images/tab_05.gif">
 								<table border="0" align="right" cellpadding="0" cellspacing="0">

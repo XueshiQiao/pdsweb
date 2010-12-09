@@ -64,7 +64,7 @@
      -->
 		<div id="container">
 
-			<form id="updateForm" action="hotarticle/update" method="post"
+			<form id="updateForm" action="news/update" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>

@@ -91,6 +91,23 @@
 		</action>
 	
 	</package>
+	
+	<package name="news" extends="struts-default" namespace="/news">
+		<action name="*" class="com.pds.action.NewsAction" method="{1}">
+			<result>/news/{1}.jsp</result>
+			<result name="index">/news/index.jsp</result>
+			<result name="error">/news/{1}Fail.jsp</result>
+			<result name="updateSuccess">/news/{1}Succ.jsp</result>
+			<result name="addsuccess">/news/{1}Succ.jsp</result>
+			<result name="toEdit">/news/edit.jsp</result>
+			<result name="toEditError">/news/editError.jsp</result>
+			<result name="updateSuccess">/news/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/news/deleteSuccess.jsp</result>
+			<result name="toAdd">/news/add.jsp</result>
+			<result name="show">/news/show.jsp</result>
+			<result name="showError">/news/showError.jsp</result>
+		</action>
+	</package>
 
 	<package name="upload" extends="struts-default" namespace="/upload">
 		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">

@@ -5,6 +5,7 @@ package com.pds.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -33,11 +34,13 @@ public class News extends Article {
 	}
 
 	@Override
+	@Column(length=1024)
 	public String getBrief() {
 		return super.getBrief();
 	}
 
 	@Override
+	@Column(length=1024)
 	public String getContent() {
 		return super.getContent();
 	}
@@ -52,10 +55,16 @@ public class News extends Article {
 		return super.getDep();
 	}
 	
-
 	@Override
 	public String getTitle() {
 		return super.getTitle();
 	}
+	
+	@Override
+	public int getVisitedCount() {
+		return super.getVisitedCount();
+	}
+	
+	
 	
 }
