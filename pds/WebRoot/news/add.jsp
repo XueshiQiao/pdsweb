@@ -1,0 +1,125 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>">
+    
+    <title>添加</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+	
+	<script type="text/javascript" src="<%=basePath%>ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="jqueryui/js/jquery-1.4.2.min.js"></script>
+	<link rel="stylesheet" href="jqueryui/css/ui-lightness/jquery-ui-1.8.6.custom.css"></link>
+	<script type="text/javascript" src="jqueryui/ui/jquery.ui.core.js"></script>
+	<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
+	<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
+	<script type="text/javascript" src="jqueryui/jquery.form.js"></script>
+	<!-- nice form -->
+<%--	<script language="javascript" type="text/javascript" src="tongbao/niceforms.js"></script>--%>
+	<link rel="stylesheet" href="hotarticle/niceforms-default.css"></link>
+	
+		
+	<script type="text/javascript">
+		$(function(){
+			$("#submit").button(); //
+<%--			for ( i = 0; i < parent.frames.length; ++i ){--%>
+<%--				if ( parent.frames[i].FCK ){--%>
+<%--					parent.frames[i].FCK.UpdateLinkedField();--%>
+<%--				}--%>
+<%--			}--%>
+
+		//使用ajaxForm在火狐下提交不成功  使用ckeditor的数据提交不上去。
+<%--			$('#addForm').ajaxForm(function(responseText, statusText, xhr, $form) { --%>
+<%--				if(statusText=="success"){--%>
+<%--					alert("保存成功！");--%>
+<%--				}else{--%>
+<%--					alert("保存失败,请联系管理员！");--%>
+<%--				}--%>
+<%--				//alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + --%>
+<%--		        //'\n\nThe output div should have already been updated with the responseText.');--%>
+<%--            }); --%>
+		});
+	</script>
+	<style type="text/css">
+		.label{
+			font-size: 15px;
+			color: blue;
+			margin-left: 20;
+			font-weight: bold;
+			
+		}
+		.btnAdd{
+			margin-left: 20px;
+		}
+	</style>
+	
+  </head>
+  
+  <body>
+    <!-- 
+    
+    private int id; //id
+	private String title; //标题
+	private String content; //内容 
+	private String author; //作者，发布人
+	private Date date; //更新时间日期
+	
+	private String brief; //文章概要
+//	private String thumbnail;//缩略图
+	
+	private int visitedCount; //点击量，访问量
+	private String dep;//文章来自哪个部门
+     -->
+    <div id="container">
+    
+    <form id="addForm" action="hotarticle/add" method="post" class="niceform">
+    	<fieldset>
+	    	<legend>添加文章</legend>
+	    	<dl>
+	        	<dt><label for="model.title">标题:</label></dt>
+	            <dd><input type="text" name="model.title" size="32" maxlength="128" /></dd>
+	        </dl>
+	    	<dl>
+	        	<dt><label for="model.dep">部门:</label></dt>
+	            <dd><input type="text" name="model.dep" size="32" maxlength="128" /></dd>
+	        </dl>
+	        <dl>
+				<dt>
+					<label for="model.content">
+						内容:
+					</label>
+				</dt>
+				<dd>
+					<textarea id="content" name="model.content" rows="5" cols="60">
+					</textarea>
+				</dd>
+			</dl>
+
+			<script type="text/javascript">
+				CKEDITOR.replace( 'content');
+			</script>
+	    	
+    	</fieldset>
+		<fieldset class="action">
+	    	<span class="btnAdd">
+	    		<input align="middle" id="submit" type="submit" value="添加文章" />
+	    	</span>
+		</fieldset>
+    	
+    </form>
+    </div>
+  </body>
+</html>
