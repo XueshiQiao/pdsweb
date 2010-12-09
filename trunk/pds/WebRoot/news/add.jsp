@@ -29,7 +29,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="jqueryui/jquery.form.js"></script>
 	<!-- nice form -->
 <%--	<script language="javascript" type="text/javascript" src="tongbao/niceforms.js"></script>--%>
-	<link rel="stylesheet" href="hotarticle/niceforms-default.css"></link>
+	<link rel="stylesheet" href="news/niceforms-default.css"></link>
 	
 		
 	<script type="text/javascript">
@@ -85,9 +85,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
      -->
     <div id="container">
     
-    <form id="addForm" action="hotarticle/add" method="post" class="niceform">
+    <form id="addForm" action="news/add" method="post" class="niceform">
     	<fieldset>
-	    	<legend>添加文章</legend>
+	    	<legend>添加新闻</legend>
 	    	<dl>
 	        	<dt><label for="model.title">标题:</label></dt>
 	            <dd><input type="text" name="model.title" size="32" maxlength="128" /></dd>
