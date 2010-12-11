@@ -48,27 +48,13 @@
 	</head>
 
 	<body>
-	    <!-- 
-    
-    private int id; //id
-	private String title; //标题
-	private String content; //内容 
-	private String author; //作者，发布人
-	private Date date; //更新时间日期
-	
-	private String brief; //文章概要
-//	private String thumbnail;//缩略图
-	
-	private int visitedCount; //点击量，访问量
-	private String dep;//文章来自哪个部门
-     -->
 		<div id="container">
 
-			<form id="updateForm" action="news/update" method="post"
+			<form id="updateForm" action="link/update" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>
-						修改文章信息
+						修改友情链接信息
 					</legend>
 					<dl>
 						<dt>
@@ -83,64 +69,35 @@
 					</dl>
 					<dl>
 						<dt>
-							<label for="model.author">
-								发布人:
-							</label>
-						</dt>
-						<dd>
-							<input type="text" name="model.author" readonly="readonly" size="32"
-								value="<s:property value='model.author'/>" maxlength="128" />
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<label for="model.title">
+							<label for="model.name">
 								标题:
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.title" size="32"
-								value="<s:property value='model.title'/>" maxlength="128" />
+							<input type="text" name="model.name" size="32"
+								value="<s:property value='model.name'/>" maxlength="128" />
 						</dd>
 					</dl>
 					<dl>
 						<dt>
-							<label for="model.dep">
-								发布部门:
+							<label for="model.url">
+								链接地址:
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.dep" size="32"
-								value="<s:property value='model.dep'/>" maxlength="128" />
+							<input type="text" name="model.url" size="32"
+								value="<s:property value='model.url'/>" maxlength="128" />
 						</dd>
 					</dl>
-					
 					<dl>
 						<dt>
-							<label for="model.content">
-								内容:
+							<label for="model.sortId">
+								序号:
 							</label>
 						</dt>
 						<dd>
-							<textarea id="content" name="model.content" rows="5" cols="60">
-								<s:property value='model.content' />
-							</textarea>
-						</dd>
-					</dl>
-
-					<script type="text/javascript">
-						CKEDITOR.replace( 'content');
-					</script>
-					
-					<dl>
-						<dt>
-							<label for="model.visitedCount">
-								浏览量:
-							</label>
-						</dt>
-						<dd>
-							<input type="text" name="model.visitedCount" size="32"
-								value="<s:property value='model.visitedCount'/>" maxlength="128" />
+							<input type="text" name="model.sortId" size="32"
+								value="<s:property value='model.sortId'/>" maxlength="128" />
 						</dd>
 					</dl>
 					
