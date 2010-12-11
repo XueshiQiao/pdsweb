@@ -108,6 +108,22 @@
 			<result name="showError">/news/showError.jsp</result>
 		</action>
 	</package>
+	
+	<package name="link" extends="struts-default" namespace="/link">
+		<action name="*" class="com.pds.action.LinkAction" method="{1}">
+			<result>/link/{1}.jsp</result>
+			<result name="error">/link/{1}Fail.jsp</result>
+			<result name="updateSuccess">/link/{1}Succ.jsp</result>
+			<result name="addsuccess">/link/{1}Succ.jsp</result>
+			<result name="toEdit">/link/edit.jsp</result>
+			<result name="toEditError">/link/editError.jsp</result>
+			<result name="updateSuccess">/link/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/link/deleteSuccess.jsp</result>
+			<result name="toAdd">/link/add.jsp</result>
+			<result name="show">/link/show.jsp</result>
+			<result name="showError">/link/showError.jsp</result>
+		</action>
+	</package>
 
 	<package name="upload" extends="struts-default" namespace="/upload">
 		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">
@@ -127,6 +143,40 @@
 			<result name="input">/file/upload.jsp</result>
 			<result name="uploadSuccess">/file/uploadSucc.jsp</result>
 			<result name="uploadError">/file/uploadError.jsp</result>
+		</action>
+		
+		<action name="ckeditorUpload" class="com.pds.action.FileUploadAction" method="ckeditorUpload">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">
+					image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg 
+				</param>
+				<!--配置允许上传的大小 10M -->
+				<param name="maximumSize">10485760</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack" />
+			<param name="savePath">/uploads/images</param>
+			<result name="input">/file/upload.jsp</result>
+			<result name="uploadSuccess">/file/uploadSucc.jsp</result>
+			<result name="uploadError">/file/uploadError.jsp</result>
+		</action>
+		
+		<action name="ajaxUpload" class="com.pds.action.FileUploadAction" method="ajaxUpload">
+			<interceptor-ref name="fileUpload">
+				<!--配置允许上传的类型 -->
+				<param name="allowedTypes">
+					image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg 
+				</param>
+				<!--配置允许上传的大小 10M -->
+				<param name="maximumSize">10485760</param>
+			</interceptor-ref>
+			<!-- 配置系统默认拦截器 -->
+			<interceptor-ref name="defaultStack" />
+			
+			<!-- 动态设置Action中的savePath属性 -->
+			<param name="savePath">/images</param>
+			                          
+			<result type="plainText">成功失败</result>
+			<result name="error" type="plainText">{ajaxResult}</result>
 		</action>
 		
 		<action name="index" class="com.pds.action.FileUploadAction"
