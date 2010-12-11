@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>新闻 最新动态</title>
+		<title>友情链接管理</title>
 		<style type="text/css">
 <!--
 body {
@@ -59,6 +59,10 @@ a:active {
 .STYLE7 {
 	font-size: 12
 }
+#addForm{
+	font-size:12px;
+	margin-top:10px;
+}
 -->
 </style>
 		<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
@@ -80,7 +84,7 @@ a:active {
 	</script>
 		<script type="text/javascript">
 	
-	var url = "../news/list.action?pageNo=";
+	var url = "../link/list.action?pageNo=";
 	//转向用户输入的那一页
 	function turnToPage(){
 		var pageNo = getInputPageNo();
@@ -190,7 +194,7 @@ a:active {
 							</td>
 							<td width="1101" background="images/tab_05.gif">
 								<img src="images/311.gif" width="16" height="16" />
-								<span class="STYLE4">"最新动态"管理  (点击标题预览)</span>
+								<span class="STYLE4">"友情链接"管理</span>
 							</td>
 							<td width="281" background="images/tab_05.gif">
 								<table border="0" align="right" cellpadding="0" cellspacing="0">
@@ -224,7 +228,6 @@ a:active {
 				</td>
 			</tr>
 			<tr>
-				<!-- competency=Hello world0, contact=联系方式0, history=历史0, id=1, introduction=introduction0 -->
 				<td>
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
@@ -256,31 +259,13 @@ a:active {
 										<td width="20%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
-												文章概要
+												网址
 											</div>
 										</td>
 										<td width="6%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
-												发布人
-											</div>
-										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												部门
-											</div>
-										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												点击量
-											</div>
-										</td>
-										<td width="15%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												日期
+												序号
 											</div>
 										</td>
 										<td width="7%" height="18" background="images/tab_14.gif"
@@ -304,40 +289,24 @@ a:active {
 														value="checkbox" />
 												</div>
 											</td>
-											<td height="18" bgcolor="#FFFFFF" class="STYLE2">
+											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
 													<s:property value="id" />
 												</div>
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<a href="show?id=<s:property value='id' />"><s:property value="title" />
-													</a>
+													<s:property value="name" />
 												</div>
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property escape="false" value="brief" />
-												</div>
-											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="author" />
+													<s:property value="url" />
 												</div>
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center">
-													<s:property value="dep" />
-												</div>
-											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center">
-													<s:property value="visitedCount" />
-												</div>
-											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center">
-													<s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
+													<s:property value="sortId" />
 												</div>
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
@@ -452,8 +421,29 @@ a:active {
 			</tr>
 		</table>
 
-		<div>
-			<a id="btnAdd" href="toAdd.action">新增一条记录</a>
+<%--		<div>--%>
+<%--			<a id="btnAdd" href="toAdd.action">新增一条记录</a>--%>
+<%--		</div>--%>
+		<hr/>
+		新增一个友情链接：<br/>
+		<div id="addForm">
+			<form id="addLink" action="add" method="post">
+				<table>
+					<tr>
+						<td>标题：</td>
+						<td><input type="text" name="model.name"/></td>	
+					</tr>
+					<tr>
+						<td>链接地址：</td>
+						<td><input type="text" name="model.url" /></td>	
+					</tr>
+					<tr>
+						<td>序号:</td>
+						<td><input type="text" name="model.sortId"/>注：根据该序号进行排序，越小越靠前，最小为0。</td>	
+					</tr>
+				</table>
+				<input type="submit" id="btnAdd" value="新增记录" />
+			</form>
 		</div>
 	</body>
 </html>
