@@ -8,6 +8,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.Action;
@@ -23,6 +24,7 @@ import com.pds.service.NewsService;
  *
  */
 @Controller
+@Scope(value="prototype")
 public class NewsAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 
