@@ -3,11 +3,17 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+	<!-- 测试用的 给sesion中添加已经登录用户 -->
+	<listener>
+		<listener-class>com.pds.test.servlet.PrepareDateForAppListener</listener-class>
+	</listener>
 	
 		<!-- Spring 3.0的配置 -->
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+	
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath*:applicationContext-*.xml</param-value>
