@@ -27,8 +27,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 	<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 	<script type="text/javascript" src="jqueryui/jquery.form.js"></script>
-	<!-- nice form -->
-<%--	<script language="javascript" type="text/javascript" src="tongbao/niceforms.js"></script>--%>
+	
+	<!-- 表单验证框架 -->
+	<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+	<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
+	
 	<link rel="stylesheet" href="tongbao/niceforms-default.css"></link>
 	
 		
@@ -41,8 +44,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				}else{
 					alert("保存失败,请联系管理员！");
 				}
-				//alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + 
-		        //'\n\nThe output div should have already been updated with the responseText.');
             }); 
 		});
 	</script>
@@ -58,6 +59,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin-left: 20px;
 		}
 	</style>
+
+	
 	
   </head>
   
@@ -70,23 +73,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<legend>添加通报</legend>
 	    	<dl>
 	        	<dt><label for="model.department">院系:</label></dt>
-	            <dd><input type="text" name="model.department" size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.department" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空"/></dd>
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.stuClass">班级:</label></dt>
-	            <dd><input type="text" name="model.stuClass"  size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.stuClass"  size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.stuName">学生姓名</label></dt>
-	            <dd><input type="text" name="model.stuName" id="email" size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.stuName" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.reason">通报原因:</label></dt>
-	            <dd><textarea name="model.reason"  rows="5" cols="60"></textarea></dd>
+	            <dd><textarea name="model.reason"  rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"></textarea></dd>
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.dormitory">所在宿舍:</label></dt>
-	            <dd><input type="text" name="model.dormitory" id="email" size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.dormitory" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
 	        </dl>
 	    	
 	<%--    	<input type="input" name="model.department" /><br/>--%>
@@ -102,6 +105,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		</fieldset>
     	
     </form>
+    <script> 
+		$('#addForm').checkForm();
+	</script>
+	    
     </div>
   </body>
 </html>

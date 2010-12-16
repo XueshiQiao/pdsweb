@@ -189,6 +189,17 @@
 <!--		</action>-->
 	</package>
 	
+	<package name="ajaxfileupload" namespace="/" extends="ajaxfileupload-default">
+		<action name="ajaxfileupload" class="com.pds.action.AjaxUpload">
+			<interceptor-ref name="fileUploadStack" /> 
+			
+			<result name="success" type="httpheader">
+				<param name="status">200</param>
+			</result>
+		</action>
+	</package>
+	
+	
 	<package name="file" extends="struts-default" namespace="/file">
 		<action name="*" class="com.pds.action.FileAction" method="{1}">
 			<result>/file/{1}.jsp</result>

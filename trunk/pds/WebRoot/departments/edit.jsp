@@ -29,6 +29,9 @@
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 		<link rel="stylesheet" href="departments/niceforms-default.css"></link>
+		
+		<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+		<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
 		<script type="text/javascript">
 			$(function() {
 				$("#submit").button(); //
@@ -52,7 +55,7 @@
 	<body>
 		<div id="container">
 
-			<form id="addForm" action="departments/update" method="post"
+			<form id="editForm" action="departments/update" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>
@@ -89,19 +92,20 @@
 							</label>
 						</dt>
 						<dd>
-							<textarea id="content" name="model.content" rows="5" cols="60">
+							<textarea id="content" name="model.content" rows="5" cols="60" require="true" datatype="require" msg="内容不能为空">
 								<s:property value='model.content' />
 							</textarea>
 						</dd>
 					</dl>
 					<script type="text/javascript">
-						CKEDITOR.replace( 'content');
+						CKEDITOR.replace( 'content'); //启用Ckeditor
+						$("#editForm").checkForm(); //启用表单验证
 					</script>
 					
 					
 				</fieldset>
 				<fieldset>
-					<span class="btnEdit"> <input align="middle" id="submit"
+					<span class="btnEdit"> <input align="middle" id="submit" 
 							type="submit" value="保存修改" /> </span>
 				</fieldset>
 			</form>

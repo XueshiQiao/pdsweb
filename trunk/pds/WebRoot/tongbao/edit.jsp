@@ -32,6 +32,8 @@
 <script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 <script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 <link rel="stylesheet" href="tongbao/niceforms-default.css"></link>
+<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
 <script type="text/javascript">
 	$(function() {
 		$("#submit").button(); //
@@ -55,7 +57,7 @@
 	<body>
 		<div id="container">
 
-			<form id="addForm" action="tongbao/add" method="post"
+			<form id="editForm" action="tongbao/add" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>
@@ -80,7 +82,7 @@
 						</dt>
 						<dd>
 							<input type="text" name="model.department" size="32"
-								value="<s:property value='model.department'/>" maxlength="128" />
+								value="<s:property value='model.department' />" require="true" datatype="require" msg="此项不能为空" maxlength="128" />
 						</dd>
 					</dl>
 					<dl>
@@ -91,7 +93,7 @@
 						</dt>
 						<dd>
 							<input type="text" name="model.stuClass" size="32"
-								value="<s:property value='model.stuClass'/>" maxlength="128" />
+								value="<s:property value='model.stuClass'/>"  require="true" datatype="require" msg="此项不能为空" maxlength="128" />
 						</dd>
 					</dl>
 					<dl>
@@ -102,7 +104,7 @@
 						</dt>
 						<dd>
 							<input type="text" name="model.stuName" id="email" size="32"
-								value="<s:property value='model.stuName'/>" maxlength="128" />
+								value="<s:property value='model.stuName'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />
 						</dd>
 					</dl>
 					<dl>
@@ -112,7 +114,7 @@
 							</label>
 						</dt>
 						<dd>
-							<textarea name="model.reason" rows="5" cols="60"><s:property value='model.reason'/></textarea>
+							<textarea name="model.reason" rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"><s:property value='model.reason'/></textarea>
 						</dd>
 					</dl>
 					<dl>
@@ -123,7 +125,7 @@
 						</dt>
 						<dd>
 							<input type="text" name="model.dormitory" id="email" size="32"
-								value="<s:property value='model.dormitory'/>" maxlength="128" />
+								value="<s:property value='model.dormitory'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />
 						</dd>
 					</dl>
 					<dl>
@@ -133,7 +135,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.date" id="email" size="32"
+							<input type="text" name="model.date" id="email" size="32" readonly="true"
 								value="<s:date name='model.date' format='yyyy-MM-dd HH:mm:ss'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -145,6 +147,9 @@
 				</fieldset>
 
 			</form>
+			    <script> 
+					$('#editForm').checkForm();
+				</script>
 		</div>
 	</body>
 </html>

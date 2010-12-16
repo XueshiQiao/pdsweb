@@ -1,0 +1,23 @@
+/**
+表单验证框架
+	使用需要加入下面两个
+	<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+	<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
+*/
+
+.errorTip{
+	background-image:url(images/access_disallow.gif);
+	background-repeat:no-repeat;
+	padding-left:16px;
+}
+ 
+.errorInput{
+	background-color:#FFCC33;
+}
+ 
+.validTip{
+	background-image:url(images/access_allow.gif);
+	background-repeat:no-repeat;
+	background-position:left top ;
+	padding:2px;
+}

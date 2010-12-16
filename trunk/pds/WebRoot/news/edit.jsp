@@ -27,6 +27,9 @@
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 		<link rel="stylesheet" href="hotarticle/niceforms-default.css"></link>
+		
+		<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+		<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
 		<script type="text/javascript">
 			$(function() {
 				$("#submit").button(); //
@@ -48,23 +51,9 @@
 	</head>
 
 	<body>
-	    <!-- 
-    
-    private int id; //id
-	private String title; //标题
-	private String content; //内容 
-	private String author; //作者，发布人
-	private Date date; //更新时间日期
-	
-	private String brief; //文章概要
-//	private String thumbnail;//缩略图
-	
-	private int visitedCount; //点击量，访问量
-	private String dep;//文章来自哪个部门
-     -->
 		<div id="container">
 
-			<form id="updateForm" action="news/update" method="post"
+			<form id="editForm" action="news/update" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>
@@ -99,7 +88,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.title" size="32"
+							<input type="text" name="model.title" size="32" require="true" datatype="require" msg="标题不能为空" 
 								value="<s:property value='model.title'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -110,7 +99,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.dep" size="32"
+							<input type="text" name="model.dep" size="32" require="true" datatype="require" msg="部门不能为空" 
 								value="<s:property value='model.dep'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -122,7 +111,7 @@
 							</label>
 						</dt>
 						<dd>
-							<textarea id="content" name="model.content" rows="5" cols="60">
+							<textarea id="content" name="model.content" rows="5" cols="60" require="true" datatype="require" msg="内容不能为空" >
 								<s:property value='model.content' />
 							</textarea>
 						</dd>
@@ -139,8 +128,20 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.visitedCount" size="32"
+							<input type="text" name="model.visitedCount" size="32" require="true" datatype="integer" msg="浏览量不能为空，且必须为整数" 
 								value="<s:property value='model.visitedCount'/>" maxlength="128" />
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>
+							<label for="model.date">
+								发布日期:
+							</label>
+						</dt>
+						<dd>
+							<input type="text" name="model.date" size="32" readonly="true"
+								value="<s:date name='model.date' format='yyyy-MM-dd HH:mm:ss'/>" maxlength="128" />
 						</dd>
 					</dl>
 					
@@ -150,6 +151,10 @@
 							type="submit" value="保存修改" /> </span>
 				</fieldset>
 			</form>
+			
+			<SCRIPT type="text/javascript">
+				$("#editForm").checkForm();
+			</SCRIPT>
 		</div>
 	</body>
 </html>
