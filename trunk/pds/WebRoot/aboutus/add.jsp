@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<script type="text/javascript">
 			CKEDITOR.replace( 'introduction',{
 				filebrowserUploadUrl:'upload/ckeditorUpload.action'
-				});
+				});  
 			CKEDITOR.replace( 'history');
 			CKEDITOR.replace( 'competency');
 			CKEDITOR.replace( 'contact');
