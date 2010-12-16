@@ -63,6 +63,9 @@ a:active {
 	font-size:12px;
 	margin-top:10px;
 }
+input[type=text]{
+	width:230px;
+}
 -->
 </style>
 		<script type="text/javascript" src="../js/jquery-1.4.2.js"></script>
@@ -76,109 +79,108 @@ a:active {
 		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="../jqueryui/ui/jquery.ui.button.js"></script>
 		
-		<%--<link rel="stylesheet" href="../demos.css"></link>--%>
+		<script type="text/javascript" src="../js/jqvalidator/jquery.validator.js"></script>
+		<link rel="stylesheet" href="../js/jqvalidator/jqvalidator.css"></link>
 		<script type="text/javascript">
-	$(function() {
-		$("#btnAdd").button(); //
-	});
-	</script>
+			$(function() {
+				$("#btnAdd").button(); //
+			});
+		</script>
 		<script type="text/javascript">
 	
-	var url = "../link/list.action?pageNo=";
-	//转向用户输入的那一页
-	function turnToPage(){
-		var pageNo = getInputPageNo();
+			var url = "../link/list.action?pageNo=";
+			//转向用户输入的那一页
+			function turnToPage(){
+				var pageNo = getInputPageNo();
+				
+				if(!pageNo){
+					return false;
+				}else{
+					window.location=url+pageNo; 
+				}
+			}
+			//转向某一页
+			function turnToPageByPageNo(pageNo){
+				if(pageNo == false){
+					return false;
+				}else{
+					window.location=url+pageNo; 
+				}
+			}
+			//转向第一页
+			function turnToFirstPage(){
+				if(getCurrentPageNo() != 1){
+					turnToPageByPageNo(1);
+				}
+			}
+			//跳到前一页
+			function turnToPrePage(){
+				var currentPageNo = getCurrentPageNo();
+				if(currentPageNo == "undefined" || currentPageNo <= 1 || isNaN(currentPageNo)){
+					return false;
+				}else{
+					turnToPageByPageNo(currentPageNo-1);
+				}
+			}
+			//跳到下一页
+			function turnToNextPage(){
+				var currentPageNo = getCurrentPageNo();
+				var pageCount = getPageCount();
+				if(currentPageNo == "undefined" || pageCount == "undefined" || isNaN(currentPageNo) || currentPageNo >= pageCount){
+					return false;
+				}else{
+					turnToPageByPageNo(currentPageNo+1);
+				}
+			}
+			//转到最后一页
+			function turnToLastPage(){
+				if(getCurrentPageNo() != getPageCount()){
+					turnToPageByPageNo(getPageCount());
+				}
+			}
+			
+			//得到当前页码
+			function getCurrentPageNo(){
+				return parseInt($("#currentPageNo").text()); 
+			}
+			//得到总页数
+			function getPageCount(){
+				return parseInt($("#pageCount").text());
+			}
+			
+			//得到用户输入的要转向的页数
+			function getInputPageNo(){
+				var value = $("#pageNo").val();
+				if(value == "" || value == "undefined" || isNaN(value) || value < 0 ){
+					return false;
+				} else{
+					return value;
+				}
+			}
 		
-		if(!pageNo){
-			return false;
-		}else{
-			window.location=url+pageNo; 
-		}
-	}
-	//转向某一页
-	function turnToPageByPageNo(pageNo){
-		if(pageNo == false){
-			return false;
-		}else{
-			window.location=url+pageNo; 
-		}
-	}
-	//转向第一页
-	function turnToFirstPage(){
-		if(getCurrentPageNo() != 1){
-			turnToPageByPageNo(1);
-		}
-	}
-	//跳到前一页
-	function turnToPrePage(){
-		var currentPageNo = getCurrentPageNo();
-		if(currentPageNo == "undefined" || currentPageNo <= 1 || isNaN(currentPageNo)){
-			return false;
-		}else{
-			turnToPageByPageNo(currentPageNo-1);
-		}
-	}
-	//跳到下一页
-	function turnToNextPage(){
-		var currentPageNo = getCurrentPageNo();
-		var pageCount = getPageCount();
-		if(currentPageNo == "undefined" || pageCount == "undefined" || isNaN(currentPageNo) || currentPageNo >= pageCount){
-			return false;
-		}else{
-			turnToPageByPageNo(currentPageNo+1);
-		}
-	}
-	//转到最后一页
-	function turnToLastPage(){
-		if(getCurrentPageNo() != getPageCount()){
-			turnToPageByPageNo(getPageCount());
-		}
-	}
-	
-	//得到当前页码
-	function getCurrentPageNo(){
-		return parseInt($("#currentPageNo").text()); 
-	}
-	//得到总页数
-	function getPageCount(){
-		return parseInt($("#pageCount").text());
-	}
-	
-	//得到用户输入的要转向的页数
-	function getInputPageNo(){
-		var value = $("#pageNo").val();
-		if(value == "" || value == "undefined" || isNaN(value) || value < 0 ){
-			return false;
-		} else{
-			return value;
-		}
-	}
-
-
-	var deleteConfirmation = $('<div style="padding:5px;width:400px;height:200px;">确定要删除吗？</div>');
-	/////////// delete record //////////////
-	function showDeleteConfirmation(id){
-		deleteConfirmation.dialog({
-			//modal:true,
-		    title:'确认删除？',
-		    buttons:{
-		    	'删除':function(){
-					deleteRecord(id);
-		        },
-		        '取消':function(){
-		            $(this).dialog('close');
-		        }
-		    }
-		});
-		return false;
-	}
-	
-	function deleteRecord(id){
-		window.location =  "delete?id="+id;
-	}
-
-	
-</script>
+		
+			var deleteConfirmation = $('<div style="padding:5px;width:400px;height:200px;">确定要删除吗？</div>');
+			/////////// delete record //////////////
+			function showDeleteConfirmation(id){
+				deleteConfirmation.dialog({
+					//modal:true,
+				    title:'确认删除？',
+				    buttons:{
+				    	'删除':function(){
+							deleteRecord(id);
+				        },
+				        '取消':function(){
+				            $(this).dialog('close');
+				        }
+				    }
+				});
+				return false;
+			}
+			
+			function deleteRecord(id){
+				window.location =  "delete?id="+id;
+			}
+		</script>
 
 
 	</head>
@@ -431,19 +433,22 @@ a:active {
 				<table>
 					<tr>
 						<td>标题：</td>
-						<td><input type="text" name="model.name"/></td>	
+						<td><input type="text" name="model.name" require="true" datatype="require" msg="内容不能为空" /></td>	
 					</tr>
 					<tr>
 						<td>链接地址：</td>
-						<td><input type="text" name="model.url" /></td>	
+						<td><input type="text" name="model.url" widtd="300px" require="true" datatype="url" msg="必须为url格式的地址"  /></td>	
 					</tr>
 					<tr>
 						<td>序号:</td>
-						<td><input type="text" name="model.sortId"/>注：根据该序号进行排序，越小越靠前，最小为0。</td>	
+						<td><input type="text" text="0" name="model.sortId" require="true" datatype="integer" msg="序号不能为空，默认为0" />（注：根据该序号进行排序，越小越靠前，最小为0。）</td>	
 					</tr>
 				</table>
 				<input type="submit" id="btnAdd" value="新增记录" />
 			</form>
+			<script type="text/javascript">
+				$("#addLink").checkForm();
+			</script>
 		</div>
 	</body>
 </html>

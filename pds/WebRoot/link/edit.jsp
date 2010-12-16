@@ -27,6 +27,10 @@
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 		<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 		<link rel="stylesheet" href="hotarticle/niceforms-default.css"></link>
+		
+		
+		<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+		<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
 		<script type="text/javascript">
 			$(function() {
 				$("#submit").button(); //
@@ -74,7 +78,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.name" size="32"
+							<input type="text" name="model.name" size="32" require="true" datatype="require" msg="标题不能为空" 
 								value="<s:property value='model.name'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -85,7 +89,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.url" size="32"
+							<input type="text" name="model.url" size="32" require="true" datatype="url" msg="地址必须为url格式的地址" 
 								value="<s:property value='model.url'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -96,7 +100,7 @@
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.sortId" size="32"
+							<input type="text" name="model.sortId" size="32" require="true" datatype="integer" msg="序号必须为数字" 
 								value="<s:property value='model.sortId'/>" maxlength="128" />
 						</dd>
 					</dl>
@@ -107,6 +111,9 @@
 							type="submit" value="保存修改" /> </span>
 				</fieldset>
 			</form>
+			<script type="text/javascript">
+				$("#updateForm").checkForm();
+			</script>
 		</div>
 	</body>
 </html>

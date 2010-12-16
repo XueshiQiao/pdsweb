@@ -30,6 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<!-- nice form -->
 <%--	<script language="javascript" type="text/javascript" src="tongbao/niceforms.js"></script>--%>
 	<link rel="stylesheet" href="news/niceforms-default.css"></link>
+	<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
+	<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
 	
 		
 	<script type="text/javascript">
@@ -69,20 +71,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </head>
   
   <body>
-    <!-- 
-    
-    private int id; //id
-	private String title; //标题
-	private String content; //内容 
-	private String author; //作者，发布人
-	private Date date; //更新时间日期
-	
-	private String brief; //文章概要
-//	private String thumbnail;//缩略图
-	
-	private int visitedCount; //点击量，访问量
-	private String dep;//文章来自哪个部门
-     -->
     <div id="container">
     
     <form id="addForm" action="news/add" method="post" class="niceform">
@@ -90,11 +78,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	    	<legend>添加新闻</legend>
 	    	<dl>
 	        	<dt><label for="model.title">标题:</label></dt>
-	            <dd><input type="text" name="model.title" size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.title" size="32" maxlength="128" require="true" datatype="require" msg="标题不能为空" /></dd>
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.dep">部门:</label></dt>
-	            <dd><input type="text" name="model.dep" size="32" maxlength="128" /></dd>
+	            <dd><input type="text" name="model.dep" size="32" maxlength="128" require="true" datatype="require" msg="标题不能为空" /></dd>
 	        </dl>
 	        <dl>
 				<dt>
@@ -103,13 +91,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</label>
 				</dt>
 				<dd>
-					<textarea id="content" name="model.content" rows="5" cols="60">
+					<textarea id="content" name="model.content" rows="5" cols="60" require="true" datatype="require" msg="标题不能为空" >
 					</textarea>
 				</dd>
 			</dl>
 
 			<script type="text/javascript">
 				CKEDITOR.replace( 'content');
+				$("#addForm").checkForm();
 			</script>
 	    	
     	</fieldset>
