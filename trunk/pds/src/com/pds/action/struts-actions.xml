@@ -3,7 +3,7 @@
 <struts>
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	
-	<!--  -->
+	<!--全局的包，所有包都要继承该包 -->
 	<package name="global-config" extends="struts-default" abstract="true">
 		<interceptors>
 			<interceptor name="authInterceptor" class="com.pds.interceptor.BgUserAuthInterceptor">
