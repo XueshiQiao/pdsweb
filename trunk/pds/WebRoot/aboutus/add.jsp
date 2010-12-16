@@ -55,7 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	<span class="label">职能：</span> <textarea id="competency"  name="aboutUs.competency"></textarea><br />
     	<span class="label">联系方式：</span> <textarea id="contact"  name="aboutUs.contact"></textarea><br />
     	<script type="text/javascript">
-			CKEDITOR.replace( 'introduction');
+			CKEDITOR.replace( 'introduction',{
+				filebrowserUploadUrl:'upload/ckeditorUpload.action'
+				});
 			CKEDITOR.replace( 'history');
 			CKEDITOR.replace( 'competency');
 			CKEDITOR.replace( 'contact');
