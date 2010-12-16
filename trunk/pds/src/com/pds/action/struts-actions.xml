@@ -3,22 +3,32 @@
 <struts>
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 	
-	<package name="aboutus" extends="struts-default" namespace="/aboutus">
-
-		<!-- 定义全局结果 在下面所有的Action中均可以使用 -->
+	<!--  -->
+	<package name="global-config" extends="struts-default" abstract="true">
+		<interceptors>
+			<interceptor name="authInterceptor" class="com.pds.interceptor.BgUserAuthInterceptor">
+				<param name="name">authInterceptor</param>
+				<param name="includedMethods">list,add,delete,update,edit</param> <!--受权限保护的方法，中间用英文逗号隔开-->
+			</interceptor>
+			<interceptor-stack name="withAuthInterceptor">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="authInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="withAuthInterceptor" /> <!-- 设置默认的拦截器栈 -->
 		<global-results>
-			<result name="error">/404.jsp</result>  <!-- 现在404并不转到404页面。 -->
-			<!-- 现在依靠web.xml中的配置404页面。 -->
+			<result name="login">/login.jsp</result>
+			<result name="exception">/exception.jsp</result>
+			<result name="forbidden">/forbidden.jsp</result>
 		</global-results>
-
-		<!-- 全局异常映射定义 -->
 		<global-exception-mappings>
-			<exception-mapping result="sqlException" exception="java.sql.SQLException" />
+			<exception-mapping result="exception" exception="java.lang.Exception" />
 		</global-exception-mappings>
-		
-		
+	</package>
+	
+	<package name="aboutus" extends="global-config" namespace="/aboutus">
+
 		<action name="*" class="com.pds.action.AboutUsAction" method="{1}">
-			<result name="sqlException">/error.jsp</result>
 			<result>/aboutus/{1}.jsp</result>
 			<result name="input">/aboutus/error.jsp</result>
 			<result name="error">/aboutus/{1}Fail.jsp</result>
@@ -32,7 +42,7 @@
 		</action>
 	</package>
 
-	<package name="tongbao" extends="struts-default" namespace="/tongbao">
+	<package name="tongbao" extends="global-config" namespace="/tongbao">
 		<action name="*" class="com.pds.action.CriticismAction" method="{1}">
 			<result>/tongbao/{1}.jsp</result>
 			<result name="index">/tongbao/index.jsp</result>
@@ -43,10 +53,11 @@
 			<result name="updateSuccess">/tongbao/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/tongbao/deleteSuccess.jsp</result>
 			<result name="toAdd">/tongbao/add.jsp</result>
+			<interceptor-ref name="withAuthInterceptor"/>
 		</action>
 	</package>
 
-	<package name="rules" extends="struts-default" namespace="/rules">
+	<package name="rules" extends="global-config" namespace="/rules">
 		<action name="*" class="com.pds.action.RulesAction" method="{1}">
 			<result>/rules/{1}.jsp</result>
 			<result name="index">/rules/index.jsp</result>
@@ -60,7 +71,7 @@
 		</action>
 	</package>
 	
-	<package name="departments" extends="struts-default" namespace="/departments">
+	<package name="departments" extends="global-config" namespace="/departments">
 		<action name="*" class="com.pds.action.DepartmentsAction" method="{1}">
 			<result>/departments/{1}.jsp</result>
 			<result name="index">/departments/index.jsp</result>
@@ -74,7 +85,7 @@
 		</action>
 	
 	</package>
-	<package name="hotarticle" extends="struts-default" namespace="/hotarticle">
+	<package name="hotarticle" extends="global-config" namespace="/hotarticle">
 		<action name="*" class="com.pds.action.HotArticleAction" method="{1}">
 			<result>/hotarticle/{1}.jsp</result>
 			<result name="index">/hotarticle/index.jsp</result>
@@ -92,7 +103,7 @@
 	
 	</package>
 	
-	<package name="news" extends="struts-default" namespace="/news">
+	<package name="news" extends="global-config" namespace="/news">
 		<action name="*" class="com.pds.action.NewsAction" method="{1}">
 			<result>/news/{1}.jsp</result>
 			<result name="index">/news/index.jsp</result>
@@ -109,7 +120,7 @@
 		</action>
 	</package>
 	
-	<package name="link" extends="struts-default" namespace="/link">
+	<package name="link" extends="global-config" namespace="/link">
 		<action name="*" class="com.pds.action.LinkAction" method="{1}">
 			<result>/link/{1}.jsp</result>
 			<result name="error">/link/{1}Fail.jsp</result>
@@ -125,7 +136,7 @@
 		</action>
 	</package>
 
-	<package name="upload" extends="struts-default" namespace="/upload">
+	<package name="upload" extends="global-config" namespace="/upload">
 		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">
 			<interceptor-ref name="fileUpload">
 				<!--配置允许上传的类型 -->
@@ -136,7 +147,7 @@
 				<param name="maximumSize">10485760</param>
 			</interceptor-ref>
 			<!-- 配置系统默认拦截器 -->
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="withAuthInterceptor" />
 			
 			<!-- 动态设置Action中的savePath属性 -->
 			<param name="savePath">/uploads</param>
@@ -153,7 +164,7 @@
 				<!--配置允许上传的大小 10M -->
 				<param name="maximumSize">10485760</param>
 			</interceptor-ref>
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="withAuthInterceptor" />
 			<param name="savePath">/uploads/images</param>
 			<result name="input">/file/upload.jsp</result>
 			<result name="uploadSuccess">/file/uploadSucc.jsp</result>
@@ -170,7 +181,7 @@
 				<param name="maximumSize">10485760</param>
 			</interceptor-ref>
 			<!-- 配置系统默认拦截器 -->
-			<interceptor-ref name="defaultStack" />
+			<interceptor-ref name="withAuthInterceptor" />
 			
 			<!-- 动态设置Action中的savePath属性 -->
 			<param name="savePath">/images</param>
@@ -189,18 +200,20 @@
 <!--		</action>-->
 	</package>
 	
-	<package name="ajaxfileupload" namespace="/" extends="ajaxfileupload-default">
-		<action name="ajaxfileupload" class="com.pds.action.AjaxUpload">
-			<interceptor-ref name="fileUploadStack" /> 
-			
-			<result name="success" type="httpheader">
-				<param name="status">200</param>
-			</result>
-		</action>
-	</package>
+	
+	<!-- 找不到ajaxfileupload-default TODO DELETE -->
+<!--	<package name="ajaxfileupload" namespace="/" extends="ajaxfileupload-default">-->
+<!--		<action name="ajaxfileupload" class="com.pds.action.AjaxUpload">-->
+<!--			<interceptor-ref name="fileUploadStack" /> -->
+<!--			-->
+<!--			<result name="success" type="httpheader">-->
+<!--				<param name="status">200</param>-->
+<!--			</result>-->
+<!--		</action>-->
+<!--	</package>-->
 	
 	
-	<package name="file" extends="struts-default" namespace="/file">
+	<package name="file" extends="global-config" namespace="/file">
 		<action name="*" class="com.pds.action.FileAction" method="{1}">
 			<result>/file/{1}.jsp</result>
 			<result name="index">/file/index.jsp</result>
@@ -214,7 +227,7 @@
 		</action>
 	</package>
 
-	<package name="download" extends="struts-default" namespace="/download" >
+	<package name="download" extends="global-config" namespace="/download" >
 		<!-- 文件下载，支持中文附件名 -->
 		<action name="download" class="com.pds.action.FileDownloadAction">
 			<!-- 初始文件存放路径 -->
@@ -249,10 +262,9 @@
 		</action>
 	</package>
 
+	<!-- backGroundUser不受限制 -->
 	<package name="backGroundUser" extends="struts-default" namespace="/backGroundUser">
 		<action name="*" class="com.pds.action.BackgroundUserAction" method="{1}">
-			<result name="index">/WEB-INF/backGroundUser/index.jsp</result>
-			<result name="test">/WEB-INF/backGroundUser/index.jsp</result>
 		</action>
 	</package>
 </struts>    

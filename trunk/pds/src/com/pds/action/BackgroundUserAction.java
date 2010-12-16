@@ -22,6 +22,7 @@ public class BackgroundUserAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 	//保存用户登录信息到Session中的key.
 	public static final String USER_LOGIN_KEY = "user_login";
+	public static final String USER_ROLE = "user_role";
 
 	@Resource
 	private BackgroundUserService service ;

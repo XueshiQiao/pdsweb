@@ -1,6 +1,3 @@
-/**
- * BY qiaoxueshi at pingdingshan university
- */
 package com.pds.model;
 
 import javax.persistence.Column;

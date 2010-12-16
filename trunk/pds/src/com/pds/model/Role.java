@@ -3,6 +3,7 @@
  */
 package com.pds.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,12 +35,12 @@ public class Role {
 	public void setName(String name) {
 		this.name = name;
 	}
+	@Column(length=1024)
 	public String getRights() {
 		return rights;
 	}
 	public void setRights(String rights) {
 		this.rights = rights;
 	}
-	
 	
 }
