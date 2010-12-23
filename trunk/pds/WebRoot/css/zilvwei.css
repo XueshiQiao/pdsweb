@@ -1,0 +1,276 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* 高为10个像素大小的空间**/
+.s10 {
+	height:10px;
+	clear:both
+}
+a{
+	color:#fff;
+	text-decoration:none;
+}
+a:hover{
+	text-decoration:underline;
+}
+
+.bar_title{
+	padding-top:9px;
+	padding-left:40px;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+}
+
+.topImg {
+	height:130px;
+}
+
+/* 导航 */
+#navigate{
+	background:url(../img/nav_back.gif) repeat-x;
+	text-align:center;
+}
+.nav {
+	
+	height:35px;
+	line-height: 35px;/*background:url(../img/nav_back.gif) repeat-x;
+	*/
+}
+.nav ul {
+	list-style-type: none;
+	
+}
+.nav ul li {
+	float:left;
+	text-align:center;
+}
+#firstNavItem{
+	margin-left:40px;
+}
+.nav ul li a {
+	display: block;
+	width:95px;
+	text-align:center;
+ 	color:#FFF;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	
+	margin:auto 3px;
+}
+.nav ul li a:visited {
+	text-decoration:none;
+}
+.nav ul li a:hover {
+	text-decoration:none;
+	background:url(../img/nav_over.gif) no-repeat center bottom
+}
+.nav ul li img {
+	margin:auto -1px;
+}
+
+.lastestText{
+	margin:3px;
+	height:30px;
+	
+	font-size:14px;
+	color:#0066CC;
+	text-align:left;
+	margin-top:4px;
+}
+.lastestTestTitle .lastestTestContent{
+	margin-top:4px;
+}
+#lastestTestTitle{
+	width:70px;
+	float:left;
+	padding-left:10px;
+	padding-top:8px;
+}
+#lastestTextContent{
+	width:840px;
+	padding-top:8px;
+	padding-right:10px;
+	float:right;
+}
+.scrollPics, .hotNews, .login {
+	height:245px;
+}
+.people, .fengcai, .download {
+	height:280px;
+}
+
+.hotNews{
+	background:url(../img/hotnews_label.gif) no-repeat left top;
+}
+
+#hotnewsLable{
+	height:30px;
+}
+
+#hotnewsLable #title{
+	font-weight:bold;
+	position:relative;
+	margin-left:30px;
+	margin-top:6px;
+}
+#hotnewsContent{
+	height:208px;
+}
+h4{
+	padding-top:2px;
+	font-size:15px;
+	font-weight:bold;
+	text-align:center;
+}
+h4 a{
+	color:#ff5800;
+}
+#newsList{
+	line-height:23px;
+	overflow:hidden;
+	margin:3px 2px 1px 2px;
+}
+#newsList a{
+	color:#000000;
+	font-size:14px;
+}
+.articleList{
+	line-height:23px;
+	overflow:hidden;
+	margin:15px 2px 1px 5px;
+	font-size:14px;
+}
+.articleList a{
+	color:#000000;
+}
+
+.articleWithPic{
+	height:200px;
+	background:url(../img/bar_bottom.gif) repeat-x top left;
+}
+
+
+.tuwen_title{
+	padding-top:9px;
+	padding-left:20px;
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	height:34px;/* 那张图片高为34px*/
+}
+.more{
+	position:relative;
+	font-size:12px;
+	color:#fff;
+	font-weight:normal;
+	float:right;
+	margin-right:20px;
+	margin-top:-8px;
+}
+.tuwen_content{
+	height:157px; /*总宽度(200)-图片的长度(34) - 图片的padding (9) =157*/
+	margin-top:-10px;
+	text-align:left;
+}
+
+div .picTextItem{
+	display:inline-block;
+	width:200px;
+	height:100px;
+}
+
+
+
+.links {
+	height:105px;
+	background:#f0efef;
+	
+}
+.link_title{
+	color:#666666;
+	padding-left:10px;
+}
+.links #content{
+	margin:10px 20px 10px 20px;
+	background:#fff;
+	height:60px;
+	
+	font-size:12px;
+	color:#4b4b4b;
+	position:relative;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow:auto;
+}
+#content a{
+	display:inline-block;
+	position:relative;
+	padding:2px ;
+	
+	text-decoration:none;
+	font-size:12px;
+	color:#656565;
+
+	overflow:auto;	
+}
+#content a:hover{
+	background:#666666;
+	color:#FFFFFF;
+}
+
+.selfLinksAndCopyright {
+	margin-top:20px;
+}
+.selfLink  {
+	height:30px;
+	text-align:center;
+	
+	color:#1273aa;
+	font-size:12px;
+	
+}
+.manager_link{
+	color:#1273aa;
+	text-decoration:none;
+}
+.manager_link:hover{
+	color:#333333;
+	text-decoration:underline;
+}
+.copyright {
+	height:40px;
+	text-align:center;
+	
+	font-size:12px;
+	color:#4b4b4b;
+	position:relative;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	overflow:auto;
+}
+.people{
+	background:url(../img/bar_1.gif) no-repeat top left;
+}
+.fengcai{
+	background:url(../img/bar_2.gif) no-repeat top left;
+}
+.download{
+	background:url(../img/bar_3.gif) no-repeat top left;
+}
+
+
+
+.beautifulPic{
+	height:81px;
+	background:url(../img/center_bar.gif) no-repeat center;
+}
+.titleStyle{
+	font-weight:bold;
+	font-size:14px;
+	color:#6b6b6b;
+	position:relative;
+	margin-bottom: 10px;
+	margin-top: 10px;
+}

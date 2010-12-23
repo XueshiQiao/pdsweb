@@ -4,6 +4,8 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
 
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -45,7 +47,33 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body>
-<jsp:include page="subpage/head.jsp" />
+<div class="box">
+  <div class="my_span_24 topImg">顶部图片</div>
+  <div class="s10"></div>
+</div>
+<div class="box" >
+  <div class="span_24 nav" id="navigate">
+    <ul>
+      <li ><img src="img/nav_left.gif" /></li>
+      <li id="firstNavItem"><a href="">首页</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">自律委简介</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">机构设置</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">热门文章</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">自律委风采</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">资料下载</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">通报批评</a></li>
+      <li><img src="img/nav_jiange.gif" /></li>
+      <li><a href="">留言板</a></li>
+      <li><img src="img/nav_right.gif" /></li>
+    </ul>
+  </div>
+</div>
 <!--<marquee direction="left" loop=0 scrolldelay="150">
       …………要滚动的文字………
       </marquee>-->
@@ -305,7 +333,23 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
 </div>
 <div class="s10"></div>
-<jsp:include page="subpage/tail.jsp" />
+<div class="box">
+  <div class="span_24 links" >
+    <div class="bar_title link_title">友情链接</div>
+    <div id="content"> <a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a><a href="#">设为首页</a> </div>
+  </div>
+</div>
+<div class="s10"></div>
+<div class="box selfLinksAndCopyright">
+  <div class="span_24 selfLink" > <a href="#" class="manager_link">设为首页</a> | <a href="#" class="manager_link">添加收藏</a> | <a href="#" class="manager_link">联系站长</a> | <a href="#" class="manager_link">技术支持</a> | <a href="#" class="manager_link">管理登陆</a> </div>
+  <div class="span_24 copyright" > 平顶山学院自律与监督委员会 <br />
+    Copyright © 2000-2010 All Rights Reserved </div>
+</div>
+
+<div class="s10"></div>
+<div class="box">
+
+<div>
 <script type="text/javascript">
 
     $("#scrollDiv").YlMarquee({
