@@ -64,7 +64,4 @@ public class News extends Article {
 	public int getVisitedCount() {
 		return super.getVisitedCount();
 	}
-	
-	
-	
 }

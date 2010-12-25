@@ -57,7 +57,7 @@
 	<body>
 		<div id="container">
 
-			<form id="editForm" action="tongbao/add" method="post"
+			<form id="editForm" action="tongbao/update" method="post"
 				class="niceform">
 				<fieldset>
 					<legend>
@@ -87,47 +87,57 @@
 					</dl>
 					<dl>
 						<dt>
-							<label for="model.stuClass">
-								班级:
+							<label for="model.content">
+								通报内容:
 							</label>
 						</dt>
 						<dd>
-							<input type="text" name="model.stuClass" size="32"
-								value="<s:property value='model.stuClass'/>"  require="true" datatype="require" msg="此项不能为空" maxlength="128" />
+							<textarea name="model.content" rows="12" cols="60" require="true" datatype="require" msg="此项不能为空"><s:property value='model.reason'/></textarea>
 						</dd>
 					</dl>
-					<dl>
-						<dt>
-							<label for="model.stuName">
-								学生姓名
-							</label>
-						</dt>
-						<dd>
-							<input type="text" name="model.stuName" id="email" size="32"
-								value="<s:property value='model.stuName'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<label for="model.reason">
-								通报原因:
-							</label>
-						</dt>
-						<dd>
-							<textarea name="model.reason" rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"><s:property value='model.reason'/></textarea>
-						</dd>
-					</dl>
-					<dl>
-						<dt>
-							<label for="model.dormitory">
-								所在宿舍:
-							</label>
-						</dt>
-						<dd>
-							<input type="text" name="model.dormitory" id="email" size="32"
-								value="<s:property value='model.dormitory'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />
-						</dd>
-					</dl>
+<%--					<dl>--%>
+<%--						<dt>--%>
+<%--							<label for="model.stuClass">--%>
+<%--								班级:--%>
+<%--							</label>--%>
+<%--						</dt>--%>
+<%--						<dd>--%>
+<%--							<input type="text" name="model.stuClass" size="32"--%>
+<%--								value="<s:property value='model.stuClass'/>"  require="true" datatype="require" msg="此项不能为空" maxlength="128" />--%>
+<%--						</dd>--%>
+<%--					</dl>--%>
+<%--					<dl>--%>
+<%--						<dt>--%>
+<%--							<label for="model.stuName">--%>
+<%--								学生姓名--%>
+<%--							</label>--%>
+<%--						</dt>--%>
+<%--						<dd>--%>
+<%--							<input type="text" name="model.stuName" id="email" size="32"--%>
+<%--								value="<s:property value='model.stuName'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />--%>
+<%--						</dd>--%>
+<%--					</dl>--%>
+<%--					<dl>--%>
+<%--						<dt>--%>
+<%--							<label for="model.reason">--%>
+<%--								通报原因:--%>
+<%--							</label>--%>
+<%--						</dt>--%>
+<%--						<dd>--%>
+<%--							<textarea name="model.reason" rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"><s:property value='model.reason'/></textarea>--%>
+<%--						</dd>--%>
+<%--					</dl>--%>
+<%--					<dl>--%>
+<%--						<dt>--%>
+<%--							<label for="model.dormitory">--%>
+<%--								所在宿舍:--%>
+<%--							</label>--%>
+<%--						</dt>--%>
+<%--						<dd>--%>
+<%--							<input type="text" name="model.dormitory" id="email" size="32"--%>
+<%--								value="<s:property value='model.dormitory'/>" require="true" datatype="require" msg="此项不能为空" maxlength="128" />--%>
+<%--						</dd>--%>
+<%--					</dl>--%>
 					<dl>
 						<dt>
 							<label for="model.date">

@@ -7,21 +7,20 @@ import javax.annotation.Resource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
-import com.opensymphony.xwork2.Action;
 import com.pds.common.page.Paginable;
 import com.pds.core.BaseAction;
 import com.pds.model.AboutUs;
 import com.pds.service.AboutUsService;
 
 @Controller
-@Scope(value="prototype")   //TODO 设置为prototype
+@Scope(value="prototype")
 public class AboutUsAction extends BaseAction {
 	private static final long serialVersionUID = 5495728211877266147L;
 	
 	@Resource
 	private AboutUsService service ;
 	
-	private int id = 100; //TODO DELETE 100
+	private int id = 0; 
 	private AboutUs aboutUs;
 	private List<AboutUs> aboutUses;
 	private Paginable<AboutUs> page;
@@ -134,5 +133,4 @@ public class AboutUsAction extends BaseAction {
 	public void setPage(Paginable<AboutUs> page) {
 		this.page = page;
 	}
-
 }

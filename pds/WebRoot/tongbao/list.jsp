@@ -254,30 +254,36 @@ a:active {
 												院系
 											</div>
 										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
+										<td width="50%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
-												班级
+												内容
 											</div>
 										</td>
-										<td width="6%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												学生姓名
-											</div>
-										</td>
-										<td width="20%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												通报原因
-											</div>
-										</td>
-										<td width="10%" height="18" background="images/tab_14.gif"
-											class="STYLE1">
-											<div align="center" class="STYLE2 STYLE1">
-												所在宿舍
-											</div>
-										</td>
+<%--										<TD WIDTH="10%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
+<%--											CLASS="STYLE1">--%>
+<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
+<%--												班级--%>
+<%--											</DIV>--%>
+<%--										</TD>--%>
+<%--										<TD WIDTH="6%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
+<%--											CLASS="STYLE1">--%>
+<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
+<%--												学生姓名--%>
+<%--											</DIV>--%>
+<%--										</TD>--%>
+<%--										<TD WIDTH="20%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
+<%--											CLASS="STYLE1">--%>
+<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
+<%--												通报原因--%>
+<%--											</DIV>--%>
+<%--										</TD>--%>
+<%--										<TD WIDTH="10%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
+<%--											CLASS="STYLE1">--%>
+<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
+<%--												所在宿舍--%>
+<%--											</DIV>--%>
+<%--										</TD>--%>
 										<td width="15%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
@@ -317,24 +323,29 @@ a:active {
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="stuClass" />
+													<s:property value="content" />
 												</div>
 											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="stuName" />
-												</div>
-											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center">
-													<s:property value="reason" />
-												</div>
-											</td>
-											<td height="18" bgcolor="#FFFFFF">
-												<div align="center">
-													<s:property value="dormitory" />
-												</div>
-											</td>
+<%--											<td height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center" class="STYLE2 STYLE1">--%>
+<%--													<s:property value="stuClass" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
+<%--											<td height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center" class="STYLE2 STYLE1">--%>
+<%--													<s:property value="stuName" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
+<%--											<td height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center">--%>
+<%--													<s:property value="reason" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
+<%--											<td height="18" bgcolor="#FFFFFF">--%>
+<%--												<div align="center">--%>
+<%--													<s:property value="dormitory" />--%>
+<%--												</div>--%>
+<%--											</td>--%>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center">
 													<s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>

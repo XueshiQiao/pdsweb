@@ -3,24 +3,26 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 %>
+<%@taglib prefix="s" uri="/struts-tags" %>
 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>平顶山学院自律与监督委员会</title>
-<link type="text/css" href="css/24.css" rel="stylesheet" />
-<link type="text/css" href="css/my24.css" rel="stylesheet" />
-<link type="text/css" href="css/zilvwei.css" rel="stylesheet" />
-<script type="text/javascript" src="js/zilvwei.js" ></script>
-<script src="js/jquery-1.4.2.min.js" type="text/javascript"></script>
-<script src="js/YLMarquee-1.1.min.js" type="text/javascript"></script>
+<link type="text/css" href="<%=basePath%>css/24.css" rel="stylesheet" />
+<link type="text/css" href="<%=basePath%>css/my24.css" rel="stylesheet" />
+<link type="text/css" href="<%=basePath%>css/zilvwei.css" rel="stylesheet" />
+<script type="text/javascript" src="<%=basePath%>js/zilvwei.js" ></script>
+<script src="<%=basePath%>js/jquery-1.4.2.min.js" type="text/javascript"></script>
+<script src="<%=basePath%>js/YLMarquee-1.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 
 
 	/*
 		吧日期放到div里
 	*/
-	alert(getDatailDate());
+	//alert(getDatailDate());
 	
 </script>
     
@@ -45,7 +47,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </style>
 </head>
 <body>
-<jsp:include page="subpage/head.jsp" />
+
+<jsp:include page="subpage/head.jsp"></jsp:include>
+
 <!--<marquee direction="left" loop=0 scrolldelay="150">
       …………要滚动的文字………
       </marquee>-->
@@ -55,10 +59,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="lastestTextContent" class="lastestTextContent">
       <div id="scroolText">
       	<ul>
-        	<li>1局长撞人岂能公家垫付 逃犯青睐美国> </li>
-        	<li>2局长撞人岂能公家垫付 逃犯青睐美国> </li>
-        	<li>3局长撞人岂能公家垫付 逃犯青睐美国> </li>
-        	<li>4长撞人岂能公家垫付 逃犯青睐美国></li>
+        	<li>1局长撞人岂能公家垫付 逃犯青睐美国 </li>
+        	<li>2局长撞人岂能公家垫付 逃犯青睐美国 </li>
+        	<li>3局长撞人岂能公家垫付 逃犯青睐美国 </li>
+        	<li>4长撞人岂能公家垫付 逃犯青睐美国</li>
         </ul>      
       </div>
     </div>
@@ -100,35 +104,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <div id="title">今日热点</div>
     </div>
     <div id="hotnewsContent">
-    	<h4><a href="#">写给离家出走小女孩的一封信</a></h4>
+    	<h4><a href="<%=basePath%>news/article?artId=<s:property value='news[0].id'/>"><s:property value="news[0].title"/></a></h4>
         <div id="newsList">
-        	·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-            <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>　
-            <a href="http://view.news.qq.com/zt2010/rczxf/index.htm">人才专项房就是腐败</a><br>
-            
-        	·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-            <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>　
-            <a href="http://view.news.qq.com/zt2010/rczxf/index.htm">人才专项房就是腐败</a><br>
-            
-        	·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-            <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>　
-            <a href="http://view.news.qq.com/zt2010/rczxf/index.htm">人才专项房就是腐败</a><br>
-            
-        	·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-            <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>　
-            <a href="http://view.news.qq.com/zt2010/rczxf/index.htm">人才专项房就是腐败</a><br>
-            
-        	·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-            <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>　
-            <a href="http://view.news.qq.com/zt2010/rczxf/index.htm">人才专项房就是腐败</a><br>
-    
-    		·<a href="http://view.news.qq.com/">评论</a> <span class="fc30"> | 
-            <a href="http://view.news.qq.com/a/20101212/000004.htm">别等官员杀情妇才知有情妇</a>　
-            <a href="http://view.news.qq.com/a/20101212/000003.htm">不强拆，大家才有吃的</a></span><br>
-    
-   			·<a href="http://blog.qq.com/thought/">思想</a> <span class="fc30"> | 
-            <a href="http://view.news.qq.com/a/20101212/000002.htm">“官二代”的历史出路在哪</a>　
-            <a href="http://view.news.qq.com/a/20101212/000001.htm">勤劳真的是一种美德吗</a></span>
+        	<s:iterator value="news" status="newsItem">
+        		·<a href="<%=basePath%>news/article?artId=<s:property value='id'/>"><s:property value="title"/></a><br />
+        	</s:iterator>
+        	
     	</div>
     </div>
   </div>
@@ -144,106 +125,28 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="my_span_8 people">
     <div class="bar_title"> 热门文章 </div>
     <div class="articleList">
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>          
-        
+        <div id="newsList">
+        	<s:iterator value="hotArticles" status="article">
+        		·<a href="<%=basePath%>hotarticle/article?artId=<s:property value='id'/>"><s:property value="title"/></a><br />
+        	</s:iterator>
+        	
+    	</div>
     </div>
   </div>
   <div class="my_span_9 fengcai" >
-    <div class="bar_title"> 自律委风采 </div>
+    <div class="bar_title">通报 </div>
     <div class="articleList">
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>          
-        
+    	<s:iterator value="tongbaos" status="tongbao">
+       		·<a href="<%=basePath%>tongbao/article?artId=<s:property value='id'/>"><s:property value="department"/></a><br />
+       	</s:iterator>        
     </div>
   </div>
   <div class="my_span_7 download" >
     <div class="bar_title"> 下载中心 </div>
     <div class="articleList">
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>            
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>
-        
-        ·<a href="http://view.news.qq.com/zt2010/compensation/index.htm">局长撞人岂能公家垫付</a> 
-        <a href="http://view.news.qq.com/zt2010/corruption/index.htm">逃犯青睐美国</a>><br>          
-        
+        <s:iterator value="files" status="file">
+       		·<a href="<%=basePath%>file/article?artId=<s:property value='id'/>"><s:property value="fileName"/></a><br />
+       	</s:iterator>  
     </div>
   </div>
 </div>
@@ -305,7 +208,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </div>
 </div>
 <div class="s10"></div>
-<jsp:include page="subpage/tail.jsp" />
+
+<!-- 友情链接部分 -->
+<div class="box">
+  <div class="span_24 links" >
+    <div class="bar_title link_title">友情链接</div>
+    <div id="content"> 
+    	<s:iterator value="links" status="link">
+    		<a href="<s:property value="url" />"><s:property value="name" /></a>
+    	</s:iterator>
+    </div>
+  </div>
+</div>
+<div class="s10"></div>
+
+<jsp:include page="subpage/tail.jsp"></jsp:include>
+
+<div class="s10"></div>
+<div class="box">
+
+<div>
 <script type="text/javascript">
 
     $("#scrollDiv").YlMarquee({
@@ -316,7 +238,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         textMode:true,
 		visible:3,
 		step:3
-		
     });
 	
 </script>

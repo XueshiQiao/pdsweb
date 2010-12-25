@@ -5,6 +5,7 @@ package com.pds.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -89,7 +90,7 @@ public class Article {
 	public String getBrief() {
 		return brief;
 	}
-
+	
 	public void setBrief(String brief) {
 		this.brief = brief;
 	}

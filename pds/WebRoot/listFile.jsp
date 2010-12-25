@@ -26,22 +26,21 @@
 <div class="box">
     <div class="span_17">
     	<div class="cur_position">
-        	  当前位置：网站首页 > 热门新闻
+        	  当前位置：网站首页 > 文件下载
         </div>
         <div class="s10"></div>
         <div class="list" >
-        	<s:iterator value="artPageModel.list" status="article">
+        	<s:iterator value="filePageModel.list" status="file">
 	        	<div class="article_item">
-	            	<h3><a href="article?artId=<s:property value='id'/>"><s:property value="title"/></a></h3>
+	            	<h3><a><s:property value="title"/></a></h3>
 	                <p class="date">
-		                <label>作者：</label><s:property value="author" />
-		            	<label>来源：</label><s:property value="dep" />
-		            						
-		            	<label>日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
-		            	<label>访问量：</label><s:property value="visitedCount" />
+		            	<label>文件大小：</label><s:property value="size" />	KB				
+		            	<label>下载量：</label><s:property value="downloadTimes" />			
+		            	<label>上传日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
 	                </p>
 	            	<p class="content">	
-	               		摘要：<s:property value="brief" escape="false"/>...
+	               		文件名：<span class="fileName"><s:property value="fileName"/></span>
+	               		<a href="<%=basePath %>download/download?fileId=<s:property value='id' />" class="filedownload"> [单击下载]</a> 
 	                </p>
 	            	<hr/>
 	            </div>
@@ -52,9 +51,9 @@
                 <a id="prePage" href="#"  class="pageItem">上一页</a> 
                 <a id="nextPage" href="#"  class="pageItem">下一页 </a>
                 <a id="tailPage" href="#"  class="pageItem">尾页 </a>
-                <a  class="pageItem">页次：<s:property value="artPageModel.pageNo"/>/<s:property value="artPageModel.pageCount"/>页  </a>
-                <a  class="pageItem">共<s:property value="artPageModel.totalCount"/>条记录 </a>
-                <a  class="pageItem"><s:property value="artPageModel.pageSize"/>条记录/页</a>
+                <a  class="pageItem">页次：<s:property value="filePageModel.pageNo"/>/<s:property value="artPageModel.pageCount"/>页  </a>
+                <a  class="pageItem">共<s:property value="filePageModel.totalCount"/>条记录 </a>
+                <a  class="pageItem"><s:property value="filePageModel.pageSize"/>条记录/页</a>
             </div>       
       </div>
     </div>

@@ -108,6 +108,5 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 		return dao.findByHql(hql, params);
 	}
 	
-	
 
 }

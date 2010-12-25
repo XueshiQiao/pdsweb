@@ -2,9 +2,8 @@
  * BY qiaoxueshi at pingdingshan university
  */
 package com.pds.service;
-import com.pds.core.BaseService;
 import com.pds.model.FileUD;
 
-public interface FileUDService extends BaseService<FileUD> {
+public interface FileUDService extends CommonGetTopXService<FileUD> {
 	
 }

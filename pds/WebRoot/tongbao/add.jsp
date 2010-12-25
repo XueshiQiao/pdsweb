@@ -76,21 +76,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	            <dd><input type="text" name="model.department" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空"/></dd>
 	        </dl>
 	    	<dl>
-	        	<dt><label for="model.stuClass">班级:</label></dt>
-	            <dd><input type="text" name="model.stuClass"  size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
+	        	<dt><label for="model.content">通报内容:</label></dt>
+	            <dd><textarea name="model.content"  rows="12" cols="60"></textarea></dd>
 	        </dl>
-	    	<dl>
-	        	<dt><label for="model.stuName">学生姓名</label></dt>
-	            <dd><input type="text" name="model.stuName" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
-	        </dl>
-	    	<dl>
-	        	<dt><label for="model.reason">通报原因:</label></dt>
-	            <dd><textarea name="model.reason"  rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"></textarea></dd>
-	        </dl>
-	    	<dl>
-	        	<dt><label for="model.dormitory">所在宿舍:</label></dt>
-	            <dd><input type="text" name="model.dormitory" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>
-	        </dl>
+
+<%--	    	<dl>--%>
+<%--	        	<dt><label for="model.stuClass">班级:</label></dt>--%>
+<%--	            <dd><input type="text" name="model.stuClass"  size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
+<%--	        </dl>--%>
+<%--	    	<dl>--%>
+<%--	        	<dt><label for="model.stuName">学生姓名</label></dt>--%>
+<%--	            <dd><input type="text" name="model.stuName" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
+<%--	        </dl>--%>
+<%--	    	<dl>--%>
+<%--	        	<dt><label for="model.reason">通报原因:</label></dt>--%>
+<%--	            <dd><textarea name="model.reason"  rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"></textarea></dd>--%>
+<%--	        </dl>--%>
+<%--	    	<dl>--%>
+<%--	        	<dt><label for="model.dormitory">所在宿舍:</label></dt>--%>
+<%--	            <dd><input type="text" name="model.dormitory" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
+<%--	        </dl>--%>
 	    	
 	<%--    	<input type="input" name="model.department" /><br/>--%>
 	<%--    	班级:<input type="input" name="model.stuClass" /><br/>--%>
