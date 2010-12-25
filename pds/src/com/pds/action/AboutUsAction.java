@@ -78,6 +78,15 @@ public class AboutUsAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	/**
+	 * 得到最新的关于我们的信息，在自律委简介中显示
+	 * @return
+	 */
+	public String aboutus(){
+		aboutUs = service.getRecentAboutUs();
+		return "toAboutUsPage";
+	}
+	
 	
 	public AboutUsService getService() {
 		return service;

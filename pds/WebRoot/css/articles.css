@@ -83,6 +83,12 @@ a.pageItem:hover{
 	color:#0066CC;
 	font-size:22px;
 }
+.article h3.fileTitle{
+	margin:8px;
+	text-align:left;
+	color:#0066CC;
+	font-size:18px;
+}
 .article .detailedInfo{
 	color:#666666;
 	margin:3px;
@@ -90,6 +96,15 @@ a.pageItem:hover{
 	font-size:14px;
 }
 .article .detailedInfo label{
+	color:black;
+}
+.article .fileInfo{
+	color:#666666;
+	margin:3px;
+	text-align:left;
+	font-size:14px;
+}
+.article .fileInfo label{
 	color:black;
 }
 .article p{

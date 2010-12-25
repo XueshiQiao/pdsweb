@@ -26,21 +26,18 @@
 <div class="box">
     <div class="span_17">
     	<div class="cur_position">
-        	  当前位置：网站首页 > 文件下载
+        	  当前位置：网站首页 > 通报
         </div>
         <div class="s10"></div>
         <div class="list" >
-        	<s:iterator value="filePageModel.list" status="file">
+        	<s:iterator value="tbPageModel.list" status="tongbao" var="tb" >
 	        	<div class="article_item">
-	            	<h3><a href="<%=basePath %>fileud/file?fileId=<s:property value='id' />"><s:property value="title"/></a></h3>
+	            	<h3><a href="tongbao?tbId=<s:property value='id'/>"><s:property value="department"/></a></h3>
 	                <p class="date">
-		            	<label>文件大小：</label><s:property value="size" />	KB				
-		            	<label>下载量：</label><s:property value="downloadTimes" />			
-		            	<label>上传日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
+		            	<label>日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
 	                </p>
 	            	<p class="content">	
-	               		文件名：<span class="fileName"><s:property value="fileName"/></span>
-<%--	               		<a href="<%=basePath %>download/download?fileId=<s:property value='id' />" class="filedownload"> [单击下载]</a> --%>
+	               		内容：<s:property value="#tb.content.substring(0,160)" escape="false" />...
 	                </p>
 	            	<hr/>
 	            </div>

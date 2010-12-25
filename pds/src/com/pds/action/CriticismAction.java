@@ -12,7 +12,6 @@ import org.springframework.stereotype.Controller;
 
 import com.pds.common.page.Paginable;
 import com.pds.core.BaseAction;
-import com.pds.model.AboutUs;
 import com.pds.model.Criticism;
 import com.pds.service.CriticismService;
 
@@ -37,6 +36,47 @@ public class CriticismAction extends BaseAction {
 	private Paginable<Criticism> page;
 	private int pageNo = 0;
 	private int pageSize;
+	
+	
+	protected static final int DEFAULT_PAGE_SIZE = 10;
+	
+	private int tbId; 	//请求的文章的id
+	private int tbPageNo;	//请求的页数
+	private Paginable<Criticism> tbPageModel;  //页面上的数据
+	private Criticism tongbao; 
+
+	public String listTongbao(){
+		if(tbPageNo < 1 ){
+			tbPageNo = 1; //默认载入第一页
+		}
+		try{
+			tbPageModel = getService().findPageByHql(tbPageNo,DEFAULT_PAGE_SIZE);
+			if(tbPageModel == null){
+				return "pageNotFound";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "pageNotFound";
+		}
+		return "toListPage";
+	}
+	
+
+	public String tongbao(){
+		if( tbId < 1 ){
+			return "pageNotFound";
+		}
+		try{
+			tongbao = getService().findById(tbId);
+			if(tongbao == null){
+				return "pageNotFound";
+			}
+		}catch(Exception e){
+			e.printStackTrace();
+			return "pageNotFound";
+		}
+		return "toTongbaoPage";
+	}
 	
 	
 	public String toAdd(){
@@ -92,6 +132,7 @@ public class CriticismAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	
 	public CriticismService getService() {
 		return service;
 	}
@@ -140,7 +181,44 @@ public class CriticismAction extends BaseAction {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	
-	
-	
+
+
+	public int getTbId() {
+		return tbId;
+	}
+
+
+	public void setTbId(int tbId) {
+		this.tbId = tbId;
+	}
+
+
+	public int getTbPageNo() {
+		return tbPageNo;
+	}
+
+
+	public void setTbPageNo(int tbPageNo) {
+		this.tbPageNo = tbPageNo;
+	}
+
+
+	public Paginable<Criticism> getTbPageModel() {
+		return tbPageModel;
+	}
+
+
+	public void setTbPageModel(Paginable<Criticism> tbPageModel) {
+		this.tbPageModel = tbPageModel;
+	}
+
+
+	public Criticism getTongbao() {
+		return tongbao;
+	}
+
+
+	public void setTongbao(Criticism tongbao) {
+		this.tongbao = tongbao;
+	}
 }

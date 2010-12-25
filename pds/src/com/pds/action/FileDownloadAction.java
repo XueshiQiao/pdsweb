@@ -3,6 +3,7 @@
  */
 package com.pds.action;
 
+import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 
@@ -38,6 +39,9 @@ public class FileDownloadAction extends BaseAction{
 		if(file != null){
 //			stream = ServletActionContext.getServletContext().getResourceAsStream("/"+inputPath + file.getFileName());			
 			stream = ServletActionContext.getServletContext().getResourceAsStream("/"+file.getLocation());
+			if(stream == null){
+				throw new FileNotFoundException();
+			}
 			int count = file.getDownloadTimes();
 			file.setDownloadTimes(count>0?count+1:1);
 			service.update(file);
@@ -58,6 +62,14 @@ public class FileDownloadAction extends BaseAction{
 //		InputStream stream = ServletActionContext.getServletContext().getResourceAsStream("/uploads/"+"abc.txt");
 	}
 	public String execute() throws Exception {
+		/*FileUD  file = service.findById(fileId);
+		if(file == null){
+			return "fileNotFound";
+		}
+		File f = new File(ServletActionContext.getServletContext().getRealPath(file.getLocation()));
+		if(!f.exists()){
+			return "fileNotFound";
+		}*/
 		return SUCCESS;
 	}
 	public void setInputPath(String value) {

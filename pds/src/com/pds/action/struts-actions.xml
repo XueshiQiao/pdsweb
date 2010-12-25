@@ -31,7 +31,7 @@
 	
 	<package name="index" extends="global-config" namespace="/">
 		<action name="index" class="com.pds.action.IndexAction" method="index">
-			<result>/index.jsp</result>
+			<result>/indexFacade.jsp</result>
 			<result name="error">/error.jsp</result>
 		</action>
 	</package>
@@ -49,6 +49,7 @@
 			<result name="updateSuccess">/aboutus/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/aboutus/deleteSuccess.jsp</result>
 			<result name="toAdd">/aboutus/add.jsp</result>
+			<result name="toAboutUsPage">/intro.jsp</result>
 		</action>
 	</package>
 
@@ -63,6 +64,8 @@
 			<result name="updateSuccess">/tongbao/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/tongbao/deleteSuccess.jsp</result>
 			<result name="toAdd">/tongbao/add.jsp</result>
+			<result name="toListPage">/listTongbao.jsp</result>
+			<result name="toTongbaoPage">/tongbao.jsp</result>
 			<interceptor-ref name="withAuthInterceptor"/>
 		</action>
 	</package>
@@ -92,6 +95,7 @@
 			<result name="updateSuccess">/departments/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/departments/deleteSuccess.jsp</result>
 			<result name="toAdd">/departments/add.jsp</result>
+			<result name="toDepInfo">/dep.jsp</result>
 		</action>
 	
 	</package>
@@ -213,10 +217,6 @@
 	
 	
 	<package name="file" extends="global-config" namespace="/file">
-		<global-exception-mappings>
-			<exception-mapping result="fileNotFound" exception="java.lang.IllegalArgumentException" />
-			<exception-mapping result="fileNotFound" exception="com.pds.exception.FileNotFoundException" />
-		</global-exception-mappings>
 		<action name="*" class="com.pds.action.FileAction" method="{1}">
 			<result>/file/{1}.jsp</result>
 			<result name="index">/file/index.jsp</result>
@@ -227,10 +227,6 @@
 			<result name="updateSuccess">/file/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/file/deleteSuccess.jsp</result>
 			<result name="toAdd">/file/add.jsp</result>
-			
-			<result name="toListFilePage">/listFile.jsp</result>
-			<result name="toFilePage">/file.jsp</result>
-			<result name="fileNotFound">/fileNotFound.jsp</result>
 		</action>
 	</package>
 	
@@ -242,6 +238,11 @@
 	</package>
 
 	<package name="download" extends="global-config" namespace="/download" >
+		<global-exception-mappings>
+			<exception-mapping result="fileNotFound" exception="java.lang.IllegalArgumentException" />
+			<exception-mapping result="fileNotFound" exception="com.pds.exception.FileNotFoundException" />
+		</global-exception-mappings>
+		
 		<!-- 文件下载，支持中文附件名 -->
 		<action name="download" class="com.pds.action.FileDownloadAction">
 			<!-- 初始文件存放路径 -->
@@ -258,6 +259,7 @@
 				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
 				<param name="bufferSize">4096</param>
 			</result>
+			<result name="fileNotFound">/fileNotFound.jsp</result>
 		</action>
 	</package>
 	
