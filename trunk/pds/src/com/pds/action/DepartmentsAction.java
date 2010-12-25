@@ -77,6 +77,12 @@ public class DepartmentsAction extends BaseAction {
 		return SUCCESS;
 	}
 	
+	//获得最新的机构设置信息 ，用于显示在"机构设置"页面上
+	public String depInfo(){
+		model = service.getRecentDepartment();
+		return "toDepInfo";
+	}
+	
 	@Resource
 	private DepartmentsService service ;
 	
