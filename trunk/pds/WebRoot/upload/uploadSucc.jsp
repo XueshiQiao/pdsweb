@@ -25,6 +25,5 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <body>
     上传成功，文件路径:<%=request.getAttribute("realUploadPath") %><br>
     <BR />
-    <img alt="PIC" src="uploads/df88f8d5-e7e1-431a-b798-496b1dbce9d5.jpg" />
   </body>
 </html>

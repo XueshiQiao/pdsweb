@@ -82,7 +82,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	        </dl>
 	    	<dl>
 	        	<dt><label for="model.dep">部门:</label></dt>
-	            <dd><input type="text" name="model.dep" size="32" maxlength="128" require="true" datatype="require" msg="标题不能为空" /></dd>
+	            <dd><input type="text" name="model.dep" size="32" maxlength="128" require="true" datatype="require" msg="部门不能为空" /></dd>
+	        </dl>
+	        <dl>
+	        	<dt><label for="model.brief">摘要:</label></dt>
+	            <dd>
+	            	<textarea id="brief" name="model.brief" rows="5" cols="60" >
+					</textarea>
+	            </dd>
 	        </dl>
 	        <dl>
 				<dt>
@@ -91,7 +98,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					</label>
 				</dt>
 				<dd>
-					<textarea id="content" name="model.content" rows="5" cols="60" require="true" datatype="require" msg="标题不能为空" >
+					<textarea id="content" name="model.content" rows="5" cols="60" >
 					</textarea>
 				</dd>
 			</dl>

@@ -35,7 +35,7 @@ public class PrepareDateForAppServlet extends HttpServlet {
 		Role role = new Role();
 		role.setId(1);
 		role.setName("管理员");
-		role.setRights("/aboutus,/tongbao");
+		role.setRights("/aboutus,/tongbao,/news");
 		
 		super.getServletContext().setAttribute(BackgroundUserAction.USER_ROLE, role);
 		

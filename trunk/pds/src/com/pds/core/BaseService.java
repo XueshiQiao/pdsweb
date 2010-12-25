@@ -105,5 +105,4 @@ public interface BaseService<T> {
 	public List<T> findByHql(final String hql, final Object[] params);
 
 	
-	
 }

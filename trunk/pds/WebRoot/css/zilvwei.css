@@ -34,8 +34,7 @@ a:hover{
 .nav {
 	
 	height:35px;
-	line-height: 35px;/*background:url(../img/nav_back.gif) repeat-x;
-	*/
+	line-height: 35px;
 }
 .nav ul {
 	list-style-type: none;
@@ -46,7 +45,7 @@ a:hover{
 	text-align:center;
 }
 #firstNavItem{
-	margin-left:40px;
+	margin-left:20px;
 }
 .nav ul li a {
 	display: block;

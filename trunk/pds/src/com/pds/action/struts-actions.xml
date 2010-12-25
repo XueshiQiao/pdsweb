@@ -8,7 +8,7 @@
 		<interceptors>
 			<interceptor name="authInterceptor" class="com.pds.interceptor.BgUserAuthInterceptor">
 				<param name="name">authInterceptor</param>
-				<param name="includedMethods">list,add,delete,update,edit</param> <!--受权限保护的方法，中间用英文逗号隔开-->
+				<param name="includedMethods"></param> <!--受权限保护的方法，中间用英文逗号隔开 list,add,delete,update,edit-->
 			</interceptor>
 			<interceptor-stack name="withAuthInterceptor">
 				<interceptor-ref name="defaultStack" />
@@ -20,10 +20,20 @@
 			<result name="login">/login.jsp</result>
 			<result name="exception">/exception.jsp</result>
 			<result name="forbidden">/forbidden.jsp</result>
+			<result name="pageNotFound">/pageNotFound.jsp</result>
+			<result name="toListPage">/list.jsp</result>
+			<result name="toArticlePage">/article.jsp</result>
 		</global-results>
-		<global-exception-mappings>
-			<exception-mapping result="exception" exception="java.lang.Exception" />
-		</global-exception-mappings>
+<!--		<global-exception-mappings>-->
+<!--			<exception-mapping result="exception" exception="java.lang.Exception" />-->
+<!--		</global-exception-mappings>-->
+	</package>
+	
+	<package name="index" extends="global-config" namespace="/">
+		<action name="index" class="com.pds.action.IndexAction" method="index">
+			<result>/index.jsp</result>
+			<result name="error">/error.jsp</result>
+		</action>
 	</package>
 	
 	<package name="aboutus" extends="global-config" namespace="/aboutus">
@@ -141,7 +151,7 @@
 			<interceptor-ref name="fileUpload">
 				<!--配置允许上传的类型 -->
 				<param name="allowedTypes">
-					application/octet-stream,application/x-zip-compressed,image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg 
+					text/plain,application/msexcel,application/x-zip-compressed,application/msword,application/zip,appication/powerpoint,image/bmp,image/png,image/gif,image/jpeg,image/jpg,image/x-png,image/pjpeg 
 				</param>
 				<!--配置允许上传的大小 10M -->
 				<param name="maximumSize">10485760</param>
@@ -201,19 +211,12 @@
 	</package>
 	
 	
-	<!-- 找不到ajaxfileupload-default TODO DELETE -->
-<!--	<package name="ajaxfileupload" namespace="/" extends="ajaxfileupload-default">-->
-<!--		<action name="ajaxfileupload" class="com.pds.action.AjaxUpload">-->
-<!--			<interceptor-ref name="fileUploadStack" /> -->
-<!--			-->
-<!--			<result name="success" type="httpheader">-->
-<!--				<param name="status">200</param>-->
-<!--			</result>-->
-<!--		</action>-->
-<!--	</package>-->
-	
 	
 	<package name="file" extends="global-config" namespace="/file">
+		<global-exception-mappings>
+			<exception-mapping result="fileNotFound" exception="java.lang.IllegalArgumentException" />
+			<exception-mapping result="fileNotFound" exception="com.pds.exception.FileNotFoundException" />
+		</global-exception-mappings>
 		<action name="*" class="com.pds.action.FileAction" method="{1}">
 			<result>/file/{1}.jsp</result>
 			<result name="index">/file/index.jsp</result>
@@ -224,6 +227,17 @@
 			<result name="updateSuccess">/file/updateSuccess.jsp</result>
 			<result name="deleteSuccess">/file/deleteSuccess.jsp</result>
 			<result name="toAdd">/file/add.jsp</result>
+			
+			<result name="toListFilePage">/listFile.jsp</result>
+			<result name="toFilePage">/file.jsp</result>
+			<result name="fileNotFound">/fileNotFound.jsp</result>
+		</action>
+	</package>
+	
+	<package name="fileud" extends="global-config" namespace="/fileud">
+		<action name="*" class="com.pds.action.FileUDAction" method="{1}">
+			<result name="toListFilePage">/listFile.jsp</result>
+			<result name="toFilePage">/file.jsp</result>
 		</action>
 	</package>
 
@@ -235,11 +249,11 @@
 			<result name="success" type="stream">
 				<param name="contentType">
 					application/octet-stream;charset=ISO8859-1
-      		</param>
+      			</param>
 				<param name="inputName">inputStream</param>
 				<!--
 					使用经过转码的文件名作为下载文件名，downloadFileName属性 对应action类中的方法
-					getDownloadFileName()
+					getDownloadFileName(),是在下载工具中显示的名字
 				-->
 				<param name="contentDisposition">attachment;filename="${downloadFileName}"</param>
 				<param name="bufferSize">4096</param>

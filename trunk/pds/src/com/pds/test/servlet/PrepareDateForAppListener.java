@@ -33,7 +33,7 @@ public class PrepareDateForAppListener implements HttpSessionListener {
 		Role role = new Role();
 		role.setId(1);
 		role.setName("管理员");
-		role.setRights("/autus,/tongbao");
+		role.setRights("/aboutus,/news,/tongbao,/rules,/departments,/hotarticle,/link,/upload,/file,/download");
 		
 		session.setAttribute(BackgroundUserAction.USER_ROLE, role);
 		

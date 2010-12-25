@@ -2,6 +2,8 @@
  * BY qiaoxueshi at pingdingshan university
  */
 package com.pds.serviceImpl;
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -22,4 +24,16 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements
 	public void setDao(NewsDao dao) {
 		super.setDao(dao);
 	}
+
+	@Override
+	public List<News> getTop10() {
+		return getDao().findByHql("from News order by date desc", null);
+	}
+
+	@Override
+	public List<News> getTop10ByHot() {
+		return getDao().findByHql("from News order by visitedCount desc", null);
+	}
+	
+	
 }

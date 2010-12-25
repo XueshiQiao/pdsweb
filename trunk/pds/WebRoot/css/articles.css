@@ -2,27 +2,26 @@
 /* CSS Document */
 
 /*当前位置*/
-*{
-	margin:0;
-	padding:0;
-}
+
 .cur_position{
 	background:#f2fbff;
 	height:30px;
-	border:thin solid #e1e1e3;
+	border:#e1e1e3 1px solid ;
 	font-size:12px;
 	color:#545253;
 	line-height:30px;
+	padding-left:10px;
 }
 .article_item{
-	height:75px;
-	border-bottom:#999999 thin solid;
+	height:90px;
+	/*border-bottom:#999999 1px solid;*/
 	margin-bottom:3px;
 	font-size:14px;
 	margin:8px auto;
 	padding:0 3px 0 3px;
 }
-.article_item h3{
+.article_item h3 a{
+	font-size:16px;
 	color:#256fb0;
 	margin-top:2px;
 }
@@ -31,10 +30,22 @@
 	font-size:12px;
 	margin-top:3px;
 }
+.article_item .date label{
+	color:balck;
+}
 .article_item .content{
 	overflow:hidden;
 	margin-top:3px;
 	margin-bottom:5px;
+}
+.article_item .content .fileName{
+	color:blue;
+	font-size:15px;
+}
+.article_item .content .filedownload{
+	color:black;
+	font-size:15px;
+	font-weight:bold;
 }
 .paganation{
 	height:25px;
@@ -43,26 +54,28 @@
 	*/
 	font-size:12px;
 	text-align:center;
+	margin:10px 0;
 }
 a.pageItem{
 	color:#333333;
-	border:#999999 thin solid;
+	border:#999999 1px solid;
 	display:inline-block;
 	text-decoration:none;
 	padding:0 5px;
+	margin:0 3px;
 	cursor:hand;
 }
 a.pageItem:hover{
 	color:#333333;
-	border:#0066CC thin solid;
+	border:#0066CC 1px solid;
 	display:inline-block;
 	text-decoration:none;	
 }
 
 /***********************************************************************************************/
 .article{
-	height:1000px;
-	border:#0099CC thin solid;	
+	border:#0099CC 1px solid;
+	padding:20px 10px 30px 10px;
 }
 .article h3{
 	margin:8px;
@@ -76,8 +89,12 @@ a.pageItem:hover{
 	text-align:center;
 	font-size:14px;
 }
-.article .content{
+.article .detailedInfo label{
+	color:black;
+}
+.article p{
 	font-size:14px;
 	margin:auto 15px;
 	margin-top:10px;
+	line-height:20px;	
 }

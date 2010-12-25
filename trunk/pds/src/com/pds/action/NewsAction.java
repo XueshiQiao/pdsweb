@@ -7,16 +7,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
-
-import com.opensymphony.xwork2.Action;
 import com.pds.common.page.Paginable;
-import com.pds.core.BaseAction;
 import com.pds.model.BackgroundUser;
 import com.pds.model.News;
-import com.pds.service.HotArticleService;
 import com.pds.service.NewsService;
 
 /**
@@ -25,7 +20,7 @@ import com.pds.service.NewsService;
  */
 @Controller
 @Scope(value="prototype")
-public class NewsAction extends BaseAction {
+public class NewsAction extends ArticleListAction<News> {
 	private static final long serialVersionUID = 5495728211877266147L;
 
 	@Resource
@@ -65,14 +60,10 @@ public class NewsAction extends BaseAction {
 		}catch(Exception e){
 			this.model.setAuthor("匿名");//TODO 如果获得当前用户失败就设置为匿名
 		}
-		String content = model.getContent();
-		String brief ="";
-		if(content != null && content.length() > 512){
-			brief = content.substring(0,512);
-		}else if (content != null){
-			brief = content;
+		String brief = model.getBrief();
+		if(brief != null){
+			model.setBrief(brief.substring(0, 80));
 		}
-		this.model.setBrief(brief);
 		this.model.setVisitedCount(0);
 		service.save(this.model);
 		return "addsuccess";
@@ -92,12 +83,14 @@ public class NewsAction extends BaseAction {
 	
 	public String update(){
 		String content = model.getContent();
-		String brief ="";
-		if(content != null && content.length() > 512){
-			brief = content.substring(0,512);
-		}else if (content != null){
-			brief = content;
+		String brief = model.getBrief();
+		if(content == null){
+			content = "";
 		}
+		if(brief != null && brief.length() > 80){
+			brief = brief.substring(0,80);
+		}
+		
 		model.setBrief(brief);
 		model.setDate(new Date());
 		service.update(model);
@@ -180,6 +173,51 @@ public class NewsAction extends BaseAction {
 		this.pageSize = pageSize;
 	}
 	
+	/****************************************************/
 	
+	@Override
+	public News getArticle() {
+		return super.getArticle();
+	}
+	@Override
+	public int getArtId() {
+		return super.getArtId();
+	}
+	@Override
+	public Paginable<News> getArtPageModel() {
+		return super.getArtPageModel();
+	}
+	@Override
+	public int getArtPageNo() {
+		return super.getArtPageNo();
+	}
+	@Override
+	public String getArtType() {
+		return super.getArtType();
+	}
+	@Override
+	public String listActicles() {
+		return super.listActicles();
+	}
+	@Override
+	public void setArticle(News article) {
+		super.setArticle(article);
+	}
+	@Override
+	public void setArtId(int artId) {
+		super.setArtId(artId);
+	}
+	@Override
+	public void setArtPageModel(Paginable<News> artPageModel) {
+		super.setArtPageModel(artPageModel);
+	}
+	@Override
+	public void setArtPageNo(int artPageNo) {
+		super.setArtPageNo(artPageNo);
+	}
+	@Override
+	public void setArtType(String artType) {
+		super.setArtType(artType);
+	}
 	
 }

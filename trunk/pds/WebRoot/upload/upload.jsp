@@ -29,7 +29,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     	文件标题：<input type="text" name="title" /><br />
     	选择文件：<input type="file" name="upload" /><br />
     	<input value="上传" type="submit" />
-    </form>
+  	</form>
+  	<hr/>
+  		允许上传的文件：
+    	<ul>
+    		<li>纯文本文件(.txt)</li>	
+    		<li>Excel文件</li>	
+    		<li>Word文件</li>	
+    		<li>PPT文件</li>	
+    		<li>图片（bmp gif jpg jpeg png）</li>	
+    		<li>压缩rar，zip文件</li>	
+    	</ul>
   </body>
   <s:debug />
 </html>
