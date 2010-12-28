@@ -52,6 +52,7 @@ public class FileAction extends BaseAction {
 		try{
 			model.setUploader(((BackgroundUser)super.getCurrentUser()).getUsername()); //TODO 设置为当前登录用户
 		}catch(NullPointerException e){
+			model.setUploader("匿名");
 			//......
 		}
 		

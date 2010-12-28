@@ -59,10 +59,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="lastestTextContent" class="lastestTextContent">
       <div id="scroolText">
       	<ul>
-        	<li>1局长撞人岂能公家垫付 逃犯青睐美国 </li>
-        	<li>2局长撞人岂能公家垫付 逃犯青睐美国 </li>
-        	<li>3局长撞人岂能公家垫付 逃犯青睐美国 </li>
-        	<li>4长撞人岂能公家垫付 逃犯青睐美国</li>
+        	<li>平顶山学院自律与监督委员会网站v1.0正式上线！</li>
+        	<li>平顶山学院自律与监督委员会网站v1.0正式上线！</li>
+        	<li>平顶山学院自律与监督委员会网站v1.0正式上线！</li>
+<%--        	<li>2局长撞人岂能公家垫付 逃犯青睐美国 </li>--%>
+<%--        	<li>3局长撞人岂能公家垫付 逃犯青睐美国 </li>--%>
+<%--        	<li>4长撞人岂能公家垫付 逃犯青睐美国</li>--%>
         </ul>      
       </div>
     </div>
@@ -123,7 +125,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="s10"></div>
 <div class="box secondRow">
   <div class="my_span_8 people">
-    <div class="bar_title"> 热门文章 </div>
+    <div class="bar_title">院系风采 </div>
     <div class="articleList">
         <div id="newsList">
         	<s:iterator value="hotArticles" status="article">
@@ -236,7 +238,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     });
 	$("#scroolText").YlMarquee({
         textMode:true,
-		visible:3,
+		visible:2,
 		step:3
     });
 	

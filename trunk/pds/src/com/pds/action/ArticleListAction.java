@@ -25,14 +25,12 @@ public abstract class ArticleListAction<T extends Article> extends BaseAction {
 	private int artPageNo;	//请求的页数
 	private Paginable<T> artPageModel;  //页面上的数据
 	private T article; 
-	
 
-	
 	/**
 	 * 需要传递artPageNo参数
 	 * @return
 	 */
-	public String listActicles(){
+	public String listArticles(){
 		if(artPageNo < 1 ){
 			artPageNo = 1; //默认载入第一页
 		}
@@ -112,4 +110,5 @@ public abstract class ArticleListAction<T extends Article> extends BaseAction {
 	public void setArticle(T article) {
 		this.article = article;
 	}
+
 }

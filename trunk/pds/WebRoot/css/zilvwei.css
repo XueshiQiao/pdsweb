@@ -7,10 +7,11 @@
 	clear:both
 }
 a{
-	color:#fff;
+	color:#000;
 	text-decoration:none;
 }
 a:hover{
+	color:bule;
 	text-decoration:underline;
 }
 
@@ -146,7 +147,7 @@ h4 a{
 }
 
 .articleWithPic{
-	height:200px;
+	height:180px;
 	background:url(../img/bar_bottom.gif) repeat-x top left;
 }
 
@@ -169,7 +170,7 @@ h4 a{
 	margin-top:-8px;
 }
 .tuwen_content{
-	height:157px; /*总宽度(200)-图片的长度(34) - 图片的padding (9) =157*/
+	height:150px; /*总宽度(200)-图片的长度(34) - 图片的padding (9) =157*/
 	margin-top:-10px;
 	text-align:left;
 }

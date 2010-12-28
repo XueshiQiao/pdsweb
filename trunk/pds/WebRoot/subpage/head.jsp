@@ -16,17 +16,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
       <li><a href="<%=basePath %>aboutus/aboutus">自律委简介</a></li>
       
-      <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
-      <li><a href="<%=basePath %>departments/depInfo">机构设置</a></li>
+<%--      <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>--%>
+<%--      <li><a href="<%=basePath %>departments/depInfo">机构设置</a></li>--%>
       
       <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
-      <li><a href="<%=basePath %>departments/depInfo">热门文章</a></li>
+      <li><a href="<%=basePath %>news/listArticles">新闻动态</a></li>
+      
+      <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
+      <li><a href="<%=basePath %>hotarticle/listArticles">院系风采</a></li>
 
       <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
       <li><a href="<%=basePath %>developing.jsp">自律委风采</a></li>
       
       <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
-      <li><a href="<%=basePath %>fileud/listFiles">资料下载</a></li>
+      <li><a href="<%=basePath %>fileud/listFiles">文件下载</a></li>
       
       <li><img src="<%=basePath %>img/nav_jiange.gif" /></li>
       <li><a href="<%=basePath %>tongbao/listTongbao">通报</a></li>

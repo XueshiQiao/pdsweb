@@ -113,6 +113,7 @@
 			<result name="toAdd">/hotarticle/add.jsp</result>
 			<result name="show">/hotarticle/show.jsp</result>
 			<result name="showError">/hotarticle/showError.jsp</result>
+			<param name="curPosition">院系风采</param>
 		</action>
 	
 	</package>
@@ -131,6 +132,7 @@
 			<result name="toAdd">/news/add.jsp</result>
 			<result name="show">/news/show.jsp</result>
 			<result name="showError">/news/showError.jsp</result>
+			<param name="curPosition">新闻动态</param>
 		</action>
 	</package>
 	
@@ -278,9 +280,5 @@
 		</action>
 	</package>
 
-	<!-- backGroundUser不受限制 -->
-	<package name="backGroundUser" extends="struts-default" namespace="/backGroundUser">
-		<action name="*" class="com.pds.action.BackgroundUserAction" method="{1}">
-		</action>
-	</package>
+	
 </struts>    

@@ -19,12 +19,26 @@ public class BackgroundUser {
 	private String username; //用户名
 	private String password; 	//密码
 	private int role; //角色
+//	private int available;//是否可用
+//	private int testLogin;//登录错误次数
+	
+	
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	public int getId() {
 		return id;
 	}
+	
+	public BackgroundUser(String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
+	
+	public BackgroundUser() {
+	}
+	
 	public void setId(int id) {
 		this.id = id;
 	}

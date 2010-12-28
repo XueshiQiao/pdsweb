@@ -3,6 +3,7 @@
  */
 package com.pds.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,9 +36,12 @@ public class Link {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@Column(length=1024)
 	public String getUrl() {
 		return url;
 	}
+
 	public void setUrl(String url) {
 		this.url = url;
 	}

@@ -3,11 +3,25 @@
 <struts>
 	<constant name="struts.i18n.encoding" value="UTF-8" />
 
-	<package name="admin" extends="struts-default" namespace="/admin">
+	
+	<!-- backGroundUser不受限制 -->
+	<package name="admin" extends="json-default" namespace="/admin">
 		<!-- 首页 -->
-		<action name="index">
+		<action name="index" class="com.pds.action.BackgroundUserAction" method="index">
 			<result>/admin/index.html</result>
+			<result name="login">/admin/login.jsp</result>
 		</action>
+		<action name="logout" class="com.pds.action.BackgroundUserAction" method="logout">
+			<result name="login">/admin/login.jsp</result>
+		</action>
+		<action name="login" class="com.pds.action.BackgroundUserAction" method="login">
+			<result type="json" >
+				<param name="excludeProperties">  
+			      service,roleService
+				</param> 
+			</result>
+		</action>
+		
 	</package>
 
 </struts>    

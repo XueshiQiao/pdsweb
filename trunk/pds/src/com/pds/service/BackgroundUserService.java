@@ -8,4 +8,6 @@ import com.pds.model.BackgroundUser;
 
 public interface BackgroundUserService extends BaseService<BackgroundUser> {
 	
+	public BackgroundUser login(BackgroundUser user);
+	public BackgroundUser login(String username,String password);
 }

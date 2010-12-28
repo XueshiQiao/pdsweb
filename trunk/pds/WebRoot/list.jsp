@@ -26,7 +26,7 @@
 <div class="box">
     <div class="span_17">
     	<div class="cur_position">
-        	  当前位置：网站首页 > 热门新闻
+        	   当前位置：网站首页 > <s:property value="curPosition"/>
         </div>
         <div class="s10"></div>
         <div class="list" >

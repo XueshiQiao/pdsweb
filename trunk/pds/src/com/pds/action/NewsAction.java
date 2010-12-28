@@ -37,6 +37,8 @@ public class NewsAction extends ArticleListAction<News> {
 	private int pageNo = 0;
 	private int pageSize;
 	
+	private String curPosition;  //在页面上显示的当前的位置
+	
 	
 	public String toAdd(){
 		return "toAdd";
@@ -59,10 +61,6 @@ public class NewsAction extends ArticleListAction<News> {
 			this.model.setAuthor(user.getUsername());
 		}catch(Exception e){
 			this.model.setAuthor("匿名");//TODO 如果获得当前用户失败就设置为匿名
-		}
-		String brief = model.getBrief();
-		if(brief != null){
-			model.setBrief(brief.substring(0, 80));
 		}
 		this.model.setVisitedCount(0);
 		service.save(this.model);
@@ -172,52 +170,10 @@ public class NewsAction extends ArticleListAction<News> {
 	public void setPageSize(int pageSize) {
 		this.pageSize = pageSize;
 	}
-	
-	/****************************************************/
-	
-	@Override
-	public News getArticle() {
-		return super.getArticle();
+	public String getCurPosition() {
+		return curPosition;
 	}
-	@Override
-	public int getArtId() {
-		return super.getArtId();
+	public void setCurPosition(String curPosition) {
+		this.curPosition = curPosition;
 	}
-	@Override
-	public Paginable<News> getArtPageModel() {
-		return super.getArtPageModel();
-	}
-	@Override
-	public int getArtPageNo() {
-		return super.getArtPageNo();
-	}
-	@Override
-	public String getArtType() {
-		return super.getArtType();
-	}
-	@Override
-	public String listActicles() {
-		return super.listActicles();
-	}
-	@Override
-	public void setArticle(News article) {
-		super.setArticle(article);
-	}
-	@Override
-	public void setArtId(int artId) {
-		super.setArtId(artId);
-	}
-	@Override
-	public void setArtPageModel(Paginable<News> artPageModel) {
-		super.setArtPageModel(artPageModel);
-	}
-	@Override
-	public void setArtPageNo(int artPageNo) {
-		super.setArtPageNo(artPageNo);
-	}
-	@Override
-	public void setArtType(String artType) {
-		super.setArtType(artType);
-	}
-	
 }
