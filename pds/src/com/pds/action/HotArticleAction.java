@@ -12,7 +12,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 
 import com.pds.common.page.Paginable;
-import com.pds.core.BaseAction;
 import com.pds.model.BackgroundUser;
 import com.pds.model.HotArticle;
 import com.pds.service.HotArticleService;
@@ -23,7 +22,7 @@ import com.pds.service.HotArticleService;
  */
 @Controller
 @Scope(value="prototype")
-public class HotArticleAction extends BaseAction {
+public class HotArticleAction extends ArticleListAction<HotArticle>{
 	private static final long serialVersionUID = 5495728211877266147L;
 
 	@Resource
@@ -39,6 +38,8 @@ public class HotArticleAction extends BaseAction {
 	private Paginable<HotArticle> page;
 	private int pageNo = 0;
 	private int pageSize;
+	
+	private String curPosition;  //在页面上显示的当前的位置
 	
 	
 	public String toAdd(){
@@ -63,14 +64,6 @@ public class HotArticleAction extends BaseAction {
 		}catch(Exception e){
 			this.model.setAuthor("匿名");//TODO 如果获得当前用户失败就设置为匿名
 		}
-		String content = model.getContent();
-		String brief ="";
-		if(content != null && content.length() > 512){
-			brief = content.substring(0,512);
-		}else if (content != null){
-			brief = content;
-		}
-		this.model.setBrief(brief);
 		this.model.setVisitedCount(0);
 		service.save(this.model);
 		return "addsuccess";
@@ -191,6 +184,12 @@ public class HotArticleAction extends BaseAction {
 	}
 	public void setService(HotArticleService service) {
 		this.service = service;
+	}
+	public String getCurPosition() {
+		return curPosition;
+	}
+	public void setCurPosition(String curPosition) {
+		this.curPosition = curPosition;
 	}
 	
 }

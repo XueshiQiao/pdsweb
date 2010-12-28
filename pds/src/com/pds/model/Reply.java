@@ -40,7 +40,8 @@ public class Reply {
 	public void setReplyer(String replyer) {
 		this.replyer = replyer;
 	}
-	@Column(length=1024)
+
+	@Column(length=4000)
 	public String getContent() {
 		return content;
 	}

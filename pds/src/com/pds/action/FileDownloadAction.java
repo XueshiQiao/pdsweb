@@ -3,15 +3,11 @@
  */
 package com.pds.action;
 
-import java.io.File;
 import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
-
 import javax.annotation.Resource;
-
 import org.apache.struts2.ServletActionContext;
 import org.springframework.stereotype.Controller;
-
 import com.pds.core.BaseAction;
 import com.pds.exception.FileNotFoundException;
 import com.pds.model.FileUD;

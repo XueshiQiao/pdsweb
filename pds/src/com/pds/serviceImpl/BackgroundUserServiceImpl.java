@@ -3,6 +3,8 @@ package com.pds.serviceImpl;
  * BY qiaoxueshi at pingdingshan university
  */
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -23,4 +25,20 @@ public class BackgroundUserServiceImpl extends BaseServiceImpl<BackgroundUser> i
 	public void setDao(BackgroundUserDao dao) {
 		super.setDao(dao);
 	}
+
+	@Override
+	public BackgroundUser login(BackgroundUser user) {
+		List<BackgroundUser> users =  this.getDao().findByHql("from BackgroundUser where username=? and password = ?" , new String[]{user.getUsername(),user.getPassword()});
+		if(users.size()>0){
+			return users.get(0);
+		}
+		return null;
+	}
+
+	@Override
+	public BackgroundUser login(String username, String password){
+		return this.login(new BackgroundUser(username, password));
+	}
+	
+	
 }

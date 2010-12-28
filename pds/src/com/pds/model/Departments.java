@@ -31,13 +31,12 @@ public class Departments extends PageContent {
 	}
 
 	@Override
-	@Column(length=1024)
+	@Column(length=4000)
 	public String getContent() {
 		return super.getContent();
 	}
 
 	@Override
-	@Column(length=1024)
 	public Date getDate() {
 		return super.getDate();
 	}

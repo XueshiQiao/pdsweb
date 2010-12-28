@@ -20,13 +20,13 @@ public class AboutUs {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column
 	private int id; //id
-	@Column(length=1024)
+	@Column(length=4000)
 	private String introduction; // 简介
-	@Column(length=1024)
+	@Column(length=4000)
 	private String competency; //职能
-	@Column(length=4096)
+	@Column(length=4000)
 	private String history; //自律委发展（过去与现在）
-	@Column(length=1024)
+	@Column(length=4000)
 	private String contact; //联系方式
 	
 	public int getId() {

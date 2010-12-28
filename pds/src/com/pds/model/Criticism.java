@@ -43,7 +43,7 @@ public class Criticism {
 		this.department = department;
 	}
 	
-	@Column(length=1024)
+	@Column(length=4000)
 	public String getContent() {
 		return content;
 	}
