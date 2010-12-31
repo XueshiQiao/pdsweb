@@ -39,7 +39,6 @@ public class NewsAction extends ArticleListAction<News> {
 	
 	private String curPosition;  //在页面上显示的当前的位置
 	
-	
 	public String toAdd(){
 		return "toAdd";
 	}

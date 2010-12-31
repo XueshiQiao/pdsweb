@@ -10,7 +10,9 @@ import org.springframework.stereotype.Controller;
 import com.pds.common.page.Paginable;
 import com.pds.core.BaseAction;
 import com.pds.model.AboutUs;
+import com.pds.model.Departments;
 import com.pds.service.AboutUsService;
+import com.pds.service.DepartmentsService;
 
 @Controller
 @Scope(value="prototype")
@@ -19,6 +21,8 @@ public class AboutUsAction extends BaseAction {
 	
 	@Resource
 	private AboutUsService service ;
+	@Resource
+	private DepartmentsService depService;
 	
 	private int id = 0; 
 	private AboutUs aboutUs;
@@ -26,6 +30,7 @@ public class AboutUsAction extends BaseAction {
 	private Paginable<AboutUs> page;
 	private int pageNo = 0;
 	private int pageSize;
+	private Departments dep;// TODO 部门设置  和关于我们一起显示 以后要修改这里 
 	
 	public String toAdd(){
 		return "toAdd";
@@ -84,6 +89,7 @@ public class AboutUsAction extends BaseAction {
 	 */
 	public String aboutus(){
 		aboutUs = service.getRecentAboutUs();
+		dep = depService.getRecentDepartment();
 		return "toAboutUsPage";
 	}
 	
@@ -142,4 +148,22 @@ public class AboutUsAction extends BaseAction {
 	public void setPage(Paginable<AboutUs> page) {
 		this.page = page;
 	}
+
+	public DepartmentsService getDepService() {
+		return depService;
+	}
+
+	public void setDepService(DepartmentsService depService) {
+		this.depService = depService;
+	}
+
+	public Departments getDep() {
+		return dep;
+	}
+
+	public void setDep(Departments dep) {
+		this.dep = dep;
+	}
+	
+	
 }

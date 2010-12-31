@@ -8,9 +8,11 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.pds.common.page.Paginable;
 import com.pds.core.BaseServiceImpl;
 import com.pds.dao.LinkDao;
 import com.pds.model.Criticism;
+import com.pds.model.FileUD;
 import com.pds.model.Link;
 import com.pds.service.LinkService;
 
@@ -28,12 +30,22 @@ public class LinkServiceImpl extends BaseServiceImpl<Link> implements
 	
 	@Override
 	public List<Link> getTop10() {
-		return getDao().findByHql("from Link order by sortId", null);
+//		return getDao().findByHql("from Link order by sortId", null);
+		Paginable<Link> page = getDao().findPageByHql("from Link order by sortId",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
 	}
 
 	@Override
 	public List<Link> getTop10ByHot() {
-		return getDao().findByHql("from Link order by sortId", null);
+		Paginable<Link> page = getDao().findPageByHql("from Link order by sortId",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
+//		return getDao().findByHql("from Link order by sortId", null);
 	}
 	
 }

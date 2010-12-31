@@ -20,18 +20,19 @@
 		<link type="text/css" href="<%=basePath%>css/articles.css"
 			rel="stylesheet" />
 		<script type="text/javascript" src="<%=basePath%>js/zilvwei.js"></script>
-		<script type="text/javascript"
-			src="<%=basePath%>js/jquery-1.4.2.min.js"></script>
+
 
 		<link type="text/css"
-			href="<%=basePath%>jqueryui/themes/redmond/jquery.ui.all.css"
+			href="<%=basePath%>jquery_easyui/themes/default/easyui.css"
 			rel="stylesheet" />
-		<script type="text/javascript"
-			src="<%=basePath%>jqueryui/ui/jquery.ui.core.js"></script>
-		<script type="text/javascript"
-			src="<%=basePath%>jqueryui/ui/jquery.ui.widget.js"></script>
-		<script type="text/javascript"
-			src="<%=basePath%>jqueryui/ui/jquery.ui.tabs.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jquery_easyui/jquery-1.4.4.min.js"></script>
+		<script type="text/javascript" src="<%=basePath%>jquery_easyui/jquery.easyui.min.js"></script>
+		
+		<script type="text/javascript">
+			$(function() {
+				$("#tabs").tabs();
+			});
+		</script>
 	</head>
 	<body>
 
@@ -43,55 +44,36 @@
 				</div>
 				<div class="s10"></div>
 				<div class="article">
-					<SCRIPT>
-						$(function() {
-							$("#tabs").tabs();
-						});
-					</SCRIPT>
 
 					<div id="tabs">
-						<ul>
-							<li>
-								<a href="#tabs-1">简介</a>
-							</li>
-							<li>
-								<a href="#tabs-2">职能</a>
-							</li>
-							<li>
-								<a href="#tabs-3">自律委的发展</a>
-							</li>
-							<li>
-								<a href="#tabs-4">联系方式</a>
-							</li>
-						</ul>
-						<div id="tabs-1">
+						<div id="tabs-1" title="简介" closable="false" style="padding:20px;">
 							<p>
 								<s:property value="aboutUs.introduction" escape="false"/>
 							</p>
 						</div>
-						<div id="tabs-2">
-<p>
+						<div id="tabs-2" title="职能" closable="false">
+							<p>
 								<s:property value="aboutUs.competency"  escape="false" />
 							</p>
 						</div>
-						<div id="tabs-3">
+						<div id="tabs-3" title="机构设置" closable="false" >
+							<p>
+								<s:property value="dep.content"  escape="false" />
+							</p>
+						</div>
+						<div id="tabs-4" title="自律委的发展" closable="false">
 							<p>
 								<s:property value="aboutUs.history" escape="false" />
 							</p>
 						</div>
-						<div id="tabs-4">
+						<div id="tabs-5" title="联系方式" closable="false">
 							<p>
 								<s:property value="aboutUs.contact" escape="false" />
 							</p>
 						</div>
-
 					</div>
 
-
-					<DIV style="DISPLAY: none" class="demo-description">
-						<P>
-							Click tabs to swap between content that is broken into logical
-					</div>
+					
 				</div>
 			</div>
 			<div class="s10"></div>

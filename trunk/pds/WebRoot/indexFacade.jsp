@@ -108,7 +108,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="hotnewsContent">
     	<h4><a href="<%=basePath%>news/article?artId=<s:property value='news[0].id'/>"><s:property value="news[0].title"/></a></h4>
         <div id="newsList">
-        	<s:iterator value="news" status="newsItem" begin="1">
+        	<s:iterator value="news" status="newsItem" begin="1" end="8">
         		·<a href="<%=basePath%>news/article?artId=<s:property value='id'/>"><s:property value="title"/></a><br />
         	</s:iterator>
         	
