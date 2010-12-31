@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
 
+import com.pds.common.page.Paginable;
 import com.pds.core.BaseServiceImpl;
 import com.pds.dao.NewsDao;
 import com.pds.model.News;
@@ -27,12 +28,23 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements
 
 	@Override
 	public List<News> getTop10() {
-		return getDao().findByHql("from News order by date desc", null);
+//		return getDao().findByHql("from News order by date desc", null);
+		Paginable<News> page = getDao().findPageByHql("from News order by id desc",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
 	}
 
 	@Override
 	public List<News> getTop10ByHot() {
-		return getDao().findByHql("from News order by visitedCount desc", null);
+//		return getDao().findByHql("from News order by visitedCount desc", null);
+		Paginable<News> page = getDao().findPageByHql("from News order by visitedCount desc",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
+		
 	}
 	
 	

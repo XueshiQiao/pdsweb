@@ -5,9 +5,8 @@ package com.pds.serviceImpl;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
+import com.pds.common.page.Paginable;
 import com.pds.core.BaseServiceImpl;
 import com.pds.dao.CriticismDao;
 import com.pds.model.Criticism;
@@ -27,11 +26,17 @@ public class CriticismServiceImpl extends BaseServiceImpl<Criticism> implements
 	
 	@Override
 	public List<Criticism> getTop10() {
-		return getDao().findByHql("from Criticism order by date desc", null);
+//		return getDao().findByHql("from Criticism order by date desc", null);
+		Paginable<Criticism> page = getDao().findPageByHql("from Criticism order by id desc",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
 	}
 
 	@Override
 	public List<Criticism> getTop10ByHot() {
-		return getDao().findByHql("from Criticism order", null);
+		return this.getTop10();
+//		return getDao().findByHql("from Criticism order", null);
 	}
 }

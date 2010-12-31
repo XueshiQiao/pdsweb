@@ -17,12 +17,12 @@
 <link type="text/css" href="<%=basePath%>css/zilvwei.css" rel="stylesheet" />
 <link type="text/css" href="<%=basePath%>css/articles.css" rel="stylesheet" />
 <script type="text/javascript" src="<%=basePath%>js/zilvwei.js" ></script>
-<script src="<%=basePath%>js/jquery-1.4.2.min.js" type="text/javascript"></script>
-   
+<script type="text/javascript" src="<%=basePath%>js/jquery-1.4.2.min.js" ></script>
+<script type="text/javascript" src="<%=basePath %>js/page.js"></script> 
 </head>
 <body>
 <jsp:include page="/subpage/head.jsp" />
-
+<div id="actionPath" style="width:0px;height:0px;"><s:property value="actionPath"/></div>
 <div class="box">
     <div class="span_17">
     	<div class="cur_position">
@@ -48,13 +48,13 @@
         	</s:iterator>
         	
             <div class="paganation">
-                <a id="firstPage" href="#" class="pageItem">首页</a> 
-                <a id="prePage" href="#"  class="pageItem">上一页</a> 
-                <a id="nextPage" href="#"  class="pageItem">下一页 </a>
-                <a id="tailPage" href="#"  class="pageItem">尾页 </a>
-                <a  class="pageItem">页次：<s:property value="artPageModel.pageNo"/>/<s:property value="artPageModel.pageCount"/>页  </a>
-                <a  class="pageItem">共<s:property value="artPageModel.totalCount"/>条记录 </a>
-                <a  class="pageItem"><s:property value="artPageModel.pageSize"/>条记录/页</a>
+                <a id="firstPage" href="javascript:turnToFirstPage();void(0);" class="pageItem">首页</a> 
+                <a id="prePage" href="javascript:turnToPrePage();void(0);"  class="pageItem">上一页</a> 
+                <a id="nextPage" href="javascript:turnToNextPage();void(0);"  class="pageItem">下一页 </a>
+                <a id="tailPage" href="javascript:turnToLastPage();void(0);" class="pageItem">尾页 </a>
+                <a class="pageItem">页次：<span id="currentPageNo"><s:property value="artPageModel.pageNo"/></span>/<span id="pageCount"><s:property value="artPageModel.pageCount"/></span>页  </a>
+                <a class="pageItem">共<s:property value="artPageModel.totalCount"/>条记录 </a>
+                <a class="pageItem"><s:property value="artPageModel.pageSize"/>条记录/页</a>
             </div>       
       </div>
     </div>

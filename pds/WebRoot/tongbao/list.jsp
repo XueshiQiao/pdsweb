@@ -191,7 +191,7 @@ a:active {
 							</td>
 							<td width="1101" background="images/tab_05.gif">
 								<img src="images/311.gif" width="16" height="16" />
-								<span class="STYLE4">"通报批评"管理</span>
+								<span class="STYLE4">通报管理</span>
 							</td>
 							<td width="281" background="images/tab_05.gif">
 								<table border="0" align="right" cellpadding="0" cellspacing="0">

@@ -107,9 +107,11 @@ a.pageItem:hover{
 .article .fileInfo label{
 	color:black;
 }
-.article p{
+.article p.content{
 	font-size:14px;
 	margin:auto 15px;
 	margin-top:10px;
-	line-height:20px;	
+	line-height:20px;
+	width:900px;
+	word-wrap:break-word;
 }

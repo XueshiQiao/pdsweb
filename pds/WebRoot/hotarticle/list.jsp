@@ -190,7 +190,7 @@ a:active {
 							</td>
 							<td width="1101" background="images/tab_05.gif">
 								<img src="images/311.gif" width="16" height="16" />
-								<span class="STYLE4">"热门文章"管理  (点击标题预览)</span>
+								<span class="STYLE4">院系风采管理</span>
 							</td>
 							<td width="281" background="images/tab_05.gif">
 								<table border="0" align="right" cellpadding="0" cellspacing="0">

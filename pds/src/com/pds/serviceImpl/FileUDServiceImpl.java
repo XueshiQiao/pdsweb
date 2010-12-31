@@ -5,12 +5,10 @@ package com.pds.serviceImpl;
 import java.util.List;
 
 import javax.annotation.Resource;
-
 import org.springframework.stereotype.Service;
-
+import com.pds.common.page.Paginable;
 import com.pds.core.BaseServiceImpl;
 import com.pds.dao.FileUDDao;
-import com.pds.model.Criticism;
 import com.pds.model.FileUD;
 import com.pds.service.FileUDService;
 
@@ -28,11 +26,21 @@ public class FileUDServiceImpl extends BaseServiceImpl<FileUD> implements
 	
 	@Override
 	public List<FileUD> getTop10() {
-		return getDao().findByHql("from FileUD order by date desc", null);
+//		return getDao().findByHql("from FileUD order by date desc", null);
+		Paginable<FileUD> page = getDao().findPageByHql("from FileUD order by id desc",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
 	}
 
 	@Override
 	public List<FileUD> getTop10ByHot() {
-		return getDao().findByHql("from FileUD order by downloadTimes desc", null);
+		Paginable<FileUD> page = getDao().findPageByHql("from FileUD order by downloadTimes desc",null,1, 10);
+		if(page != null){
+			return page.getList();
+		}
+		return null;
+//		return getDao().findByHql("from FileUD order by downloadTimes desc", null);
 	}
 }
