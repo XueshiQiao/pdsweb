@@ -11,7 +11,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
-		<title>关于我们</title>
+		<title>热门文章</title>
 		<style type="text/css">
 <!--
 body {
@@ -80,7 +80,7 @@ a:active {
 	</script>
 		<script type="text/javascript">
 	
-	var url = "../tongbao/list.action?pageNo=";
+	var url = "../hotarticle/list.action?pageNo=";
 	//转向用户输入的那一页
 	function turnToPage(){
 		var pageNo = getInputPageNo();
@@ -178,7 +178,6 @@ a:active {
 
 
 	</head>
-
 	<body>
 		<table width="100%" border="0" align="center" cellpadding="0"
 			cellspacing="0">
@@ -191,7 +190,7 @@ a:active {
 							</td>
 							<td width="1101" background="images/tab_05.gif">
 								<img src="images/311.gif" width="16" height="16" />
-								<span class="STYLE4">通报管理</span>
+								<span class="STYLE4">院系风采管理</span>
 							</td>
 							<td width="281" background="images/tab_05.gif">
 								<table border="0" align="right" cellpadding="0" cellspacing="0">
@@ -251,39 +250,33 @@ a:active {
 										<td width="10%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
-												院系
+												标题
 											</div>
 										</td>
-										<td width="50%" height="18" background="images/tab_14.gif"
+										<td width="20%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
-												内容
+												文章概要
 											</div>
 										</td>
-<%--										<TD WIDTH="10%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
-<%--											CLASS="STYLE1">--%>
-<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
-<%--												班级--%>
-<%--											</DIV>--%>
-<%--										</TD>--%>
-<%--										<TD WIDTH="6%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
-<%--											CLASS="STYLE1">--%>
-<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
-<%--												学生姓名--%>
-<%--											</DIV>--%>
-<%--										</TD>--%>
-<%--										<TD WIDTH="20%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
-<%--											CLASS="STYLE1">--%>
-<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
-<%--												通报原因--%>
-<%--											</DIV>--%>
-<%--										</TD>--%>
-<%--										<TD WIDTH="10%" HEIGHT="18" BACKGROUND="IMAGES/TAB_14.GIF"--%>
-<%--											CLASS="STYLE1">--%>
-<%--											<DIV ALIGN="CENTER" CLASS="STYLE2 STYLE1">--%>
-<%--												所在宿舍--%>
-<%--											</DIV>--%>
-<%--										</TD>--%>
+										<td width="6%" height="18" background="images/tab_14.gif"
+											class="STYLE1">
+											<div align="center" class="STYLE2 STYLE1">
+												发布人
+											</div>
+										</td>
+										<td width="10%" height="18" background="images/tab_14.gif"
+											class="STYLE1">
+											<div align="center" class="STYLE2 STYLE1">
+												部门
+											</div>
+										</td>
+										<td width="10%" height="18" background="images/tab_14.gif"
+											class="STYLE1">
+											<div align="center" class="STYLE2 STYLE1">
+												点击量
+											</div>
+										</td>
 										<td width="15%" height="18" background="images/tab_14.gif"
 											class="STYLE1">
 											<div align="center" class="STYLE2 STYLE1">
@@ -318,34 +311,30 @@ a:active {
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="department" />
+													<a href="show?id=<s:property value='id' />"><s:property value="title" />
+													</a>
 												</div>
 											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center" class="STYLE2 STYLE1">
-													<s:property value="content" />
+													<s:property escape="false" value="brief" />
 												</div>
 											</td>
-<%--											<td height="18" bgcolor="#FFFFFF">--%>
-<%--												<div align="center" class="STYLE2 STYLE1">--%>
-<%--													<s:property value="stuClass" />--%>
-<%--												</div>--%>
-<%--											</td>--%>
-<%--											<td height="18" bgcolor="#FFFFFF">--%>
-<%--												<div align="center" class="STYLE2 STYLE1">--%>
-<%--													<s:property value="stuName" />--%>
-<%--												</div>--%>
-<%--											</td>--%>
-<%--											<td height="18" bgcolor="#FFFFFF">--%>
-<%--												<div align="center">--%>
-<%--													<s:property value="reason" />--%>
-<%--												</div>--%>
-<%--											</td>--%>
-<%--											<td height="18" bgcolor="#FFFFFF">--%>
-<%--												<div align="center">--%>
-<%--													<s:property value="dormitory" />--%>
-<%--												</div>--%>
-<%--											</td>--%>
+											<td height="18" bgcolor="#FFFFFF">
+												<div align="center" class="STYLE2 STYLE1">
+													<s:property value="author" />
+												</div>
+											</td>
+											<td height="18" bgcolor="#FFFFFF">
+												<div align="center">
+													<s:property value="dep" />
+												</div>
+											</td>
+											<td height="18" bgcolor="#FFFFFF">
+												<div align="center">
+													<s:property value="visitedCount" />
+												</div>
+											</td>
 											<td height="18" bgcolor="#FFFFFF">
 												<div align="center">
 													<s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
