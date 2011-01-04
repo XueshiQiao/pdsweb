@@ -151,6 +151,22 @@
 			<result name="showError">/link/showError.jsp</result>
 		</action>
 	</package>
+	
+	<package name="union" extends="global-config" namespace="/union">
+		<action name="*" class="com.pds.action.UnionShowAction" method="{1}">
+			<result>/union/{1}.jsp</result>
+			<result name="error">/union/{1}Fail.jsp</result>
+			<result name="updateSuccess">/union/{1}Succ.jsp</result>
+			<result name="addsuccess">/union/{1}Succ.jsp</result>
+			<result name="toEdit">/union/edit.jsp</result>
+			<result name="toEditError">/union/editError.jsp</result>
+			<result name="updateSuccess">/union/updateSuccess.jsp</result>
+			<result name="deleteSuccess">/union/deleteSuccess.jsp</result>
+			<result name="toAdd">/union/add.jsp</result>
+			<result name="show">/union/show.jsp</result>
+			<result name="showError">/union/showError.jsp</result>
+		</action>
+	</package>
 
 	<package name="upload" extends="global-config" namespace="/upload">
 		<action name="upload" class="com.pds.action.FileUploadAction" method="upload">

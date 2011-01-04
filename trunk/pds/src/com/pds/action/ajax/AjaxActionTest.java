@@ -4,14 +4,9 @@
 package com.pds.action.ajax;
 
 import java.util.Date;
-
-import net.sf.json.JSONObject;
-
 import org.apache.struts2.json.annotations.JSON;
 import org.springframework.stereotype.Controller;
-
 import com.opensymphony.xwork2.ActionSupport;
-import com.pds.core.BaseAction;
 import com.pds.model.AboutUs;
 
 /**
