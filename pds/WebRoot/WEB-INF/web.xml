@@ -5,9 +5,9 @@
 	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
 	<!-- 测试用的 给sesion中添加已经登录用户 -->
-	<listener>
-		<listener-class>com.pds.test.servlet.PrepareDateForAppListener</listener-class>
-	</listener>
+<!--	<listener>-->
+<!--		<listener-class>com.pds.test.servlet.PrepareDateForAppListener</listener-class>-->
+<!--	</listener>-->
 	
 		<!-- Spring 3.0的配置 -->
 	<listener>

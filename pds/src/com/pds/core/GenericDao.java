@@ -90,6 +90,7 @@ public interface GenericDao<T,ID extends Serializable> {
 	 * @return 返回集合为count条记录的集合
 	 * 注意: 查询字段中不能存在大字段类型
 	 */
+	@SuppressWarnings("unchecked")
 	List<Map> findMapListByDynSql(String querySql,int page,int count);
 	
 	/**
