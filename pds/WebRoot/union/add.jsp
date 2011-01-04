@@ -27,24 +27,32 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript" src="jqueryui/ui/jquery.ui.widget.js"></script>
 	<script type="text/javascript" src="jqueryui/ui/jquery.ui.button.js"></script>
 	<script type="text/javascript" src="jqueryui/jquery.form.js"></script>
-	
-	<!-- 表单验证框架 -->
+	<!-- nice form -->
+<%--	<script language="javascript" type="text/javascript" src="tongbao/niceforms.js"></script>--%>
+	<link rel="stylesheet" href="hotarticle/niceforms-default.css"></link>
 	<script type="text/javascript" src="js/jqvalidator/jquery.validator.js"></script>
 	<link rel="stylesheet" href="js/jqvalidator/jqvalidator.css"></link>
-	
-	<link rel="stylesheet" href="tongbao/niceforms-default.css"></link>
 	
 		
 	<script type="text/javascript">
 		$(function(){
 			$("#submit").button(); //
-			$('#addForm').ajaxForm(function(responseText, statusText, xhr, $form) { 
-				if(statusText=="success"){
-					alert("保存成功！");
-				}else{
-					alert("保存失败,请联系管理员！");
-				}
-            }); 
+<%--			for ( i = 0; i < parent.frames.length; ++i ){--%>
+<%--				if ( parent.frames[i].FCK ){--%>
+<%--					parent.frames[i].FCK.UpdateLinkedField();--%>
+<%--				}--%>
+<%--			}--%>
+
+		//使用ajaxForm在火狐下提交不成功  使用ckeditor的数据提交不上去。
+<%--			$('#addForm').ajaxForm(function(responseText, statusText, xhr, $form) { --%>
+<%--				if(statusText=="success"){--%>
+<%--					alert("保存成功！");--%>
+<%--				}else{--%>
+<%--					alert("保存失败,请联系管理员！");--%>
+<%--				}--%>
+<%--				//alert('status: ' + statusText + '\n\nresponseText: \n' + responseText + --%>
+<%--		        //'\n\nThe output div should have already been updated with the responseText.');--%>
+<%--            }); --%>
 		});
 	</script>
 	<style type="text/css">
@@ -59,61 +67,49 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			margin-left: 20px;
 		}
 	</style>
-
-	
 	
   </head>
   
   <body>
-  
+
     <div id="container">
     
-    <form id="addForm" action="tongbao/add" method="post" class="niceform">
+    <form id="addForm" action="hotarticle/add" method="post" class="niceform">
     	<fieldset>
-	    	<legend>添加通报</legend>
+	    	<legend>添加文章</legend>
 	    	<dl>
-	        	<dt><label for="model.department">院系:</label></dt>
-	            <dd><input type="text" name="model.department" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空"/></dd>
+	        	<dt><label for="model.title">标题:</label></dt>
+	            <dd><input type="text" name="model.title" size="32" maxlength="128" require="true" datatype="require" msg="标题不能为空"  /></dd>
 	        </dl>
 	    	<dl>
-	        	<dt><label for="model.content">通报内容:</label></dt>
-	            <dd><textarea name="model.content"  rows="12" cols="60"></textarea></dd>
+	        	<dt><label for="model.dep">部门名称:</label></dt>
+	            <dd><input type="text" name="model.dep" size="32" maxlength="128" require="true" datatype="require" msg="部门名称不能为空"  /></dd>
 	        </dl>
+	        <dl>
+				<dt>
+					<label for="model.content">
+						内容:
+					</label>
+				</dt>
+				<dd>
+					<textarea id="content" name="model.content" rows="5" cols="60" require="true" datatype="require" msg="文章内容不能为空" >
+					</textarea>
+				</dd>
+			</dl>
 
-<%--	    	<dl>--%>
-<%--	        	<dt><label for="model.stuClass">班级:</label></dt>--%>
-<%--	            <dd><input type="text" name="model.stuClass"  size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
-<%--	        </dl>--%>
-<%--	    	<dl>--%>
-<%--	        	<dt><label for="model.stuName">学生姓名</label></dt>--%>
-<%--	            <dd><input type="text" name="model.stuName" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
-<%--	        </dl>--%>
-<%--	    	<dl>--%>
-<%--	        	<dt><label for="model.reason">通报原因:</label></dt>--%>
-<%--	            <dd><textarea name="model.reason"  rows="5" cols="60" require="true" datatype="require" msg="此项不能为空"></textarea></dd>--%>
-<%--	        </dl>--%>
-<%--	    	<dl>--%>
-<%--	        	<dt><label for="model.dormitory">所在宿舍:</label></dt>--%>
-<%--	            <dd><input type="text" name="model.dormitory" id="email" size="32" maxlength="128" require="true" datatype="require" msg="此项不能为空" /></dd>--%>
-<%--	        </dl>--%>
+			<script type="text/javascript">
+				CKEDITOR.replace( 'content');
+				$("#addForm").checkForm();
+			</script>
 	    	
-	<%--    	<input type="input" name="model.department" /><br/>--%>
-	<%--    	班级:<input type="input" name="model.stuClass" /><br/>--%>
-	<%--    	学生姓名:<input type="input" name="model.stuName" /><br/>--%>
-	<%--    	通报原因:<input type="input" name="model.reason" /><br/>--%>
-	<%--    	所在宿舍:<input type="input" name="model.dormitory" /><br/>--%>
     	</fieldset>
 		<fieldset class="action">
 	    	<span class="btnAdd">
-	    		<input align="middle" id="submit" type="submit" value="添加通报" />
+	    		<input align="middle" id="submit" type="submit" value="添加文章" />
 	    	</span>
 		</fieldset>
     	
     </form>
-    <script> 
-		$('#addForm').checkForm();
-	</script>
-	    
     </div>
   </body>
 </html>
