@@ -108,19 +108,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div id="hotnewsContent">
     	<h4><a href="<%=basePath%>news/article?artId=<s:property value='news[0].id'/>"><s:property value="news[0].title"/></a></h4>
         <div id="newsList">
-        	<s:iterator value="news" status="newsItem" begin="1" end="8">
-        		·<a href="<%=basePath%>news/article?artId=<s:property value='id'/>"><s:property value="title"/></a><br />
-        	</s:iterator>
-        	
+        	<s:if test="news.size > 0">
+        		abc
+        		<s:iterator value="news" status="newsItem" begin="1" end="8" >
+	        		·<a href="<%=basePath%>news/article?artId=<s:property value='id'/>"><s:property value="title"/></a><br />
+	        	</s:iterator>
+        	</s:if>
+        	<s:else>
+        		没有新闻可以显示
+        	</s:else>
     	</div>
     </div>
   </div>
-  <!--<div class="my_span_4 login" >
-    <div id="date"> </div>
-    <div id="weather">
-      <iframe src="http://www.265.com/weather.htm" width="168" height="50" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" name="265"></iframe>
-    </div>
-  </div>-->
+  
 </div>
 <div class="s10"></div>
 <div class="box secondRow">

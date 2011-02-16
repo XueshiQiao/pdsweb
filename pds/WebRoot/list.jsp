@@ -30,22 +30,27 @@
         </div>
         <div class="s10"></div>
         <div class="list" >
-        	<s:iterator value="artPageModel.list" status="article">
-	        	<div class="article_item">
-	            	<h3><a href="article?artId=<s:property value='id'/>"><s:property value="title"/></a></h3>
-	                <p class="date">
-		                <label>作者：</label><s:property value="author" />
-		            	<label>来源：</label><s:property value="dep" />
-		            						
-		            	<label>日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
-		            	<label>访问量：</label><s:property value="visitedCount" />
-	                </p>
-	            	<p class="content">	
-	               		摘要：<s:property value="brief" escape="false"/>...
-	                </p>
-	            	<hr/>
-	            </div>
-        	</s:iterator>
+        	<s:if test="artPageModel.list.size < 1 ">
+        		没有要显示的内容。
+        	</s:if>
+        	<s:else>
+	        	<s:iterator value="artPageModel.list" status="article">
+		        	<div class="article_item">
+		            	<h3><a href="article?artId=<s:property value='id'/>"><s:property value="title"/></a></h3>
+		                <p class="date">
+			                <label>作者：</label><s:property value="author" />
+			            	<label>来源：</label><s:property value="dep" />
+			            						
+			            	<label>日期：</label><s:date name="date" format="yyyy-MM-dd HH:mm:ss"/>
+			            	<label>访问量：</label><s:property value="visitedCount" />
+		                </p>
+		            	<p class="content">	
+		               		摘要：<s:property value="brief" escape="false"/>...
+		                </p>
+		            	<hr/>
+		            </div>
+	        	</s:iterator>
+	        </s:else>
         	
             <div class="paganation">
                 <a id="firstPage" href="javascript:turnToFirstPage();void(0);" class="pageItem">首页</a> 
