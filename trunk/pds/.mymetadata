@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-module
   type="WEB"
-  name="pds"
+  name="S2SH"
   id="myeclipse.1279083835718"
   context-root="/pds"
   j2ee-spec="5.0"
-  archive="pds.war">
+  archive="S2SH.war">
   <attributes>
-    <attribute name="webrootdir" value="WebRoot" />
+    <attribute name="webrootdir" value="/WebRoot" />
   </attributes>
 </project-module>
 
