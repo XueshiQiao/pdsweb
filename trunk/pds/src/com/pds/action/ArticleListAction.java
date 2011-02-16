@@ -36,9 +36,11 @@ public abstract class ArticleListAction<T extends Article> extends BaseAction {
 		}
 		try{
 			artPageModel = getService().findPageByHql(artPageNo,DEFAULT_PAGE_SIZE);
-			if(artPageModel == null){
-				return "pageNotFound";
-			}
+			
+			// TODO delete 留在页面上判断
+//			if(artPageModel == null){
+//				return "pageNotFound";
+//			}
 		}catch(Exception e){
 			e.printStackTrace();
 			return "pageNotFound";

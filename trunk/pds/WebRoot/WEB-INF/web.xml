@@ -8,6 +8,11 @@
 <!--	<listener>-->
 <!--		<listener-class>com.pds.test.servlet.PrepareDateForAppListener</listener-class>-->
 <!--	</listener>-->
+
+	<!-- 所有的准备工作 -->
+	<listener>
+		<listener-class>com.pds.listener.AppPrepareListener</listener-class>
+	</listener>
 	
 		<!-- Spring 3.0的配置 -->
 	<listener>
